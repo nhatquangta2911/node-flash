@@ -90,6 +90,50 @@ const logger = require("./logger");
 
 ## Section 3: Node Package Manager (npm)
 
+-  npm:
+
+   -  a command line tool (to install whatever you need for you Node application)
+   -  a **registry** of 3rd party library
+   -  the npm registry hosts approximately half a million packages for free and reusable
+   -  npm ~ maven npm < yarn maven < gradle
+
+   ######
+
+-  Before using any Node packages:
+
+```
+   // Create packgae.json file
+   npm init --yes
+```
+
+-  Installing a Node package:
+
+```
+   npm i underscore
+   // or
+   npm i underscore --save (flag)
+```
+
+-  Each module has its own package.json file (store the information of the module, name and version)
+
+   -  package.json of Node application
+   -  package.json of underscore module
+
+   ######
+
+-  Using a package
+   ######
+   ```javascript
+   const _ = require("underscore");
+   ```
+   ######
+-  Node will find the proper module in the following order:
+   -  Built-in modules (Core modules)
+   -  Files (modules) or folders in your Node application
+   -  node_modules folders (after installing necessary package)
+   ######
+-
+
 ## Section 4: Building RESTful APIs Using Express
 
 ## Section 5: Express Advanced
