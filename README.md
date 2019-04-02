@@ -132,7 +132,6 @@ const logger = require("./logger");
    -  Files (modules) or folders in your Node application
    -  node_modules folders (after installing necessary package)
    ######
--
 
 ## Section 4: Building RESTful APIs Using Express
 
