@@ -1,5 +1,5 @@
 {
-  "name": "section02-npm",
+  "name": "node-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,10 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mongoose": "^5.4.20",
-    "underscore": "^1.9.1"
-  },
-  "devDependencies": {
-    "jshint": "^2.10.2"
+    "ryan-lib": "^1.1.0"
   }
 }
