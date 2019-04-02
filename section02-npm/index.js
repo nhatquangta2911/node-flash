@@ -1,3 +1,4 @@
+/*
 const _ = require('underscore');
 
 const colors = ['red', 'blue', 'yellow', 'pink'];
@@ -7,3 +8,5 @@ const checkColor = (color) => {
 }
 
 console.log(checkColor('blue'));
+*/
+
