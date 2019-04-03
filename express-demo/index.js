@@ -1,4 +1,4 @@
-const Joi = require('joi');
+const Joi = require("joi");
 const express = require("express");
 const app = express();
 
@@ -50,7 +50,7 @@ app.get("/api/posts/:year/:month", (req, res) => {
 app.get("/api/courses", (req, res) => {
    res.send(courses);
 });
- 
+
 app.get("/api/courses/:id", (req, res) => {
    // res.send(courses[req.params.id]);
    const course = courses.find(course => course.id === parseInt(req.params.id));
@@ -63,16 +63,11 @@ app.get("/api/courses/:id", (req, res) => {
 
 // Post Method
 app.post("/api/courses", (req, res) => {
-   
-   const schema = {
-      name: Joi.string().regex(/^[a-z]{3,}$/i).required()
-   };
+  
+   const { error } = validateCourse(req.body);
 
-   const result = Joi.validate(req.body, schema);
-   console.log(result);
-   
-   if(result.error) {
-      res.status(400).send(result.error);
+   if (error) {
+      res.status(400).send(error.details[0].message);
       return;
    }
    const course = {
@@ -81,7 +76,40 @@ app.post("/api/courses", (req, res) => {
    };
    courses.push(course);
    res.send(courses);
+
 });
+
+// PUT method (update route)
+app.put("/api/courses/:id", (req, res) => {
+   // 1. Look up the courses
+   const course = courses.find(course => course.id === parseInt(req.params.id));
+   // 2. If not existing, return 404
+   if (!course)
+      res.status(404).send("The course with the given ID was not found");
+
+   const { error } = validateCourse(req.body);
+
+   if (error) {
+      res.status(400).send(error.details[0].message);
+      return;
+   }
+   // 5. Update courses
+   course.name = req.body.name;
+   // 6. Return the updated course to client
+   res.send(course);
+});
+
+// Validation function
+const validateCourse = course => {
+   // 3. Otherwise, Validate
+   const schema = {
+      name: Joi.string()
+         .regex(/^[a-z]{3,20}$/i)
+         .required()
+   };
+   // 4. If invalid, return 400 - Bad request
+   return Joi.validate(course, schema);
+};
 
 const port = process.env.PORT || 3000;
 
