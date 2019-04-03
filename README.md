@@ -128,10 +128,89 @@ const logger = require("./logger");
    ```
    ######
 -  Node will find the proper module in the following order:
+
    -  Built-in modules (Core modules)
    -  Files (modules) or folders in your Node application
    -  node_modules folders (after installing necessary package)
+
    ######
+
+-  .gitignore file should skip the node_modules (it was very massive!)
+
+   ######
+
+   ```.gitignore
+   node_modules/
+   ```
+
+   ######
+
+-  EX. mongoose has **dependency** to async, debug, lodash, mongodb module
+
+-  Semantic Versioning
+
+######
+
+```json
+"dependencies": {
+   "mongoose": "^4.13.6",
+   "lodash": "~2.12.3",
+   "underscore": "2.2.20"
+}
+```
+
+-  **major.minor.patch**
+
+   ######
+
+   -  major version: break the previous APIs
+   -  minor version: not affect the previous APIs, add new features
+   -  patch version: bug fix
+
+   ######
+
+-  **^** 4.2.4 = 4.x (caret)
+-  **~** 2.12.3 = 2.13.x (tidle)
+
+#####
+
+-  Some of the useful commands:
+
+#####
+
+```
+   $ npm list
+   $ npm list --depth-0
+   $ npm view mongoose
+   $ npm i mongoose@2.4.2
+   $ npm outdated
+   $ npm update
+   $ npm i -g npm-check-updates
+   $ ncu -u (just update) npm i
+   $ npm i jshint -g --save-dev
+   $ npm un mongoose
+   $ npm addUser
+   $ npm login
+   $ npm publish
+```
+
+######
+
+-  **DevDependencies**: tools for
+
+   ######
+
+   -  writing Unit Test
+   -  Bundling for JS code
+   -  Static Analysis for Code (jshint)
+
+   ######
+
+   -  **Should not** go into prooduction environment (where we deploy the app)
+
+######
+
+######
 
 ## Section 4: Building RESTful APIs Using Express
 
