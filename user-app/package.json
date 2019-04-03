@@ -1,5 +1,5 @@
 {
-  "name": "express-advanced",
+  "name": "user-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,8 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
-    "helmet": "^3.16.0",
-    "joi": "^14.3.1",
-    "morgan": "^1.9.1"
+    "joi": "^14.3.1"
   }
 }
