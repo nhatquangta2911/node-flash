@@ -99,7 +99,22 @@ app.put("/api/courses/:id", (req, res) => {
    res.send(course);
 });
 
-// Validation function
+// DELETE method
+
+app.delete('/api/courses/:id', (req, res) => {
+   // 1. Look up the course
+   const course = courses.find(course => course.id === parseInt(req.params.id));
+   // 2. 404 ?
+   if(!course) res.status(404).send('Not found');
+   // 3. Delete
+   // courses.pop(course);
+   const index = courses.indexOf(course);
+   courses.splice(index, 1);
+   // 4. Return the same course (convention)
+   res.send(course);
+});
+
+// Validation function 
 const validateCourse = course => {
    // 3. Otherwise, Validate
    const schema = {
