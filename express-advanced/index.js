@@ -1,3 +1,6 @@
+const startupDebugger = require('debug')('app:startup');
+const dbDebugger = require('debug')('app:db');
+const config = require('config');
 const express = require('express');
 const Joi = require('joi');
 const helmet = require('helmet');
@@ -17,17 +20,28 @@ const courses = [
    }
 ]
 
+app.set('view engine', 'pug');
+app.set('views', './views'); // default
+
 // 1 - built-in middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public')); 
  
+// Configuration
+console.log(`Application Name: ${config.get('name')}`);
+console.log(`Mail Server: ${config.get('mail.host')}`);
+console.log(`Mail Password: ${config.get('mail.password')}`);
+
 // 2 - 3rd party middlewares
 app.use(helmet());
 if(app.get('env') === 'development') {
    app.use(morgan('tiny'));
-   console.log('Morgan enabled...');
+   startupDebugger('Morgan enabled...');
 }
+
+// DB work... 
+dbDebugger('Connected to the DB...');
 
 // 3 - custom middleware (do logging)
 app.use(logger);
@@ -38,6 +52,13 @@ app.use(function(req, res, next) {
    next();
 });
  
+app.get('/', (req, res) => {
+   res.render('index', {
+      title: 'My Express App',
+      message: 'Hello world!'
+   })
+});
+
 app.get('/api/courses', (req, res) => {
    res.send(courses);   
 });
@@ -63,7 +84,7 @@ const validateCourse = (course) => {
 // console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
 // console.log(`app: ${app.get('env')}`);
 
-const port = process.env.PORT || 3000;
+const port = config.get('port');
 
 app.listen(port, () => {
    console.log(`Listening on port ${port}...`);
