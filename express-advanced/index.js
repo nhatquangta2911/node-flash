@@ -5,28 +5,27 @@ const express = require('express');
 const Joi = require('joi');
 const helmet = require('helmet');
 const morgan = require('morgan');
-const logger = require('./logger');
+const logger = require('./middlewares/logger');
+
+// Re-structuring (Using Route)
+const courses = require('./routes/courses');
+const home = require('./routes/home');
 
 const app = express();
 
-const courses = [
-   {
-      id: 1,  
-      name: 'NodeJS'
-   },
-   {
-      id: 2,
-      name: 'ReactJS'
-   }
-]
-
-app.set('view engine', 'pug');
+// Template Engine (Views engine)
 app.set('views', './views'); // default
+app.set('view engine', 'pug');
+
 
 // 1 - built-in middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public')); 
+
+// Routes in app
+app.use('/api/courses', courses); 
+app.use('/', home);
  
 // Configuration
 console.log(`Application Name: ${config.get('name')}`);
@@ -52,35 +51,6 @@ app.use(function(req, res, next) {
    next();
 });
  
-app.get('/', (req, res) => {
-   res.render('index', {
-      title: 'My Express App',
-      message: 'Hello world!'
-   })
-});
-
-app.get('/api/courses', (req, res) => {
-   res.send(courses);   
-});
-
-app.post('/api/courses', (req, res) => {
-   const { error } = validateCourse(req.body);
-   if(error) return res.status(400).send(error.details[0].message);
-   const course = {
-      id: courses.length + 1,
-      name: req.body.name
-   }
-   courses.push(course);
-   res.send(courses);
-});
-
-const validateCourse = (course) => {
-   const schema = {
-      name: Joi.string().min(3).required()
-   }
-   return Joi.validate(course, schema);
-}
-
 // console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
 // console.log(`app: ${app.get('env')}`);
 
