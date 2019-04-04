@@ -208,11 +208,60 @@ const logger = require("./logger");
 
    -  **Should not** go into prooduction environment (where we deploy the app)
 
-######
-
-######
+###
 
 ## Section 4: Building RESTful APIs Using Express
+
+#####
+
+-  Express is the fast, lightweight **framework** for building web application with perfect documentation.
+-  API
+
+   ######
+
+   -  Web API: supply API in web format
+   -  API in OS: e.g. Microsoft gives us OS and API doc (f, call) helps us create app directly interact with OS
+   -  API of library, framework
+
+   ######
+
+-  Client (the app itself) call services by sending http request to the server.
+
+-  REST: convention, constraint
+
+   ######
+
+   -  Client-Server architecture
+   -  Stateless (req1 != know **nothing** about req2)
+   -  Cacheability
+   -  Layered system
+   -  Uniform interface
+
+   ######
+
+-  In stead of using a bunch of if-else statements, we should use Express framework to easliy add more **Route** and maintainable.
+
+######
+
+-  BASIS:
+
+   ######
+
+   ```javascript
+   app.get("/api/courses", (req, res) => {
+      res.send(courses);
+   });
+   ```
+
+   ######
+
+-  **Joi** package, **_don't trust_** whatever the client send in the request
+
+######
+
+-  **404** or **400** (Bad request) should **return immediately**, in order to not execute the following code block
+
+#####
 
 ## Section 5: Express Advanced
 
