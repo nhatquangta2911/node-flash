@@ -10,3 +10,14 @@ setTimeout(() => {
 }, 2000);
 
 console.group("After");
+
+/*
+
+ASYNC: dealing 
+
+   1. user input
+   2. request database from db (involved network access) or file system (involved disk)
+   3. Send data across the network + Wait for a response
+   4. Perform a repeated task
+
+*/
