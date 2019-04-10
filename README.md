@@ -264,10 +264,177 @@ const logger = require("./logger");
 #####
 
 ## Section 5: Express Advanced
-######
 
 ######
 
+-  **Middleware** - _Core concept_
+
+   ######
+
+   -  In **SE**, middlware is a software that is in the mist of kernel of the OS and the application interacting directly with. (e.g. game)
+   -  In Node, middleware is a **function that pre-process the requests**before handling logic business or adjust the response accordingly right before sending back to the Client (other applications)
+   -  4 params: **req, res, next, err** (option)
+   -  Middleware does:
+      ######
+      -  any code
+      -  change requests, responses
+      -  terminate req-res processes
+      -  next() call another middleware in a stack
+      ######
+   -  5 level
+
+      ######
+
+      -  App-level Mw
+
+         ######
+
+         ```javascript
+            const app = express();
+
+            // express.json() returns a Mw function
+            // Job: parse body of the request into a JSON object
+            app.use(express.json());
+
+            app.get(...);
+            app.post(...);
+         ```
+
+         Request -> json() -> do login -> do auth -> route -> Response
+         It can terminate at **any** stage or pass its control to another Mw in the Request Processing Pipeline
+
+         ######
+
+      -  Router-level Mw
+         Use for **avoiding app config**
+         ######
+         ```javascript
+            var router = express.Router();
+            router.use(...);
+            router.get(...);
+            router.post(...);
+         ```
+         ######
+      -  Error-handling Mw (always 4 params - **err** first)
+
+      ######
+
+      -  Built-in Mw (only 1 module: express.static)
+         ######
+         ```javascript
+         express.json();
+         express.urlencoded(); // key, value
+         express.static(); // serve static content (img, html...)
+         ```
+         ######
+      -  3rd party Mw
+         ```javascript
+         app.use(helmet()); // more secure
+         app.use(morgan()); // Log HTTP info
+         ```
+
+      ######
+
+   -  ENVIRONMENT
+
+      ######
+
+      -  **Development Env** (Enable/ Disable certain features based on client environment)
+      -  **Production Env**
+
+      ######
+
+      -  global object in Node:
+
+      ######
+
+      ```javascript
+      process.env.NODE_ENV;
+      app.get("env"); // development env by default
+      ```
+
+      ######
+
+      -  4 env:
+         ######
+         -  Production
+         -  Development
+         -  Testing
+         -  Staging
+         ######
+
+      ######
+
+      -  e.g. Enable **morgan** (logging HTTP request) **only in dev machine**:
+         ######
+         ```javascript
+         if (app.get("env") === "development") {
+            app.use(morgan("tiny"));
+            console.log("morgan enabled...");
+         }
+         ```
+         ######
+
+      ######
+
+      -  **Config** (npm module -> helps storing in variables)
+         ######
+         ```
+            EXPORT app_password = 1234
+         ```
+         ```javascript
+         config.get("mail.password");
+         ```
+         ######
+      -  **Debugging** - _Log messages when debugging_
+         ######
+         Use debug package
+         ######
+         ```
+         $ npm i debug
+         ```
+         ######
+         ```javascript
+         const dbDebugger = require("debug")("app:db");
+         const startUpDebugger = require("debug")("app:startup");
+         ```
+         ######
+         ```
+            EXPORT DEBUG = app:startup
+            EXPORT DEBUG = app:*
+            // or
+            DEBUG = app:db nodemon index.js
+         ```
+         ######
+      -  **Template Engine**
+         ######
+         -  Generate dynamic HTML (return to Client)
+         -  **.pug** -> .html
+         ######
+         ```
+         html
+            head
+               title: title
+            body
+               h1: message
+               ...
+         ```
+         ######
+      -  Building Maintainable Routes
+
+         ######
+
+         ```javascipt
+            app.use('api/courses', courses);
+         ```
+
+         ######
+
+         !!! Remember: module.exports = **router** ;
+
+         ######
+
+######
 
 ## Section 6: Asynchronous Javascript
 
