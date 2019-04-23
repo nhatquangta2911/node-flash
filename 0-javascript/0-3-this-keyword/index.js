@@ -29,6 +29,6 @@ video.showTags();
 
 function playVideo() {
    console.log(this.global.process.versions.v8);
-}
+}  
 
 playVideo();
