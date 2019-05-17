@@ -438,6 +438,83 @@ const logger = require("./logger");
 
 ## Section 6: Asynchronous Javascript
 
+   - Async - non-blocking (only ont thread)
+   - It includes: Callbacks, Promises, Async/await
+   ```javascript
+ 
+      function getUser = (id, callback) => {
+         setTimeout(() => {
+            console.log('...Getting from a Database');
+            callback({id: 2, githubRepository: 'mosh'});
+         }, 2000);
+      }
+
+   ```
+   - **Callback** will be called when the result of an async operation **is ready**
+   - **Callback hell**: totally such
+
+   ```javascript
+      getUser(
+         getRepos(
+            getBranches(
+               getCommits(
+                  // stuff need to be done
+               )
+            )
+         )
+      )
+   ```
+
+   - **Named function** came to rescue =))
+   
+   ```javascript
+
+      getBranches(repoId, displayBranches); --> Not calling, just passing a reference
+
+      function displayBranches(branches) {
+         ...
+      }
+
+   ```
+
+   - **Promises** is an object (hold 3 states) - It promises you it will give you the eventual result of an async operation.
+      
+      - Pending (Kicking off async operations)
+      - Fulfilled (when the result is ready - async operation is successfully complete, finally we have **value**)
+      - Rejected (Otherwisem if something went wrong, we have an **error**)
+      ####
+
+   - **Settled Promises** (stable) - a promise which is already resolved or rejected (static methods)
+
+   ```javascript
+
+      Promise.resolve(...);
+      Promise.reject(...);
+
+   ```
+   ####
+   
+   - **Parallel promises** - call different APIs like an example - static methods
+
+   ```javascript
+      Promise.all([pFb, pMelOn, pHanteo]) // all completed
+      Promise.race([pFb, pMelOn, pHanteo]) // 1st one completed
+         .then(data => ...)
+         .catch(err => ...) // just 1 in all err => all err
+      // results are in an array
+   ```
+
+   - **Async /await** 
+      ######
+      - Make your code ***look like*** async (but actually not)
+      - Must use Try-catch block
+      - async --> use await operator
+
+   ```javascript
+      await getUser(1); // returns a Promise
+      const user = await getUser(1)
+   ```
+
 ## Section 7: CRUD Operations Using Mongoose
 
 ## Section 8: Mongo - Data Validation
