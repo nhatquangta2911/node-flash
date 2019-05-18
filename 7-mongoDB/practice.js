@@ -18,10 +18,10 @@ const Song = mongoose.model("Song", songSchema);
 
 async function createSong() {
    const song = new Song({
-      name: "비올레타 (Violeta)",
-      artist: "아이즈원",
-      producers: ["Shinsadog Horangi"],
-      peakMelOnRank: 8,
+      name: "비밀정원",
+      artist: "오마이걸",
+      producers: ["Steven Lee"],
+      peakMelOnRank: 2,
       isWin: true
    });
 
@@ -58,8 +58,18 @@ async function getSongsByLogicalOperators() {
    console.log(songs);
 }
 
+async function getSongsByRegEx() {
+   const songs = await Song
+      .find({ name: /.*비+.*/gi })
+      .limit(10)
+      .sort({peakMelOnRank: 1})
+      .select({name: 1, artist: 1, peakMelOnRank: 1});
+   console.log(songs)   ;
+}
+
 
 // createSong();
 // getSongs();
 // getSongsByComparisonOperators();
-getSongsByLogicalOperators();
+// getSongsByLogicalOperators();
+getSongsByRegEx();
