@@ -67,9 +67,33 @@ async function getSongsByRegEx() {
    console.log(songs)   ;
 }
 
+async function getSongsWithCounting() {
+   const songs = await Song
+      .find({ name: /.*비+.*/gi })
+      .limit(10)
+      .sort({peakMelOnRank: 1})
+      .count();
+   console.log(songs);
+}
+
+async function getSongsWithPagination() {
+
+   const pageNumber = 1;
+   const pageSize = 4;
+
+   const songs = await Song
+      .find()
+      .skip((pageNumber - 1) * pageSize)
+      .limit(pageSize)
+      .sort({peakMelOnRank: 1})
+      .select({name: 1, artist: 1, peakMelOnRank: 1})
+   console.log(songs);
+}
 
 // createSong();
 // getSongs();
 // getSongsByComparisonOperators();
 // getSongsByLogicalOperators();
-getSongsByRegEx();
+// getSongsByRegEx();
+// getSongsWithCounting();
+getSongsWithPagination();
