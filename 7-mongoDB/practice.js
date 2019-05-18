@@ -38,5 +38,28 @@ async function getSongs() {
    console.log(song);
 }
 
+async function getSongsByComparisonOperators() {
+   const songs = await Song
+      // .find({ peakMelOnRank: { $gte: 5, $lte: 15 } })
+      .find( {peakMelOnRank: { $nin: [2, 4, 6, 8, 10, 12, 14] }} )
+      .limit(10)
+      .sort({peakMelOnRank: -1})
+      .select({name: 1, artist: 1, peakMelOnRank: 1});
+   console.log(songs);
+}
+
+async function getSongsByLogicalOperators() {
+   const songs = await Song
+      .find()
+      .or([ {isWin: false}, {peakMelOnRank: {$in: [1, 2, 3]}} ])
+      .limit(10)
+      .sort({peakMelOnRank: -1})
+      .select({name: 1, artist: 1, peakMelOnRank: 1});
+   console.log(songs);
+}
+
+
 // createSong();
-getSongs();
+// getSongs();
+// getSongsByComparisonOperators();
+getSongsByLogicalOperators();
