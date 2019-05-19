@@ -13,7 +13,21 @@ const courseSchema = mongoose.Schema({
    date: { type: Date, default: Date.now }
 });
 
+const exampleCourse = {
+   name: 'Bullet Journal Course by Ryan',
+   author: 'Ryan',
+   isPublished: true,
+   price: 24,
+   tags: [ 'effective', 'study' ],
+}
+
 const Course = mongoose.model('courses', courseSchema);
+
+async function createCourse() {
+   const course = new Course(exampleCourse);
+   const result = await course.save();
+   console.log(result);
+}
 
 async function getCourses() {
    return await Course
@@ -33,4 +47,5 @@ async function displayCourses() {
    console.log(courses);
 }
 
+// createCourse();
 displayCourses();
