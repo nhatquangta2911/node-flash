@@ -75,9 +75,11 @@ async function updateCourseByUpdatingFirst(id) {
 
 //TODO: In case you want to update document and retreive it back
 async function updateCourseByUpdatingFirstAndRetrieve(id) {
-   const course = await Course.findByIdAndUpdate(id, {
-      $inc: { price: 1 }
-   });
+   const course = await Course.findByIdAndUpdate(
+      id,
+      { $inc: { price: 1 } },
+      { new: true }
+   );
    console.log(course);
 }
 
