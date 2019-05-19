@@ -47,5 +47,31 @@ async function displayCourses() {
    console.log(courses);
 }
 
+//TODO: Query fisrt
+async function updateCourseByQueryingFirst(id) {
+   const course = await Course.findById(id);
+   if(!course) return;
+
+   course.isPublished = false;
+   course.author = 'Anonymous';
+   
+   const result = await course.save();
+   console.log(result);
+}
+
+//TODO: Update first (directly)
+async function updateCourseByUpdatingFirst(id) {
+   const result = await Course.update(
+      { _id: id },
+      { $set: { 
+         author: '오마이걸',
+         price: 29
+      } }
+   ); 
+   console.log(result);
+}
+
 // createCourse();
-displayCourses();
+// displayCourses();
+// updateCourseByQueryingFirst('5ce0c9b81e105823bce60d77');
+updateCourseByUpdatingFirst('5ce0c9b81e105823bce60d77');
