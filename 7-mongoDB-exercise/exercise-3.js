@@ -42,6 +42,17 @@ async function getCourses() {
       .select("name author price");
 }
 
+const getPublishedCourses = async () => {
+   return await Course.find({
+      isPublished: true
+   });
+}
+
+const displayPublishedCourses = async () => {
+   const courses = await getPublishedCourses();
+   console.log(courses);
+}
+
 async function displayCourses() {
    const courses = await getCourses();
    console.log(courses);
@@ -95,10 +106,15 @@ async function removeManyCourse() {
    console.log(result);
 }
 
-// createCourse();
+createCourse();
 // displayCourses();
 // updateCourseByQueryingFirst('5ce0c9b81e105823bce60d77');
 // updateCourseByUpdatingFirst('5ce0c9b81e105823bce60d77');
 // updateCourseByUpdatingFirstAndRetrieve("5ce0c9b81e105823bce60d77");
 // removeOneCourse("5ce0c9b81e105823bce60d77");
-removeManyCourse()
+// removeManyCourse()
+
+getPublishedCourses();
+displayPublishedCourses();
+
+//TODO: Git command line UI
