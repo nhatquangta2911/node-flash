@@ -11,10 +11,26 @@ mongoose
 const StuffSchema = new mongoose.Schema({
    name: {
       type: String,
-      required: true
+      required: true,
+      minlength: 5,
+      maxlength: 255,
+      // match: /pattern/,
+
+   },
+   category: {
+      type: String,
+      required: true,
+      enum: ['Book', 'Pen', 'Bottle']
    },
    label: String,
-   price: Number,
+   price: {
+      type: Number,
+      required: function () {
+         return !this.isExpired
+      },
+      min: 1,
+      max: 30 
+   },
    tags: [String],
    isExpired: Boolean
 });
@@ -22,9 +38,10 @@ const StuffSchema = new mongoose.Schema({
 const Stuff = mongoose.model('stuffs', StuffSchema);
 
 const sampleStuff = {
-   // name: 'Heat Preservation Water Bottle 2020',
+   name: 'Heat Preservation Water Bottle 2023',
    label: 'LOCK N LOCK',
-   price: 13.28,
+   category: 'pen',
+   price: 19.28,
    tags: ['Convenience', 'Effective'],
    isExpired: false
 }
