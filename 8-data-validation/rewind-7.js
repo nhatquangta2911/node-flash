@@ -9,20 +9,17 @@ mongoose
    .catch(err => console.error('Something went wrong! ', err));
 
 const StuffSchema = new mongoose.Schema({
-   name: {
-      type: String,
-      required: true
-   },
+   name: String,
    label: String,
    price: Number,
-   tags: [String],
+   tags: [ String ],
    isExpired: Boolean
 });
 
 const Stuff = mongoose.model('stuffs', StuffSchema);
 
 const sampleStuff = {
-   // name: 'Heat Preservation Water Bottle 2020',
+   name: 'Heat Preservation Water Bottle 2020',
    label: 'LOCK N LOCK',
    price: 13.28,
    tags: ['Convenience', 'Effective'],
@@ -39,13 +36,8 @@ const expiredSampleStuff = {
 
 const createStuff = async () => {
    const stuff = new Stuff(sampleStuff);
-   try {
-      const result = await stuff.save();
-      console.log(result);
-      // await stuff.validate();
-   } catch (ex) {
-      console.log(ex.message);
-   }
+   const result = await stuff.save();
+   console.log(result);
 }
 
 const getStuffs = async () => {
@@ -59,9 +51,7 @@ const getStuffs = async () => {
 const getExpensiveStuffs = async () => {
    const expensiveStuff = await Stuff
       .find({
-         price: {
-            $gte: 5
-         }
+         price: { $gte: 5 }
       })
       .sort('-price')
       .select('name label price');
@@ -78,7 +68,7 @@ const getStuffWithPagination = async (pageNumber, pageSize) => {
    console.log(stuffs);
 }
 
-createStuff();
+// createStuff();
 // getStuffs();
 // getExpensiveStuffs();
-// getStuffWithPagination(2, 3);
+getStuffWithPagination(2, 3);
