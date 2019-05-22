@@ -45,7 +45,13 @@ const StuffSchema = new mongoose.Schema({
          message: 'A stuff should have at least one tag!'
       }
    },
-   isExpired: Boolean
+   isExpired: Boolean,
+   isExpensive: {
+      type: Boolean,
+      required: function() {
+         return !(this.price > 20);
+      }
+   }
 });
 
 const Stuff = mongoose.model('stuffs', StuffSchema);
@@ -54,8 +60,8 @@ const sampleStuff = {
    name: 'Heat Preservation Water Bottle 2063',
    label: 'LOCK N LOCK',
    category: 'Pen',
-   price: 29.28,
-   tags: [],
+   price: 19.88,
+   tags: ['Effective'],
    isExpired: false
 }
 
