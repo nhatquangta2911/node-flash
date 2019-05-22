@@ -19,9 +19,9 @@ const StuffSchema = new mongoose.Schema({
 const Stuff = mongoose.model('stuffs', StuffSchema);
 
 const sampleStuff = {
-   name: 'Heat Preservation Water Bottle',
+   name: 'Heat Preservation Water Bottle 2020',
    label: 'LOCK N LOCK',
-   price: 11.28,
+   price: 13.28,
    tags: ['Convenience', 'Effective'],
    isExpired: false
 }
@@ -48,5 +48,27 @@ const getStuffs = async () => {
    console.log(stuffs);
 }
 
+const getExpensiveStuffs = async () => {
+   const expensiveStuff = await Stuff
+      .find({
+         price: { $gte: 5 }
+      })
+      .sort('-price')
+      .select('name label price');
+   console.log(expensiveStuff);
+}
+
+const getStuffWithPagination = async (pageNumber, pageSize) => {
+   const stuffs = await Stuff
+      .find()
+      .skip((pageNumber - 1) * pageSize)
+      .sort("-price")
+      .limit(pageSize)
+      .select("name label price");
+   console.log(stuffs);
+}
+
 // createStuff();
-getStuffs();
+// getStuffs();
+// getExpensiveStuffs();
+getStuffWithPagination(2, 3);
