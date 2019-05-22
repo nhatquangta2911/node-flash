@@ -11,21 +11,51 @@ mongoose
 const StuffSchema = new mongoose.Schema({
    name: {
       type: String,
-      required: true
+      required: true,
+      minlength: 5,
+      maxlength: 255,
+      // match: /pattern/,
+
+   },
+   category: {
+      type: String,
+      required: true,
+      enum: ['Book', 'Pen', 'Bottle']
    },
    label: String,
-   price: Number,
-   tags: [String],
+   price: {
+      type: Number,
+      required: function () {
+         return !this.isExpired
+      },
+      min: 1,
+      max: 30
+   },
+   tags: {
+      type: Array,
+      validate: {
+         isAsync: true,
+         validator: function (value, callback) {
+            setTimeout(() => {
+               // Do some async work
+               const result = value && value.length > 0;
+               callback(result);
+            }, 3000);
+         },
+         message: 'A stuff should have at least one tag!'
+      }
+   },
    isExpired: Boolean
 });
 
 const Stuff = mongoose.model('stuffs', StuffSchema);
 
 const sampleStuff = {
-   // name: 'Heat Preservation Water Bottle 2020',
+   name: 'Heat Preservation Water Bottle 2063',
    label: 'LOCK N LOCK',
-   price: 13.28,
-   tags: ['Convenience', 'Effective'],
+   category: 'Pen',
+   price: 29.28,
+   tags: [],
    isExpired: false
 }
 
