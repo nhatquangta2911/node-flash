@@ -31,18 +31,26 @@ const StuffSchema = new mongoose.Schema({
       min: 1,
       max: 30 
    },
-   tags: [String],
+   tags: {
+      type: Array,
+      validate: {
+         validator: function (value) {
+            return value && value.length > 0
+         },
+         message: 'A stuff should have at least one tag!'
+      }
+   },
    isExpired: Boolean
 });
 
 const Stuff = mongoose.model('stuffs', StuffSchema);
 
 const sampleStuff = {
-   name: 'Heat Preservation Water Bottle 2023',
+   name: 'Heat Preservation Water Bottle 2063',
    label: 'LOCK N LOCK',
-   category: 'pen',
-   price: 19.28,
-   tags: ['Convenience', 'Effective'],
+   category: 'Pen',
+   price: 29.28,
+   tags: ['Bottle'],
    isExpired: false
 }
 
