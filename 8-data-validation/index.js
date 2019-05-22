@@ -29,13 +29,18 @@ const StuffSchema = new mongoose.Schema({
          return !this.isExpired
       },
       min: 1,
-      max: 30 
+      max: 30
    },
    tags: {
       type: Array,
       validate: {
-         validator: function (value) {
-            return value && value.length > 0
+         isAsync: true,
+         validator: function (value, callback) {
+            setTimeout(() => {
+               // Do some async work
+               const result = value && value.length > 0;
+               callback(result);
+            }, 3000);
          },
          message: 'A stuff should have at least one tag!'
       }
@@ -50,7 +55,7 @@ const sampleStuff = {
    label: 'LOCK N LOCK',
    category: 'Pen',
    price: 29.28,
-   tags: ['Bottle'],
+   tags: [],
    isExpired: false
 }
 
