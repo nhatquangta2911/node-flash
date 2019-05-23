@@ -1,52 +1,55 @@
-const express = require('express');
-const Joi = require('joi');
-const mongoose = require('mongoose');
+const express = require("express");
+const Joi = require("joi");
+const mongoose = require("mongoose");
 const router = express.Router();
 
 mongoose
-   .connect('mongodb://localhost:27017/vidly-app', {
+   .connect("mongodb://localhost:27017/vidly-app", {
       useNewUrlParser: true,
       useFindAndModify: false
    })
-   .then(() => console.log('Connected'))
-   .catch(err => console.error('Something went wrong!', err));
+   .then(() => console.log("Connected"))
+   .catch(err => console.error("Something went wrong!", err));
 
 const genreSchema = new mongoose.Schema({
    name: {
       type: String,
+      minlength: 3,
+      maxlength: 20,
       required: true,
-      trim: true,
-      match: /^[a-zA-Z]{3,15}$/gi
+      trim: true
+      // match: /^[a-zA-Z]{3,15}$/gi
    }
 });
 
-const Genre = mongoose.model('genres', genreSchema);
+const Genre = mongoose.model("genres", genreSchema);
 
 const getAllGenres = async () => {
-   const genres = await Genre
-      .find()
-      .sort('name')
-      .select('name');
+   const genres = await Genre.find()
+      .sort("name")
+      .select("name");
    return genres;
-}
+};
 
-const getGenresByName = async (name) => {
-   return await Genre
-      .find({ name: name })
-      .select('name');
-}
+const getGenresByName = async name => {
+   return await Genre.find({ name: name }).select("name");
+};
 
-const createGenre = async (name) => {
+const createGenre = async name => {
    const genre = new Genre({
       name: name
    });
-   return await genre.save();
-}
+   try {
+      return await genre.save();
+   } catch (ex) {
+      return ex;
+   }
+};
 
-const removeGenreByName = async (name) => {
+const removeGenreByName = async name => {
    const result = await Genre.deleteOne({ name: name });
    return result;
-}
+};
 
 const updateGenreByName = async (name, updatedName) => {
    return await Genre.findOneAndUpdate(
@@ -54,34 +57,46 @@ const updateGenreByName = async (name, updatedName) => {
       { $set: { name: updatedName } },
       { new: true }
    );
-}
+};
 
 //TODO: GET
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
    const genres = await getAllGenres();
    res.send(genres);
 });
 
-router.get('/:name', async (req, res) => {
+router.get("/:name", async (req, res) => {
    const genre = await getGenresByName(req.params.name);
-   if(genre.length === 0) return res.status(404).send("Not Found");
+   if (genre.length === 0) return res.status(404).send("Not Found");
    res.send(genre);
 });
 
+//TODO: POST
+router.post("/", async (req, res) => {
+   const result = await createGenre(req.body.name);
+   if (result && result.errors) {
+      let errorMessage = "";
+      for (field in result.errors) {
+         errorMessage += result.errors[field].message;
+      }
+      res.status(400).send(errorMessage);
+   } else {
+      res.send(await getAllGenres());
+   }
+});
+
 //TODO: UPDATE
-router.put('/:name', async (req, res) => {
+router.put("/:name", async (req, res) => {
    const result = await updateGenreByName(req.params.name, req.body.name);
-   if(!result) return res.status(404).send("Not Found");
+   if (!result) return res.status(404).send("Not Found");
    res.send(result);
 });
 
-
 //TODO: DELETE
-router.delete('/:name', async (req, res) => {
+router.delete("/:name", async (req, res) => {
    const result = await removeGenreByName(req.params.name);
-   if(result.deletedCount === 0) return res.status(404).send("Not Found");
-   res.send(result);   
+   if (result.deletedCount === 0) return res.status(404).send("Not Found");
+   res.send(result);
 });
-
 
 module.exports = router;
