@@ -14,10 +14,9 @@ mongoose
 const genreSchema = new mongoose.Schema({
    name: {
       type: String,
-      minlength: 3,
-      maxlength: 20,
       required: true,
-      trim: true
+      trim: true,
+      match: /^[a-zA-Z]{3,15}$/gi
    }
 });
 
@@ -71,9 +70,9 @@ router.get('/:name', async (req, res) => {
 
 //TODO: UPDATE
 router.put('/:name', async (req, res) => {
-   updateGenreByName(req.params.name, req.body.name);
-   // if(!genre) return res.status(404).send('Not Found');
-   res.send(await getAllGenres());
+   const result = await updateGenreByName(req.params.name, req.body.name);
+   if(!result) return res.status(404).send("Not Found");
+   res.send(result);
 });
 
 
