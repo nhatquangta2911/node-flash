@@ -57,9 +57,9 @@ const StuffSchema = new mongoose.Schema({
 const Stuff = mongoose.model('stuffs', StuffSchema);
 
 const sampleStuff = {
-   name: 'Heat Preservation Water Bottle 2063',
+   name: '',
    label: 'LOCK N LOCK',
-   category: 'Pen',
+   category: 'pen',
    price: 19.88,
    tags: ['Effective'],
    isExpired: false
@@ -80,7 +80,9 @@ const createStuff = async () => {
       console.log(result);
       // await stuff.validate();
    } catch (ex) {
-      console.log(ex.message);
+      for(field in ex.errors) {
+         console.log(ex.errors[field].message);
+      }
    }
 }
 
