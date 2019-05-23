@@ -11,7 +11,7 @@ mongoose
    .then(() => console.log('Connected'))
    .catch(err => console.error('Something went wrong!', err));
 
-const genresSchema = new mongoose.Schema({
+const genreSchema = new mongoose.Schema({
    name: {
       type: String,
       minlength: 3,
@@ -20,6 +20,8 @@ const genresSchema = new mongoose.Schema({
       trim: true
    }
 });
+
+const Genre = mongoose.model('genres', genreSchema);
 
 const getAllGenres = async () => {
    const genres = await Genre
@@ -35,14 +37,11 @@ const getGenresByName = async (name) => {
       .select('name');
 }
 
-const Genre = mongoose.model('genres', genresSchema);
-
-
-const createGenre = async () => {
+const createGenre = async (name) => {
    const genre = new Genre({
-      name: '  Journey    '
+      name: name
    });
-   const result = await genre.save();
+   return await genre.save();
 }
 
 const removeGenreByName = async (name) => {
@@ -50,23 +49,40 @@ const removeGenreByName = async (name) => {
    return result;
 }
 
+const updateGenreByName = async (name, updatedName) => {
+   return await Genre.findOneAndUpdate(
+      { name: name },
+      { $set: { name: updatedName } },
+      { new: true }
+   );
+}
+
+//TODO: GET
 router.get('/', async (req, res) => {
    const genres = await getAllGenres();
    res.send(genres);
 });
 
 router.get('/:name', async (req, res) => {
-   const genre = await getGenresByName('Drama');
+   const genre = await getGenresByName(req.params.name);
+   if(genre.length === 0) return res.status(404).send("Not Found");
    res.send(genre);
-})
+});
 
-router.delete('/:name', async (req, res) => {
-   res.send(await removeGenreByName());   
-})
-
-router.post('/', async (req, res) => {
-   createGenre();  
+//TODO: UPDATE
+router.put('/:name', async (req, res) => {
+   updateGenreByName(req.params.name, req.body.name);
+   // if(!genre) return res.status(404).send('Not Found');
    res.send(await getAllGenres());
-})
+});
+
+
+//TODO: DELETE
+router.delete('/:name', async (req, res) => {
+   const result = await removeGenreByName(req.params.name);
+   if(result.deletedCount === 0) return res.status(404).send("Not Found");
+   res.send(result);   
+});
+
 
 module.exports = router;
