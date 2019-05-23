@@ -22,14 +22,21 @@ const StuffSchema = new mongoose.Schema({
       required: true,
       enum: ['Book', 'Pen', 'Bottle']
    },
-   label: String,
+   //TODO: SchemaType Options
+   label: {
+      type: String,
+      lowercase: true,
+      trim: true
+   },
    price: {
       type: Number,
       required: function () {
          return !this.isExpired
       },
       min: 1,
-      max: 30
+      max: 30,
+      get: value => Math.round(value),
+      set: value => Math.round(value),
    },
    tags: {
       type: Array,
@@ -57,12 +64,13 @@ const StuffSchema = new mongoose.Schema({
 const Stuff = mongoose.model('stuffs', StuffSchema);
 
 const sampleStuff = {
-   name: '',
-   label: 'LOCK N LOCK',
-   category: 'pen',
+   name: 'Heat Preservation Water Bottle',
+   label: '    LOCK N LOCK                      ',
+   category: 'Pen',
    price: 19.88,
    tags: ['Effective'],
-   isExpired: false
+   isExpired: false,
+   isExpensive: true
 }
 
 const expiredSampleStuff = {
@@ -80,6 +88,7 @@ const createStuff = async () => {
       console.log(result);
       // await stuff.validate();
    } catch (ex) {
+      //TODO: errors property
       for(field in ex.errors) {
          console.log(ex.errors[field].message);
       }
@@ -116,7 +125,15 @@ const getStuffWithPagination = async (pageNumber, pageSize) => {
    console.log(stuffs);
 }
 
-createStuff();
+const getStuffWithRounding = async (id) => {
+   const stuff = await Stuff
+      .find({ _id: id })
+      .select('name price');
+   console.log(stuff[0].price * 1000);
+}
+
+// createStuff();
 // getStuffs();
 // getExpensiveStuffs();
 // getStuffWithPagination(2, 3);
+getStuffWithRounding("5ce4c210d240450e00622821");
