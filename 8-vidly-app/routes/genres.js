@@ -32,7 +32,9 @@ const getAllGenres = async () => {
 };
 
 const getGenresByName = async name => {
-   return await Genre.find({ name: name }).select("name");
+   return await Genre.find({
+      name: name
+   }).select("name");
 };
 
 const createGenre = async name => {
@@ -47,16 +49,22 @@ const createGenre = async name => {
 };
 
 const removeGenreByName = async name => {
-   const result = await Genre.deleteOne({ name: name });
+   const result = await Genre.deleteOne({
+      name: name
+   });
    return result;
 };
 
 const updateGenreByName = async (name, updatedName) => {
-   return await Genre.findOneAndUpdate(
-      { name: name },
-      { $set: { name: updatedName } },
-      { new: true }
-   );
+  const genre = await Genre.findOne({name: name});
+  if(!genre) return null;
+  try {
+     genre.name = updatedName;
+     const result = await genre.save();
+     return result;
+  } catch(ex) {
+     return ex;
+  }
 };
 
 //TODO: GET
@@ -77,7 +85,7 @@ router.post("/", async (req, res) => {
    if (result && result.errors) {
       let errorMessage = "";
       for (field in result.errors) {
-         errorMessage += result.errors[field].message;
+         errorMessage += result.errors[field].message + '\n';
       }
       res.status(400).send(errorMessage);
    } else {
@@ -88,8 +96,15 @@ router.post("/", async (req, res) => {
 //TODO: UPDATE
 router.put("/:name", async (req, res) => {
    const result = await updateGenreByName(req.params.name, req.body.name);
-   if (!result) return res.status(404).send("Not Found");
-   res.send(result);
+   if(!result) return res.status(404).send("Not Found");
+   if(result && result.errors) {
+      let errorMessage = "";
+      for(field in result.errors) {
+         errorMessage += result.errors[field].message + '\n';
+      }
+      res.status(400).send(errorMessage);
+   }
+   res.send(await getAllGenres()) 
 });
 
 //TODO: DELETE
