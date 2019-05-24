@@ -3,13 +3,6 @@ const Joi = require("joi");
 const mongoose = require("mongoose");
 const router = express.Router();
 
-mongoose
-   .connect("mongodb://localhost:27017/vidly-app", {
-      useNewUrlParser: true,
-      useFindAndModify: false
-   })
-   .then(() => console.log("Connected"))
-   .catch(err => console.error("Something went wrong!", err));
 
 const genreSchema = new mongoose.Schema({
    name: {
