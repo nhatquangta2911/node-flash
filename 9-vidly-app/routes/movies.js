@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
+const {genreSchema} = require('./genres');
 
 const movieSchema = new mongoose.Schema({
    title: {
@@ -41,11 +42,27 @@ dailyRentalRate: {
 });
 
 const Movie = mongoose.model('Movie', movieSchema);
+const Genre = mongoose.model('Genre', genreSchema);
 
 //TODO: GET
 router.get('/', async (req, res) => {
    const movies = await Movie
       .find()
+      .sort("-name")
+      .populate({
+         path: "genres",
+         select: "name -_id",
+         populate: {
+            path: "genres",
+            model: "Genre"
+         }
+      });
+   res.send(movies);
+});
+
+router.get('/:id', async (req, res) => {
+   const movie = await Movie
+      .findOne({_id: req.params.id})
       .populate({
          path: 'genres',
          select: 'name -_id',
@@ -55,10 +72,10 @@ router.get('/', async (req, res) => {
          }
       })
       .sort('-title');
-   if (!movies) {
+   if (!movie) {
       return res.status(404).send("NOT FOUND");
    } else {
-      res.send(movies);
+      res.send(movie);
    }
 });
 
@@ -80,6 +97,13 @@ router.post('/', async (req, res) => {
       };
       res.status(400).send(errorMessages);
    }
+});
+
+//TODO: DELETE
+router.delete('/:id', async (req, res) => {
+   const result = await Movie.findByIdAndRemove(req.params.id);
+   if(result.deleteCount === 0) return res.status(404).send("NOT FOUND");
+   res.send(result);
 });
 
 module.exports = router;

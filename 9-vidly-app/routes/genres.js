@@ -108,3 +108,4 @@ router.delete("/:name", async (req, res) => {
 });
 
 module.exports = router;
+module.exports.genreSchema = genreSchema;
