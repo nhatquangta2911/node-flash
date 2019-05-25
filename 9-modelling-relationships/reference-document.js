@@ -19,7 +19,15 @@ const Course = mongoose.model('Course', new mongoose.Schema({
    author: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Author' //TODO: Collection name
-   }
+   },
+   categories: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Category'
+   }]
+}));
+
+const Category = mongoose.model('Category', new mongoose.Schema({
+   name: String
 }));
 
 const createAuthor = async (name, bio, website) => {
@@ -32,25 +40,42 @@ const createAuthor = async (name, bio, website) => {
    console.log(result);
 };
 
-const createCourse = async (name, author) => {
+const createCourse = async (name, author, categories) => {
    const course = new Course({
       name: name,
-      author: author
+      author: author,
+      categories: categories
    });
    const result = await course.save();
    console.log(result);
 };
 
-const displayCourses = async () => {
-   const courses = await Course  
-      .find()
+const createCategory = async (name) => {
+   const category = new Category({
+      name: name
+   });
+   const result = await category.save();
+   console.log(result);
+};
+
+const displayCourse = async (id) => {
+   const courses = await Course
+      .findOne({ _id: id })
       .sort('-name')
       .populate('author', 'name -_id')
-      .populate('category', 'name -_id')
-      .select('name author');
+      .populate({
+         path: 'categories',
+         select: 'name -_id',
+         populate: {
+            path: 'categories',
+            model: 'Category',
+         }
+      })
+      .select('name author categories');
    console.log(courses);
 };
 
 // createAuthor('Ryan', 'Nothing to show', 'ryan.com');
-// createCourse('React From Scratch', '5ce8b4d2ca63683318c5a640');
-displayCourses();
+// createCategory('frontend');
+// createCourse('React Tricks', '5ce8b4d2ca63683318c5a640', ["5ce8b7b47edcf11a08e06ba4", "5ce8b7de8cbd4a2a001c7478"]);
+displayCourse('5ce8b93fba901d2450b46dae');
