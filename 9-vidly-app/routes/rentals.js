@@ -59,30 +59,40 @@ router.post("/", async (req, res) => {
    }
 });
 
-//TODO: UPDATE
-// router.put("/:id", async (req, res) => {
-//    let rental = await Rental.findById(req.params.id);
-//    if (!rental) return res.status(404).send("NOT FOUND");
-//    const customer = await Customer.findById(req.body.customerId);
-//    if (!customer) return res.status(400).send("Customer Not Found");
-//    const movie = await Movie.findById(req.body.movieId);
-//    if (!movie) return res.status(400).send("Movie Not Found");
+// TODO: UPDATE
+router.put("/:id", async (req, res) => {
+   let rental = await Rental.findById(req.params.id);
+   if (!rental) return res.status(404).send("NOT FOUND");
+   const customer = await Customer.findById(req.body.customerId);
+   if (!customer) return res.status(400).send("Customer Not Found");
+   const movie = await Movie.findById(req.body.movieId);
+   if (!movie) return res.status(400).send("Movie Not Found");
 
-   
+   rental.customer = {
+      _id: customer._id,
+      name: customer.name,
+      phone: customer.phone
+   };
 
-//    try {
-//       const result = await rental.save();
-//       res.send(result);
-//       movie.numberInStock--;
-//       movie.save();
-//    } catch (ex) {
-//       let errorMessage = "";
-//       for (field in ex.errors) {
-//          errorMessage += ex.errors[field].message + "\n";
-//       }
-//       return res.status(400).send(errorMessage);
-//    }
-// });
+   rental.movie = {
+      _id: movie._id,
+      title: movie.title,
+      dailyRentalRate: movie.dailyRentalRate
+   }
+
+   try {
+      const result = await rental.save();
+      res.send(result);
+      movie.numberInStock--;
+      movie.save();
+   } catch (ex) {
+      let errorMessage = "";
+      for (field in ex.errors) {
+         errorMessage += ex.errors[field].message + "\n";
+      }
+      return res.status(400).send(errorMessage);
+   }
+});
 
 //TODO: DELETE
 router.delete('/:id', async (req, res) => {
