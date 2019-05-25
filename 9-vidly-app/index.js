@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const home = require('./routes/home');
 const genres = require('./routes/genres');
 const customers = require('./routes/customers');
+const movies = require('./routes/movies');
 const morgan = require('morgan');
 
 const app = express();
@@ -20,6 +21,7 @@ app.use(morgan('tiny'));
 app.use('/', home);
 app.use('/api/genres', genres);
 app.use('/api/customers', customers);
+app.use('/api/movies', movies);
 
 
 const port = 2911;
