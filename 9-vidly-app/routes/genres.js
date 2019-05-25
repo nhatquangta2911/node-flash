@@ -2,18 +2,7 @@ const express = require("express");
 const Joi = require("joi");
 const mongoose = require("mongoose");
 const router = express.Router();
-
-
-const genreSchema = new mongoose.Schema({
-   name: {
-      type: String,
-      minlength: 3,
-      maxlength: 20,
-      required: true,
-      trim: true
-      // match: /^[a-zA-Z]{3,15}$/gi
-   }
-});
+const genreSchema = require('../model/genre');
 
 const Genre = mongoose.model("genres", genreSchema);
 
