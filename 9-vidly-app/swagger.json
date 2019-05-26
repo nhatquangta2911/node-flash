@@ -188,7 +188,23 @@
           }
         }
       },
-      "/movies/{movieId}": {
+      "/movies/best3": {
+        "get": {
+          "tags": [
+            "Movies"
+          ],
+          "summary": "Get best three highest daily rate movie in system",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/Movie"
+              }
+            }
+          }
+        }
+      },
+      "/movies/movie/{movieId}": {
         "parameters": [
           {
             "name": "movieId",

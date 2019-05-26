@@ -1,20 +1,19 @@
-const express = require('express');
-const mongoose = require('mongoose');
+const express = require("express");
+const mongoose = require("mongoose");
 const router = express.Router();
-const {genreSchema} = require('./genres');
-const {movieSchema} = require('../model/movie');
+const { genreSchema } = require("./genres");
+const { movieSchema } = require("../model/movie");
 
-const Movie = mongoose.model('Movie', movieSchema);
-const Genre = mongoose.model('Genre', genreSchema);
+const Movie = mongoose.model("Movie", movieSchema);
+const Genre = mongoose.model("Genre", genreSchema);
 
 //TODO: GET
-router.get('/', async (req, res) => {
-   const movies = await Movie
-      .find()
+router.get("/", async (req, res) => {
+   const movies = await Movie.find()
       .sort("-name")
       .populate({
          path: "genres",
-         select: "name -_id",
+         select: "name",
          populate: {
             path: "genres",
             model: "Genre"
@@ -23,20 +22,19 @@ router.get('/', async (req, res) => {
    res.send(movies);
 });
 
-router.get('/:id', async (req, res) => {
-   const movie = await Movie
-      .findOne({
-         _id: req.params.id
-      })
+router.get("/movie/:id", async (req, res) => {
+   const movie = await Movie.findOne({
+      _id: req.params.id
+   })
       .populate({
-         path: 'genres',
-         select: 'name -_id',
+         path: "genres",
+         select: "name",
          populate: {
-            path: 'genres',
-            model: 'Genre'
+            path: "genres",
+            model: "Genre"
          }
       })
-      .sort('-title');
+      .sort("-title");
    if (!movie) {
       return res.status(404).send("NOT FOUND");
    } else {
@@ -44,8 +42,21 @@ router.get('/:id', async (req, res) => {
    }
 });
 
+router.get("/best3", async (req, res) => {
+   const movies = await Movie
+      .find()
+      .limit(3)
+      .sort("-dailyRentalRate")
+      .select("title dailyRentalRate");
+      try {
+         res.send(movies);
+      } catch(ex) {
+         return res.status(500).send(ex);
+      }
+});
+
 //TODO: POST
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
    const movie = new Movie({
       title: req.body.title,
       genres: req.body.genres,
@@ -56,24 +67,24 @@ router.post('/', async (req, res) => {
       const result = await movie.save();
       res.send(result);
    } catch (ex) {
-      let errorMessages = '';
+      let errorMessages = "";
       for (field in ex.errors) {
-         errorMessages += ex.errors[field].message + '\n';
+         errorMessages += ex.errors[field].message + "\n";
       }
       res.status(400).send(errorMessages);
    }
 });
 
 //TODO: DELETE
-router.delete('/:id', async (req, res) => {
+router.delete("/:id", async (req, res) => {
    const result = await Movie.findByIdAndRemove(req.params.id);
    if (result.deleteCount === 0) return res.status(404).send("NOT FOUND");
    res.send(result);
 });
 
 //TODO: UPDATE
-router.put('/:id', async (req, res) => {
-   const movie = await Movie.findOne({_id: req.params.id});
+router.put("/:id", async (req, res) => {
+   const movie = await Movie.findOne({ _id: req.params.id });
    if (!movie) {
       return res.status(404).send("NOT FOUND");
    } else {
@@ -85,9 +96,9 @@ router.put('/:id', async (req, res) => {
          const result = await movie.save();
          res.send(result);
       } catch (ex) {
-         let errorMessages = '';
+         let errorMessages = "";
          for (field in ex.errors) {
-            errorMessages += ex.errors[field].message + '\n';
+            errorMessages += ex.errors[field].message + "\n";
          }
          return res.status(400).send(errorMessages);
       }
