@@ -19,10 +19,15 @@ mongoose
    .then(() => console.log("Connected"))
    .catch(err => console.error("Something went wrong!", err));
 
-   // app.use(bodyParser.urlencoded({
-   //    extended: true
-   // }));
-// app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+      extended: true
+   }));
+app.use(bodyParser.json());
+// app.use( (request, response, next) => {
+//    response.header("Access-Control-Allow-Origin", "*");
+//    response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//    next();
+// });
 app.use(express.json());
 app.use(morgan('tiny'));
 app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));

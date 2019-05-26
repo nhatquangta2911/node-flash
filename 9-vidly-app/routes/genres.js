@@ -5,6 +5,7 @@ const router = express.Router();
 const {genreSchema} = require('../model/genre');
 
 const Genre = mongoose.model("genres", genreSchema);
+const pageSize = 5;
 
 const getAllGenres = async () => {
    const genres = await Genre.find()
@@ -55,10 +56,19 @@ router.get("/", async (req, res) => {
    res.send(genres);
 });
 
-router.get("/:name", async (req, res) => {
+router.get("/gene/:name", async (req, res) => {
    const genre = await getGenresByName(req.params.name);
    if (genre.length === 0) return res.status(404).send("Not Found");
    res.send(genre);
+});
+
+router.get("/page/:page", async (req, res) => {
+   const genres = await Genre
+      .find()
+      .skip((req.params.page - 1) * pageSize)
+      .sort("name")
+      .limit(pageSize);
+   res.send(genres);
 });
 
 //TODO: POST

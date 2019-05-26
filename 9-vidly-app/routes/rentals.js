@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
+const Fawn = require("fawn");
 const { rentalSchema } = require("../model/rental");
 const { movieSchema } = require("../model/movie");
 const { customerSchema } = require("../model/customer");
@@ -8,6 +9,8 @@ const { customerSchema } = require("../model/customer");
 const Movie = mongoose.model("Movie", movieSchema);
 const Customer = mongoose.model("Customer", customerSchema);
 const Rental = mongoose.model("Rental", rentalSchema);
+
+Fawn.init(mongoose); // Pass mongoose object
 
 //TODO: GET
 router.get("/", async (req, res) => {
@@ -46,16 +49,17 @@ router.post("/", async (req, res) => {
    });
 
    try {
-      rental = await rental.save();
+      new Fawn.Task()
+         .save("rentals", rental)
+         .update("movies", { _id: movie._id }, { $inc: { numberInStock: -1 } })
+         .run();
       res.send(rental);
-      movie.numberInStock--;
-      movie.save();
    } catch (ex) {
       let errorMessage = "";
       for (field in ex.errors) {
          errorMessage += ex.errors[field].message + "\n";
       }
-      return res.status(400).send(errorMessage);
+      return res.status(500).send(errorMessage); //TODO: Internal Server Error
    }
 });
 
@@ -78,7 +82,7 @@ router.put("/:id", async (req, res) => {
       _id: movie._id,
       title: movie.title,
       dailyRentalRate: movie.dailyRentalRate
-   }
+   };
 
    try {
       const result = await rental.save();
@@ -95,9 +99,9 @@ router.put("/:id", async (req, res) => {
 });
 
 //TODO: DELETE
-router.delete('/:id', async (req, res) => {
+router.delete("/:id", async (req, res) => {
    const result = await Rental.findByIdAndRemove(req.params.id);
-   if(result.deleteCount === 0) return res.status(404).send("NOT FOUND");
+   if (result.deleteCount === 0) return res.status(404).send("NOT FOUND");
    res.send(result);
 });
 
