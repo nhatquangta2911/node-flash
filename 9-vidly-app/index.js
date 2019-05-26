@@ -19,11 +19,11 @@ mongoose
    .then(() => console.log("Connected"))
    .catch(err => console.error("Something went wrong!", err));
 
-app.use(bodyParser.urlencoded({
-   extended: true
-}));
-app.use(bodyParser.json());
-// app.use(express.json());
+   // app.use(bodyParser.urlencoded({
+   //    extended: true
+   // }));
+// app.use(bodyParser.json());
+app.use(express.json());
 app.use(morgan('tiny'));
 app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/', home);

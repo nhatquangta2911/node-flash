@@ -2,7 +2,7 @@ const express = require("express");
 const Joi = require("joi");
 const mongoose = require("mongoose");
 const router = express.Router();
-const genreSchema = require('../model/genre');
+const {genreSchema} = require('../model/genre');
 
 const Genre = mongoose.model("genres", genreSchema);
 
