@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
       unique: true,
       required: true,
       maxlength: 50,
-      match: /[a-z0-9]{0,15}\.*[a-z0-9]{0,15}@[a-z]{2,}(\.[a-z]{2,}){1,3}/g
+      match: /[a-z0-9]{3,15}\.*[a-z0-9]{3,15}@[a-z]{2,}(\.[a-z]{1,}){1,3}/g
    },
    password: {
       type: String,
