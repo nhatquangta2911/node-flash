@@ -310,7 +310,32 @@
            }
          }
        },
-       "/genres/{genreId}": {
+       "/genres/page/{pageNumber}": {
+        "parameters": [
+          {
+            "name": "pageNumber",
+            "in": "path",
+            "required": true,
+            "description": "Number of page that we want to find",
+            "type": "string"
+          }
+        ],
+        "get": {
+          "tags": [
+            "Genres"
+          ],
+          "summary": "Get genre with given ID of each page",
+          "responses": {
+            "200": {
+              "description": "Genres is found",
+              "schema": {
+                "$ref": "#/definitions/Genre"
+              }
+            }
+          }
+       }
+      },
+       "/genres/genre/{genreId}": {
          "parameters": [
            {
              "name": "genreId",
