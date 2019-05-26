@@ -1,3 +1,4 @@
+const _ = require('lodash');
 const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
@@ -21,14 +22,10 @@ router.get('/user/:email', async (req, res) => {
 router.post('/', async (req, res) => {
    const checkUser = await User.findOne({email: req.body.email});
    if(checkUser) return res.status(400).send('User is already exist') 
-   const user = new User({
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password
-    });
-    try {
-       const result = await user.save();
-       res.send(result);
+   const user = new User(_.pick(req.body, ['name', 'email', 'password']));
+    try {     
+      await user.save();
+      res.send(_.pick(user, ['_id', 'name', 'email']));
     } catch (ex) {
        let errorMessage = '';
        for(field in ex.errors) {
