@@ -1,0 +1,19 @@
+{
+  "name": "9-vidly-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "fawn": "^2.1.5",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.5.11",
+    "morgan": "^1.9.1"
+  }
+}

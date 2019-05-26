@@ -27,6 +27,10 @@
      {
         "name": "Customers",
         "description": "API for customers in the system"
+     },
+     {
+        "name": "Users",
+        "description": "API for users in the system"
      }
    ],
    "schemes": [
@@ -39,6 +43,74 @@
      "application/json"
    ],
    "paths": {
+     "/users/user/{email}": {
+      "parameters": [
+        {
+          "name": "email",
+          "in": "path",
+          "required": true,
+          "description": "Get User in system",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get user with given email",
+        "responses": {
+          "200": {
+            "description": "User is found",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+     }
+    },
+     "/users": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "Register new user in system",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User that we want to create",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New user is created",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get all users in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+     },
      "/rentals": {
        "post": {
          "tags": [
@@ -521,6 +593,10 @@
       "Customer": {
         "type": "array",
         "$ref": "#/definitions/Customer"
+      },
+      "User": {
+        "type": "array",
+        "$ref": "#/definitions/User"
       }
     }
 }
