@@ -6,7 +6,9 @@ const customers = require('./routes/customers');
 const movies = require('./routes/movies');
 const rentals = require('./routes/rentals');
 const morgan = require('morgan');
-
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+const bodyParser = require('body-parser');
 const app = express();
 
 mongoose
@@ -17,8 +19,13 @@ mongoose
    .then(() => console.log("Connected"))
    .catch(err => console.error("Something went wrong!", err));
 
-app.use(express.json());
+app.use(bodyParser.urlencoded({
+   extended: true
+}));
+app.use(bodyParser.json());
+// app.use(express.json());
 app.use(morgan('tiny'));
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/', home);
 app.use('/api/genres', genres);
 app.use('/api/customers', customers);

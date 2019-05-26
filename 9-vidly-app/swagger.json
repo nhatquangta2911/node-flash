@@ -1,0 +1,257 @@
+{
+   "swagger": "2.0",
+   "info": {
+     "version": "1.0.0",
+     "title": "Movie Rental App",
+     "description": "Demo Swagger For NodeJS Application",
+     "license": {
+       "name": "MIT",
+       "url": "https://opensource.org/licenses/MIT"
+     }
+   },
+   "host": "localhost:2911",
+   "basePath": "/api/",
+   "tags": [
+     {
+       "name": "Rentals",
+       "description": "API for rentals in the system"
+     },
+     {
+        "name": "Movies",
+        "description": "API for movies in the system"
+     }
+   ],
+   "schemes": [
+     "http"
+   ],
+   "consumes": [
+     "application/json"
+   ],
+   "produces": [
+     "application/json"
+   ],
+   "paths": {
+     "/rentals": {
+       "post": {
+         "tags": [
+           "Rentals"
+         ],
+         "description": "Create new rental in system",
+         "parameters": [
+           {
+             "name": "rental",
+             "in": "body",
+             "description": "Rental that we want to create",
+             "schema": {
+               "$ref": "#/definitions/Rental"
+             }
+           }
+         ],
+         "produces": [
+           "application/json"
+         ],
+         "responses": {
+           "200": {
+             "description": "New rental is created",
+             "schema": {
+               "$ref": "#/definitions/Rental"
+             }
+           }
+         }
+       },
+       "get": {
+         "tags": [
+           "Rentals"
+         ],
+         "summary": "Get all rentals in system",
+         "responses": {
+           "200": {
+             "description": "OK",
+             "schema": {
+               "$ref": "#/definitions/Rental"
+             }
+           }
+         }
+       }
+     },
+     "/rentals/{rentalId}": {
+       "parameters": [
+         {
+           "name": "rentalId",
+           "in": "path",
+           "required": true,
+           "description": "ID of rental that we want to find",
+           "type": "string"
+         }
+       ],
+       "get": {
+         "tags": [
+           "Rentals"
+         ],
+         "summary": "Get rental with given ID",
+         "responses": {
+           "200": {
+             "description": "Rental is found",
+             "schema": {
+               "$ref": "#/definitions/Rental"
+             }
+           }
+         }
+       },
+       "delete": {
+         "summary": "Delete rental with given ID",
+         "tags": [
+           "Rentals"
+         ],
+         "responses": {
+           "200": {
+             "description": "Rental is deleted",
+             "schema": {
+               "$ref": "#/definitions/Rental"
+             }
+           }
+         }
+       },
+       "put": {
+         "summary": "Update rental with give ID",
+         "tags": [
+           "Rentals"
+         ],
+         "parameters": [
+           {
+             "name": "rental",
+             "in": "body",
+             "description": "Rental with new values of properties",
+             "schema": {
+               "$ref": "#/definitions/Rental"
+             }
+           }
+         ],
+         "responses": {
+           "200": {
+             "description": "Rental is updated",
+             "schema": {
+               "$ref": "#/definitions/Rental"
+             }
+           }
+         }
+       }
+     },
+      "/movies": {
+        "post": {
+          "tags": [
+            "Movies"
+          ],
+          "description": "Create new rental in system",
+          "parameters": [
+            {
+              "name": "movie",
+              "in": "body",
+              "description": "Rental that we want to create",
+              "schema": {
+                "$ref": "#/definitions/Movie"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "New movie is created",
+              "schema": {
+                "$ref": "#/definitions/Movie"
+              }
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "Movies"
+          ],
+          "summary": "Get all movies in system",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/Movie"
+              }
+            }
+          }
+        }
+      },
+      "/movies/{movieId}": {
+        "parameters": [
+          {
+            "name": "movieId",
+            "in": "path",
+            "required": true,
+            "description": "ID of movie that we want to find",
+            "type": "string"
+          }
+        ],
+        "get": {
+          "tags": [
+            "Movies"
+          ],
+          "summary": "Get movie with given ID",
+          "responses": {
+            "200": {
+              "description": "Movie is found",
+              "schema": {
+                "$ref": "#/definitions/Movie"
+              }
+            }
+          }
+        },
+        "delete": {
+          "summary": "Delete movie with given ID",
+          "tags": [
+            "Movies"
+          ],
+          "responses": {
+            "200": {
+              "description": "Movie is deleted",
+              "schema": {
+                "$ref": "#/definitions/Movie"
+              }
+            }
+          }
+        },
+        "put": {
+          "summary": "Update movie with give ID",
+          "tags": [
+            "Movies"
+          ],
+          "parameters": [
+            {
+              "name": "movie",
+              "in": "body",
+              "description": "Movie with new values of properties",
+              "schema": {
+                "$ref": "#/definitions/Movie"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Movie is updated",
+              "schema": {
+                "$ref": "#/definitions/Movie"
+              }
+            }
+          }
+        }
+      }
+   },
+    "definitions": {
+      "Rental": {
+        "type": "array",
+        "$ref": "#/definitions/Rental"
+      },
+      "Movie": {
+        "type": "array",
+        "$ref": "#/definitions/Movie"
+      }
+    }
+}
