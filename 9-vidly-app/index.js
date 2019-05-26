@@ -15,7 +15,8 @@ const app = express();
 mongoose
    .connect("mongodb://localhost:27017/vidly-app", {
       useNewUrlParser: true,
-      useFindAndModify: false
+      useFindAndModify: false,
+      useCreateIndex: true
    })
    .then(() => console.log("Connected"))
    .catch(err => console.error("Something went wrong!", err));
@@ -40,7 +41,7 @@ app.use('/api/rentals', rentals);
 app.use('/api/users', users);
 
 
-const port = 2911;
+const port = 5000;
 
 app.listen(port, () => {
    console.log(`Listening on port ${port}`);
