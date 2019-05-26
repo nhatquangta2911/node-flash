@@ -43,6 +43,31 @@
      "application/json"
    ],
    "paths": {
+     "/users/page/{page}": {
+      "parameters": [
+        {
+          "name": "page",
+          "in": "path",
+          "required": true,
+          "description": "Get User in system for each page",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get users for each page",
+        "responses": {
+          "200": {
+            "description": "User is found",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+     }
+     },
      "/users/user/{email}": {
       "parameters": [
         {
