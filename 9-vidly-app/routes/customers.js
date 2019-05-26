@@ -38,7 +38,7 @@ router.post('/', async (req, res) => {
 
 //TODO: UPDATE
 router.put('/:id', async (req, res) => {
-   const customer = await Customer.findById(req.params.id);
+   let customer = await Customer.findById(req.params.id);
    if(!customer) return res.status(404).send("NOT FOUND");
    
    try {

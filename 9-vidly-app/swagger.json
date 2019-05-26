@@ -19,6 +19,14 @@
      {
         "name": "Movies",
         "description": "API for movies in the system"
+     },
+     {
+        "name": "Genres",
+        "description": "API for genres in the system"
+     },
+     {
+        "name": "Customers",
+        "description": "API for customers in the system"
      }
    ],
    "schemes": [
@@ -242,7 +250,219 @@
             }
           }
         }
-      }
+      },
+      "/genres": {
+         "post": {
+           "tags": [
+             "Genres"
+           ],
+           "description": "Create new genre in system",
+           "parameters": [
+             {
+               "name": "genre",
+               "in": "body",
+               "description": "Genre that we want to create",
+               "schema": {
+                 "$ref": "#/definitions/Genre"
+               }
+             }
+           ],
+           "produces": [
+             "application/json"
+           ],
+           "responses": {
+             "200": {
+               "description": "New genre is created",
+               "schema": {
+                 "$ref": "#/definitions/Genre"
+               }
+             }
+           }
+         },
+         "get": {
+           "tags": [
+             "Genres"
+           ],
+           "summary": "Get all genres in system",
+           "responses": {
+             "200": {
+               "description": "OK",
+               "schema": {
+                 "$ref": "#/definitions/Genre"
+               }
+             }
+           }
+         }
+       },
+       "/genres/{genreId}": {
+         "parameters": [
+           {
+             "name": "genreId",
+             "in": "path",
+             "required": true,
+             "description": "ID of genre that we want to find",
+             "type": "string"
+           }
+         ],
+         "get": {
+           "tags": [
+             "Genres"
+           ],
+           "summary": "Get genre with given ID",
+           "responses": {
+             "200": {
+               "description": "Genre is found",
+               "schema": {
+                 "$ref": "#/definitions/Genre"
+               }
+             }
+           }
+         },
+         "delete": {
+           "summary": "Delete genre with given ID",
+           "tags": [
+             "Genres"
+           ],
+           "responses": {
+             "200": {
+               "description": "Genre is deleted",
+               "schema": {
+                 "$ref": "#/definitions/Genre"
+               }
+             }
+           }
+         },
+         "put": {
+           "summary": "Update genre with give ID",
+           "tags": [
+             "Genres"
+           ],
+           "parameters": [
+             {
+               "name": "genre",
+               "in": "body",
+               "description": "Gnnre with new values of properties",
+               "schema": {
+                 "$ref": "#/definitions/Genre"
+               }
+             }
+           ],
+           "responses": {
+             "200": {
+               "description": "Genre is updated",
+               "schema": {
+                 "$ref": "#/definitions/Genre"
+               }
+             }
+           }
+         }
+       },
+       "/customers": {
+         "post": {
+           "tags": [
+             "Customers"
+           ],
+           "description": "Create new customer in system",
+           "parameters": [
+             {
+               "name": "customer",
+               "in": "body",
+               "description": "Customer that we want to create",
+               "schema": {
+                 "$ref": "#/definitions/Customer"
+               }
+             }
+           ],
+           "produces": [
+             "application/json"
+           ],
+           "responses": {
+             "200": {
+               "description": "New customer is created",
+               "schema": {
+                 "$ref": "#/definitions/Customer"
+               }
+             }
+           }
+         },
+         "get": {
+           "tags": [
+             "Customers"
+           ],
+           "summary": "Get all customers in system",
+           "responses": {
+             "200": {
+               "description": "OK",
+               "schema": {
+                 "$ref": "#/definitions/Customer"
+               }
+             }
+           }
+         }
+       },
+       "/customers/{customerId}": {
+         "parameters": [
+           {
+             "name": "customerId",
+             "in": "path",
+             "required": true,
+             "description": "ID of customer that we want to find",
+             "type": "string"
+           }
+         ],
+         "get": {
+           "tags": [
+             "Customers"
+           ],
+           "summary": "Get customer with given ID",
+           "responses": {
+             "200": {
+               "description": "Customer is found",
+               "schema": {
+                 "$ref": "#/definitions/Customer"
+               }
+             }
+           }
+         },
+         "delete": {
+           "summary": "Delete customer with given ID",
+           "tags": [
+             "Customers"
+           ],
+           "responses": {
+             "200": {
+               "description": "Customer is deleted",
+               "schema": {
+                 "$ref": "#/definitions/Customer"
+               }
+             }
+           }
+         },
+         "put": {
+           "summary": "Update customer with given ID",
+           "tags": [
+             "Customers"
+           ],
+           "parameters": [
+             {
+               "name": "customer",
+               "in": "body",
+               "description": "Customer with new values of properties",
+               "schema": {
+                 "$ref": "#/definitions/Customer"
+               }
+             }
+           ],
+           "responses": {
+             "200": {
+               "description": "Customer is updated",
+               "schema": {
+                 "$ref": "#/definitions/Customer"
+               }
+             }
+           }
+         }
+       }
    },
     "definitions": {
       "Rental": {
@@ -252,6 +472,14 @@
       "Movie": {
         "type": "array",
         "$ref": "#/definitions/Movie"
+      },
+      "Genre": {
+        "type": "array",
+        "$ref": "#/definitions/Genre"
+      },
+      "Customer": {
+        "type": "array",
+        "$ref": "#/definitions/Customer"
       }
     }
 }
