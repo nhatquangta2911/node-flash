@@ -6,6 +6,7 @@ const customers = require('./routes/customers');
 const movies = require('./routes/movies');
 const rentals = require('./routes/rentals');
 const users = require('./routes/users');
+const auth = require('./routes/auth');
 const morgan = require('morgan');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
@@ -22,14 +23,10 @@ mongoose
    .catch(err => console.error("Something went wrong!", err));
 
 app.use(bodyParser.urlencoded({
-      extended: true
-   }));
+   extended: true
+}));
 app.use(bodyParser.json());
-// app.use( (request, response, next) => {
-//    response.header("Access-Control-Allow-Origin", "*");
-//    response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//    next();
-// });
+
 app.use(express.json());
 app.use(morgan('tiny'));
 app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
@@ -39,6 +36,7 @@ app.use('/api/customers', customers);
 app.use('/api/movies', movies);
 app.use('/api/rentals', rentals);
 app.use('/api/users', users);
+app.use('/api/auth', auth);
 
 
 const port = 2911;

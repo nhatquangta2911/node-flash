@@ -1,0 +1,41 @@
+const mongoose = require('mongoose');
+const Joi = require('joi');
+const express = require('express');
+const router = express.Router();
+const bcrypt = require('bcryptjs');
+const _ = require('lodash');
+const {
+   userSchema
+} = require('../model/user');
+
+const User = mongoose.model('User', userSchema);
+
+router.post('/', async (req, res) => {
+   const {
+      error
+   } = validate(req.body);
+   if (error) return res.status(400).send(error.details[0].message);
+
+   //TODO: Validating email (no matter right or wrong -> tell them 400)
+   let user = await User.findOne({
+      email: req.body.email
+   });
+   if (!user) return res.status(400).send('Invalid email or password.');
+
+   //TODO: Validating password
+   const validPassword = bcrypt.compareSync(req.body.password, user.password);
+   if (!validPassword) return res.status(400).send('Invalid password');
+   //TODO: Valid Login -> send true for client
+   res.send(true);
+   
+});
+
+const validate = (req) => {
+   const schema = {
+      email: Joi.string().min(5).max(255).required().email(),
+      password: Joi.string().min(5).max(255).required()
+   };
+   return Joi.validate(req, schema);
+}
+
+module.exports = router;

@@ -31,6 +31,10 @@
      {
         "name": "Users",
         "description": "API for users in the system"
+     },
+     {
+      "name": "Auth",
+      "description": "API for login in the system"
      }
    ],
    "schemes": [
@@ -43,6 +47,35 @@
      "application/json"
    ],
    "paths": {
+     "/auth": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "description": "Login to the system",
+        "parameters": [
+          {
+            "name": "auth",
+            "in": "body",
+            "description": "Whether success or fail",
+            "schema": {
+              "$ref": "#/definitions/Auth"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Login successfully",
+            "schema": {
+              "$ref": "#/definitions/Auth"
+            }
+          }
+        }
+     }
+    },
      "/users/page/{page}": {
       "parameters": [
         {
@@ -622,6 +655,10 @@
       "User": {
         "type": "array",
         "$ref": "#/definitions/User"
+      },
+      "Auth": {
+        "type": "array",
+        "$ref": "#/definitions/Auth"
       }
     }
 }
