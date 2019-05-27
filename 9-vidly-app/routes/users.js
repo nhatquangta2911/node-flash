@@ -25,21 +25,22 @@ router.get('/page/:page', async (req, res) => {
       .find()
       .sort('-name')
       .skip((req.params.page - 1) * pageSize)
-      .select('_id name email')
+      .select('_id name email password')
       .limit(pageSize);
-   res.send(users);
+   res.send(users); 
 });
 
 //TODO: REGISTER
 router.post('/', async (req, res) => {
-   const checkUser = await User.findOne({email: req.body.email});
-   if(checkUser) return res.status(400).send('User is already exist') 
-   const user = new User(_.pick(req.body, ['name', 'email', 'password']));
-   const salt = await bcrypt.genSalt(10);
-   user.password = await bcrypt.hash(user.password, salt);
+   let user = await User.findOne({email: req.body.email});
+   if(user) return res.status(400).send('User is already exist') 
+   user = new User(_.pick(req.body, ['name', 'email', 'password']));
+   const salt =  bcrypt.genSaltSync(10);
+   user.password = bcrypt.hashSync(user.password, salt);
     try {     
-      await user.save();
-      res.send(_.pick(user, ['_id', 'name', 'email']));
+      const result = await user.save();
+      // res.send(_.pick(user, ['_id', 'name', 'email', 'password']));
+      res.send(result);
     } catch (ex) {
        let errorMessage = '';
        for(field in ex.errors) {
