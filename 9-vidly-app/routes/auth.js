@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
+const config = require('config');
 const Joi = require('joi');
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const _ = require('lodash');
 const {
    userSchema
@@ -22,11 +24,18 @@ router.post('/', async (req, res) => {
    });
    if (!user) return res.status(400).send('Invalid email or password.');
 
-   //TODO: Validating password
-   const validPassword = bcrypt.compareSync(req.body.password, user.password);
+   //TODO: Validating  password
+   const validPassword = await bcrypt.compare(req.body.password, user.password);
    if (!validPassword) return res.status(400).send('Invalid password');
    //TODO: Valid Login -> send true for client
-   res.send(true);
+   //TODO: Create new JWT
+
+   const token = jwt.sign(
+      { _id: user._id }, //TODO: payload
+      config.get('jwtPrivateKey') // digital signature
+   );
+
+   res.send(token);
    
 });
 
