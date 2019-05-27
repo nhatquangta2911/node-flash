@@ -14,10 +14,10 @@ const swaggerDocument = require('./swagger.json');
 const bodyParser = require('body-parser');
 const app = express();
 
-// if(!config.get('jwtPrivateKey')) {
-//    console.error('FATAL ERROR: jwtPrivateKey is not defined.');
-//    process.exit(1); // = 0: success
-// }
+if(!config.get('jwtPrivateKey')) {
+   console.error('FATAL ERROR: jwtPrivateKey is not defined.');
+   process.exit(1); // = 0: success
+}
 
 mongoose
    .connect("mongodb://localhost:27017/vidly-app", {
