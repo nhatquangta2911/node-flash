@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const config = require('config');
 const Joi = require('joi');
 const express = require('express');
 const router = express.Router();
@@ -31,7 +32,7 @@ router.post('/', async (req, res) => {
 
    const token = jwt.sign(
       { _id: user._id }, //TODO: payload
-      'jwtPrivateKeyNeedToStoreInEnvVar' // digital signature
+      config.get('jwtPrivateKey') // digital signature
    );
 
    res.send(token);
