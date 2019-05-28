@@ -9,7 +9,7 @@
        "url": "https://opensource.org/licenses/MIT"
      }
    },
-   "host": "localhost:2911",
+   "host": "shawn-movie-rental.herokuapp.com",
    "basePath": "/api/",
    "tags": [
      {
