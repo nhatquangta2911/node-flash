@@ -8,6 +8,7 @@ const {
 } = require('../model/user');
 const config = require('config');
 const jwt = require('jsonwebtoken');
+const Joi = require('joi');
 
 const User = mongoose.model('User', userSchema);
 const pageSize = 2;
@@ -60,7 +61,7 @@ router.post('/', async (req, res) => {
       })
       const validate = (req) => {
          const schema = {
-            name: Joi.String().min(5).max(255).required(),
+            name: Joi.string().min(5).max(255).required(),
             email: Joi.string().min(5).max(255).required().email(),
             password: Joi.string().min(5).max(255).required()
          };

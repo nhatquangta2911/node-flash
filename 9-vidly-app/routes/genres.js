@@ -3,6 +3,7 @@ const Joi = require("joi");
 const mongoose = require("mongoose");
 const router = express.Router();
 const {genreSchema} = require('../model/genre');
+const auth = require('../middleware/auth');
 
 const Genre = mongoose.model("genres", genreSchema);
 const pageSize = 5;
@@ -72,7 +73,8 @@ router.get("/page/:page", async (req, res) => {
 });
 
 //TODO: POST
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => {
+
    const result = await createGenre(req.body.name);
    if (result && result.errors) {
       let errorMessage = "";
