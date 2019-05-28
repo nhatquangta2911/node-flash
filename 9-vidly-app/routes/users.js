@@ -48,7 +48,7 @@ router.post('/', async (req, res) => {
       email: req.body.email
    });
    if (user) return res.status(400).send('User is already exist')
-   user = new User(_.pick(req.body, ['name', 'email', 'password']));
+   user = new User(_.pick(req.body, ['name', 'email', 'password', 'isAdmin']));
    const salt = await bcrypt.genSalt(10);
    user.password = await bcrypt.hash(user.password, salt);
    const result = await user.save();
@@ -68,7 +68,7 @@ const validate = (req) => {
       name: Joi.string().min(5).max(255).required(),
       email: Joi.string().min(5).max(255).required().email(),
       password: Joi.string().min(5).max(255).required(),
-      isAdmin: Joi.required()
+      isAdmin: Joi.boolean()
    };
    return Joi.validate(req, schema);
 }
