@@ -14,19 +14,21 @@ const swaggerDocument = require('./swagger.json');
 const bodyParser = require('body-parser');
 const app = express();
 
+require('./startup/prod')(app);
+
 if(!config.get('jwtPrivateKey')) {
    console.error('FATAL ERROR: jwtPrivateKey is not defined.');
    process.exit(1); // = 0: success
 }
 
 mongoose
-   .connect("mongodb://localhost:27017/vidly-app", {
+   .connect(config.get('db'), {
       useNewUrlParser: true,
       useFindAndModify: false,
       useCreateIndex: true
    })
-   .then(() => console.log("Connected"))
-   .catch(err => console.error("Something went wrong!", err));
+   .then(() => console.log("Connected", config.get('db')))
+   .catch(err => console.error("Something went wrong!", config.get('db'), err));
 
 app.use(bodyParser.urlencoded({
    extended: true
@@ -47,6 +49,6 @@ app.use('/api/auth', auth);
 
 const port = 2911;
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
    console.log(`Listening on port ${port}`);
 });
