@@ -3,6 +3,8 @@ const Joi = require("joi");
 const mongoose = require("mongoose");
 const router = express.Router();
 const {genreSchema} = require('../model/genre');
+const auth = require('../middleware/auth');
+const admin = require('../middleware/admin');
 
 const Genre = mongoose.model("genres", genreSchema);
 const pageSize = 5;
@@ -56,7 +58,7 @@ router.get("/", async (req, res) => {
    res.send(genres);
 });
 
-router.get("/gene/:name", async (req, res) => {
+router.get("/genre/:name", async (req, res) => {
    const genre = await getGenresByName(req.params.name);
    if (genre.length === 0) return res.status(404).send("Not Found");
    res.send(genre);
@@ -72,7 +74,8 @@ router.get("/page/:page", async (req, res) => {
 });
 
 //TODO: POST
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => {
+
    const result = await createGenre(req.body.name);
    if (result && result.errors) {
       let errorMessage = "";
@@ -86,7 +89,7 @@ router.post("/", async (req, res) => {
 });
 
 //TODO: UPDATE
-router.put("/:name", async (req, res) => {
+router.put("/:name", auth, async (req, res) => {
    const result = await updateGenreByName(req.params.name, req.body.name);
    if(!result) return res.status(404).send("Not Found");
    if(result && result.errors) {
@@ -100,7 +103,7 @@ router.put("/:name", async (req, res) => {
 });
 
 //TODO: DELETE
-router.delete("/:name", async (req, res) => {
+router.delete("/:name", [auth, admin], async (req, res) => {
    const result = await removeGenreByName(req.params.name);
    if (result.deletedCount === 0) return res.status(404).send("Not Found");
    res.send(result);

@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const router = express.Router();
 const { genreSchema } = require("./genres");
 const { movieSchema } = require("../model/movie");
+const auth = require('../middleware/auth');
 
 const Movie = mongoose.model("Movie", movieSchema);
 const Genre = mongoose.model("Genre", genreSchema);
@@ -56,7 +57,7 @@ router.get("/best3", async (req, res) => {
 });
 
 //TODO: POST
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => {
    const movie = new Movie({
       title: req.body.title,
       genres: req.body.genres,
@@ -76,14 +77,14 @@ router.post("/", async (req, res) => {
 });
 
 //TODO: DELETE
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", auth, async (req, res) => {
    const result = await Movie.findByIdAndRemove(req.params.id);
    if (result.deleteCount === 0) return res.status(404).send("NOT FOUND");
    res.send(result);
 });
 
 //TODO: UPDATE
-router.put("/:id", async (req, res) => {
+router.put("/:id", auth, async (req, res) => {
    const movie = await Movie.findOne({ _id: req.params.id });
    if (!movie) {
       return res.status(404).send("NOT FOUND");
