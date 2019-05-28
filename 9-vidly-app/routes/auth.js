@@ -30,11 +30,7 @@ router.post('/', async (req, res) => {
    //TODO: Valid Login -> send true for client
    //TODO: Create new JWT
 
-   const token = jwt.sign(
-      { _id: user._id, isAdmin: user.isAdmin }, //TODO: payload
-      config.get('jwtPrivateKey') // digital signature
-   );
-
+   const token = user.generateAuthToken();
    res.send(token);
    
 });

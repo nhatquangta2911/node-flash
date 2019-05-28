@@ -1,4 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+const jwt = require("jsonwebtoken");
+const config = require('config');
 
 const userSchema = new mongoose.Schema({
    name: {
@@ -12,8 +14,8 @@ const userSchema = new mongoose.Schema({
       type: String,
       unique: true,
       required: true,
-      maxlength: 255,
-      match: /[a-z0-9]{3,15}\.*[a-z0-9]{3,15}@[a-z]{2,}(\.[a-z]{1,}){1,3}/g
+      maxlength: 255
+      // match: /[a-z0-9]{3,15}\.*[a-z0-9]{3,15}@[a-z]{2,}(\.[a-z]{1,}){1,3}/g
    },
    password: {
       type: String,
@@ -24,5 +26,12 @@ const userSchema = new mongoose.Schema({
    isAdmin: Boolean
 });
 
+userSchema.methods.generateAuthToken = function() {
+   const token = jwt.sign(
+      { _id: this._id }, //TODO: payload
+      config.get("jwtPrivateKey") // digital signature
+   );
+   return token;
+};
 
 module.exports.userSchema = userSchema;
