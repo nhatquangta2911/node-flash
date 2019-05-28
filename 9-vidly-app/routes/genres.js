@@ -57,7 +57,7 @@ router.get("/", async (req, res) => {
    res.send(genres);
 });
 
-router.get("/gene/:name", async (req, res) => {
+router.get("/genre/:name", async (req, res) => {
    const genre = await getGenresByName(req.params.name);
    if (genre.length === 0) return res.status(404).send("Not Found");
    res.send(genre);
@@ -88,7 +88,7 @@ router.post("/", auth, async (req, res) => {
 });
 
 //TODO: UPDATE
-router.put("/:name", async (req, res) => {
+router.put("/:name", auth, async (req, res) => {
    const result = await updateGenreByName(req.params.name, req.body.name);
    if(!result) return res.status(404).send("Not Found");
    if(result && result.errors) {
@@ -102,7 +102,7 @@ router.put("/:name", async (req, res) => {
 });
 
 //TODO: DELETE
-router.delete("/:name", async (req, res) => {
+router.delete("/:name", auth, async (req, res) => {
    const result = await removeGenreByName(req.params.name);
    if (result.deletedCount === 0) return res.status(404).send("Not Found");
    res.send(result);
