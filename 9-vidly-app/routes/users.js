@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
 router.get('/user/:email', async (req, res) => {
    const user = await User.findOne({
       email: req.params.email
-   }).select("name email");
+   }).select("name email isAdmin");
    if (!user) return res.status(404).send('Username is not exist');
    res.send(user);
 });
@@ -38,7 +38,7 @@ router.get('/page/:page', async (req, res) => {
 });
 
 //TODO: REGISTER
-router.post('/', auth, async (req, res) => {
+router.post('/', async (req, res) => {
    const {
       error
    } = validate(req.body);
@@ -54,7 +54,8 @@ router.post('/', auth, async (req, res) => {
    const result = await user.save();
    // res.send(_.pick(user, ['_id', 'name', 'email', 'password']));
    const token = jwt.sign({
-         _id: user._id
+         _id: user._id,
+         isAdmin: user.isAdmin
       }, //TODO: payload
       config.get('jwtPrivateKey') // digital signature
    );
@@ -66,7 +67,8 @@ const validate = (req) => {
    const schema = {
       name: Joi.string().min(5).max(255).required(),
       email: Joi.string().min(5).max(255).required().email(),
-      password: Joi.string().min(5).max(255).required()
+      password: Joi.string().min(5).max(255).required(),
+      isAdmin: Joi.required()
    };
    return Joi.validate(req, schema);
 }

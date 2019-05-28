@@ -438,7 +438,30 @@
                }
              }
            }
-         }
+         },
+         "delete": {
+          "parameters": [
+            {
+              "name": "genreName",
+              "in": "path",
+              "required": true,
+              "description": "ID of genre that we want to find",
+              "type": "string"
+            }
+          ],
+          "summary": "Delete genre with given ID",
+          "tags": [
+            "Genres"
+          ],
+          "responses": {
+            "200": {
+              "description": "Genre is deleted",
+              "schema": {
+                "$ref": "#/definitions/Genre"
+              }
+            }
+          }
+        }
        },
        "/genres/page/{pageNumber}": {
         "parameters": [
@@ -483,20 +506,6 @@
            "responses": {
              "200": {
                "description": "Genre is found",
-               "schema": {
-                 "$ref": "#/definitions/Genre"
-               }
-             }
-           }
-         },
-         "delete": {
-           "summary": "Delete genre with given ID",
-           "tags": [
-             "Genres"
-           ],
-           "responses": {
-             "200": {
-               "description": "Genre is deleted",
                "schema": {
                  "$ref": "#/definitions/Genre"
                }
