@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 const {customerSchema} = require('../model/customer');
+const auth = require('../middleware/auth');
 
 const Customer = mongoose.model('customers', customerSchema);
 
@@ -18,7 +19,7 @@ router.get('/:id', async (req, res) => {
 });
 
 //TODO: POST
-router.post('/', async (req, res) => {
+router.post('/', auth, async (req, res) => {
    let customer = new Customer({
       isGold: req.body.isGold,
       name: req.body.name,
@@ -31,13 +32,13 @@ router.post('/', async (req, res) => {
       let errorMessage = "";
       for (field in ex.errors) {
          errorMessage += ex.errors[field].message + '\n';
-      }
+      }  
       res.status(400).send(errorMessage);
    }
 });
 
 //TODO: UPDATE
-router.put('/:id', async (req, res) => {
+router.put('/:id', auth, async (req, res) => {
    let customer = await Customer.findById(req.params.id);
    if(!customer) return res.status(404).send("NOT FOUND");
    
@@ -57,7 +58,7 @@ router.put('/:id', async (req, res) => {
 });
 
 //TODO: DELETE
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', auth, async (req, res) => {
    const result = await Customer.findByIdAndDelete(req.params.id);
    if(!result) return res.status(404).send("NOT FOUND");
    res.send(result);

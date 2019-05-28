@@ -5,7 +5,7 @@ const Fawn = require("fawn");
 const { rentalSchema } = require("../model/rental");
 const { movieSchema } = require("../model/movie");
 const { customerSchema } = require("../model/customer");
-
+const auth = require('../middleware/auth');
 const Movie = mongoose.model("Movie", movieSchema);
 const Customer = mongoose.model("Customer", customerSchema);
 const Rental = mongoose.model("Rental", rentalSchema);
@@ -25,7 +25,7 @@ router.get("/:id", async (req, res) => {
 });
 
 //TODO: POST
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => {
    //TODO: Validate ObjectID
    if(!mongoose.Types.ObjectId.isValid(req.body.customerId)) 
       return res.status(400).send("Invalid Customer");
@@ -70,7 +70,7 @@ router.post("/", async (req, res) => {
 });
 
 // TODO: UPDATE
-router.put("/:id", async (req, res) => {
+router.put("/:id", auth, async (req, res) => {
    let rental = await Rental.findById(req.params.id);
    if (!rental) return res.status(404).send("NOT FOUND");
    const customer = await Customer.findById(req.body.customerId);
@@ -105,7 +105,7 @@ router.put("/:id", async (req, res) => {
 });
 
 //TODO: DELETE
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", auth, async (req, res) => {
    const result = await Rental.findByIdAndRemove(req.params.id);
    if (result.deleteCount === 0) return res.status(404).send("NOT FOUND");
    res.send(result);
