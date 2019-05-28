@@ -6,6 +6,7 @@ const router = express.Router();
 const { userSchema } = require("../model/user");
 const config = require("config");
 const jwt = require("jsonwebtoken");
+const Joi = require('joi');
 
 const User = mongoose.model("User", userSchema);
 const pageSize = 2;
@@ -49,18 +50,13 @@ router.post("/", async (req, res) => {
    user.password = await bcrypt.hash(user.password, salt);
    const result = await user.save();
    // res.send(_.pick(user, ['_id', 'name', 'email', 'password']));
-   const token = jwt.sign(
-      {
-         _id: user._id
-      }, //TODO: payload
-      config.get("jwtPrivateKey") // digital signature
-   );
+   const token = user.generateAuthToken();
    //TODO: Send token via res header
    res.header("x-auth-token", token).send(result);
 });
 const validate = req => {
    const schema = {
-      name: Joi.String()
+      name: Joi.string()
          .min(5)
          .max(255)
          .required(),
