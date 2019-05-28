@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const router = express.Router();
 const {genreSchema} = require('../model/genre');
 const auth = require('../middleware/auth');
+const admin = require('../middleware/admin');
 
 const Genre = mongoose.model("genres", genreSchema);
 const pageSize = 5;
@@ -102,7 +103,7 @@ router.put("/:name", auth, async (req, res) => {
 });
 
 //TODO: DELETE
-router.delete("/:name", auth, async (req, res) => {
+router.delete("/:name", [auth, admin], async (req, res) => {
    const result = await removeGenreByName(req.params.name);
    if (result.deletedCount === 0) return res.status(404).send("Not Found");
    res.send(result);

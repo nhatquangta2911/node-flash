@@ -31,7 +31,7 @@ router.post('/', async (req, res) => {
    //TODO: Create new JWT
 
    const token = jwt.sign(
-      { _id: user._id }, //TODO: payload
+      { _id: user._id, isAdmin: user.isAdmin }, //TODO: payload
       config.get('jwtPrivateKey') // digital signature
    );
 
