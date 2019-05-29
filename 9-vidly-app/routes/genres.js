@@ -53,6 +53,7 @@ const updateGenreByName = async (name, updatedName) => {
 };
 
 //TODO: GET
+
 router.get("/", async (req, res) => {
    const genres = await getAllGenres();
    res.send(genres);
@@ -71,6 +72,15 @@ router.get("/page/:page", async (req, res) => {
       .sort("name")
       .limit(pageSize);
    res.send(genres);
+});
+
+//TODO: SEARCH by name
+router.get('/:query/search', async (req, res) => {
+   const regexp = new RegExp(req.params.query, 'i');
+   const genres = await Genre
+      .find({name: regexp})
+      .sort("name");
+   res.send(genres); 
 });
 
 //TODO: POST

@@ -524,6 +524,31 @@
           }
        }
       },
+      "/genres/{query}/search": {
+        "parameters": [
+          {
+            "name": "query",
+            "in": "path",
+            "required": true,
+            "description": "Search genre",
+            "type": "string"
+          }
+        ],
+        "get": {
+          "tags": [
+            "Genres"
+          ],
+          "summary": "Get genre",
+          "responses": {
+            "200": {
+              "description": "Genres is found",
+              "schema": {
+                "$ref": "#/definitions/Genre"
+              }
+            }
+          }
+       }
+      },
        "/genres/genre/{genreId}": {
          "parameters": [
            {
@@ -704,6 +729,10 @@
       "Auth": {
         "type": "array",
         "$ref": "#/definitions/Auth"
+      },
+      "Stats": {
+        "type": "array",
+        "$ref": "#/definitions/Stats"
       }
     }
 }
