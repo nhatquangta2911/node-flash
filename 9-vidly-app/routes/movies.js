@@ -56,6 +56,14 @@ router.get("/best3", async (req, res) => {
       }
 });
 
+router.get('/:query/search', async (req, res) => {
+   const regexp = new RegExp(req.params.query, 'i');
+   const movies = await Movie
+      .find({title: regexp})
+      .sort('title');
+   res.send(movies);
+});
+
 //TODO: POST
 router.post("/", auth, async (req, res) => {
    const movie = new Movie({
