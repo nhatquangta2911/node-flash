@@ -8,6 +8,7 @@ const movies = require('./routes/movies');
 const rentals = require('./routes/rentals');
 const users = require('./routes/users');
 const auth = require('./routes/auth');
+const stats = require('./routes/stats');
 const morgan = require('morgan');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
@@ -27,8 +28,8 @@ mongoose
       useFindAndModify: false,
       useCreateIndex: true
    })
-   .then(() => console.log("Connected", config.get('db')))
-   .catch(err => console.error("Something went wrong!", config.get('db'), err));
+   .then(() => console.log("Connected"))
+   .catch(err => console.error("Something went wrong!", err));
 
 app.use(bodyParser.urlencoded({
    extended: true
@@ -45,7 +46,7 @@ app.use('/api/movies', movies);
 app.use('/api/rentals', rentals);
 app.use('/api/users', users);
 app.use('/api/auth', auth); 
-
+app.use('/api/stats', stats);
 
 const port = 2911;
 
