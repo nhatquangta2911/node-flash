@@ -75,7 +75,7 @@ router.get("/page/:page", async (req, res) => {
 });
 
 //TODO: SEARCH by name
-router.get('/genre/:query/search', async (req, res) => {
+router.get('/:query/search', async (req, res) => {
    const regexp = new RegExp(req.params.query, 'i');
    const genres = await Genre
       .find({name: regexp})
