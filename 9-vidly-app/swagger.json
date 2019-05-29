@@ -35,6 +35,10 @@
      {
       "name": "Auth",
       "description": "API for login in the system"
+     },
+     {
+      "name": "Stats",
+      "description": "API for stats in the system"
      }
    ],
    "schemes": [
@@ -47,6 +51,22 @@
      "application/json"
    ],
    "paths": {
+     "/stats/rentals/recent": {
+      "get": {
+        "tags": [
+          "Stats"
+        ],
+        "summary": "Get stats for each page",
+        "responses": {
+          "200": {
+            "description": "Stats is found",
+            "schema": {
+              "$ref": "#/definitions/Stats"
+            }
+          }
+        }
+      }
+     },
      "/auth": {
       "post": {
         "tags": [
