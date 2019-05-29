@@ -354,6 +354,31 @@
           }
         }
       },
+      "/movies/{query}/search": {
+        "parameters": [
+          {
+            "name": "query",
+            "in": "path",
+            "required": true,
+            "description": "Search movie",
+            "type": "string"
+          }
+        ],
+        "get": {
+          "tags": [
+            "Movies"
+          ],
+          "summary": "Search movies",
+          "responses": {
+            "200": {
+              "description": "Movies is found",
+              "schema": {
+                "$ref": "#/definitions/Movie"
+              }
+            }
+          }
+       }
+      },
       "/movies/best3": {
         "get": {
           "tags": [
