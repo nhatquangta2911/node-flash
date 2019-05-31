@@ -13,11 +13,12 @@ const morgan = require('morgan');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const app = express();
 
 require('./startup/prod')(app);
 
-if(!config.get('jwtPrivateKey')) {
+if (!config.get('jwtPrivateKey')) {
    console.error('FATAL ERROR: jwtPrivateKey is not defined.');
    process.exit(1); // = 0: success
 }
@@ -31,6 +32,18 @@ mongoose
    .then(() => console.log("Connected"))
    .catch(err => console.error("Something went wrong!", err));
 
+app.use(cors({
+   origin: '*',
+   credentials: true
+}));
+
+// app.use(function (req, res, next) {
+//    res.header("Access-Control-Allow-Origin", "http://192.168.21.1:8080");
+//    res.header('Access-Control-Allow-Methods', 'DELETE, PUT, GET, POST');
+//    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//    next();
+// });
+
 app.use(bodyParser.urlencoded({
    extended: true
 }));
@@ -42,10 +55,10 @@ app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/', home);
 app.use('/api/genres', genres);
 app.use('/api/customers', customers);
-app.use('/api/movies', movies);
+app.use('/api/movies', movies)
 app.use('/api/rentals', rentals);
 app.use('/api/users', users);
-app.use('/api/auth', auth); 
+app.use('/api/auth', auth);
 app.use('/api/stats', stats);
 
 const port = 2911;
