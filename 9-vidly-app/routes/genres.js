@@ -5,6 +5,7 @@ const router = express.Router();
 const { genreSchema } = require("../model/genre");
 const auth = require("../middleware/auth");
 const admin = require("../middleware/admin");
+const asyncMiddleware = require('../middleware/async');
 
 const Genre = mongoose.model("genres", genreSchema);
 const pageSize = 5;
@@ -54,15 +55,12 @@ const updateGenreByName = async (name, updatedName) => {
 
 //TODO: GET
 
-router.get("/", async (req, res, next) => {
-   try {
+router.get("/", asyncMiddleware(async (req, res) => {
+   //TODO: 2. Log the exception on the Server 
       const genres = await getAllGenres();
       res.send(genres);
-   } catch (ex) {
-      next(ex);
-      //TODO: 2. Log the exception on the Server 
    }
-});
+));
 
 router.get("/genre/:name", async (req, res) => {
    const genre = await getGenresByName(req.params.name);
@@ -85,7 +83,7 @@ router.get("/:query/search", async (req, res) => {
    res.send(genres);
 });
 
-//TODO: POST
+//TODO: POST    
 router.post("/", auth, async (req, res) => {
    const result = await createGenre(req.body.name);
    if (result && result.errors) {
