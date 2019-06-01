@@ -16,7 +16,7 @@ const cardSchema = new mongoose.Schema({
    image: {
       type: String,
       default: 'https://is5-ssl.mzstatic.com/image/thumb/Purple114/v4/cb/54/11/cb541151-1428-c3b6-1cfd-38d18a123c20/AppIcon-0-1x_U007emarketing-0-0-85-220-0-6.png/1200x630wa.png',
-      match: /(jpg|png)$/i
+      match: /(jpg|png|gif)$/i
    },
    example: {
       type: String,

@@ -62,29 +62,6 @@
                }
             }
          },
-      "/cards/card/{cardId}": {
-         "parameters": [
-            {
-               "name": "cardId",
-               "in": "path",
-               "required": true,
-               "description": "Get random card in system",
-               "type": "string"
-            }
-         ],
-         "get": {
-            "tags": ["Cards"],
-            "summary": "Get cards for each page",
-            "responses": {
-               "200": {
-                  "description": "Card is found",
-                  "schema": {
-                     "$ref": "#/definitions/Card"
-                  }
-               }
-            }
-         }
-      },
          "post": {
             "tags": ["Cards"],
             "description": "Create new card in system",
@@ -102,6 +79,43 @@
             "responses": {
                "200": {
                   "description": "New card is created",
+                  "schema": {
+                     "$ref": "#/definitions/Card"
+                  }
+               }
+            }
+         }
+      },
+      "/cards/random": {
+         "get": {
+            "tags": ["Cards"],
+            "summary": "Get random card",
+            "responses": {
+               "200": {
+                  "description": "Card is found",
+                  "schema": {
+                     "$ref": "#/definitions/Card"
+                  }
+               }
+            }
+         }
+      },
+      "/cards/card/{cardId}": {
+         "parameters": [
+            {
+               "name": "cardId",
+               "in": "path",
+               "required": true,
+               "description": "Get random card in system",
+               "type": "string"
+            }
+         ],
+         "get": {
+            "tags": ["Cards"],
+            "summary": "Get cards for each page",
+            "responses": {
+               "200": {
+                  "description": "Card is found",
                   "schema": {
                      "$ref": "#/definitions/Card"
                   }
