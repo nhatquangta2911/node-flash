@@ -8,14 +8,16 @@ const logger = winston.createLogger({
       new winston.transports.MongoDB({ db: 'mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true', level: 'error' }),
       new winston.transports.File({ filename: 'error.log', level: 'error' }),
       new winston.transports.File({ filename: 'combined.log' }),
-   ],
-   // exceptionHandlers: new winston.transports.File({ filename: 'uncaughtExceptions.log' })
+      // new winston.transports.Console({colorize: true, prettyPrint: true}),
+   ]
 });
 
 if(process.env.NODE_ENV !== 'production') {
    logger.add(new winston.transports.Console({
-      format: winston.format.simple()
-   }));
+      format: winston.format.combine(
+         winston.format.simple()
+      ),
+   }));  
    logger.add(new winston.transports.File({
       filename: 'error.log', level: 'error'
    }));
