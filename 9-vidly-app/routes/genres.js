@@ -57,7 +57,6 @@ const updateGenreByName = async (name, updatedName) => {
 
 router.get("/", async (req, res) => {
    //TODO: 2. Log the exception on the Server 
-      throw new Error('Could not get the genres.');
       const genres = await getAllGenres();
       res.send(genres);
    }
