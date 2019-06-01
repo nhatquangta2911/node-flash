@@ -1,763 +1,765 @@
 {
    "swagger": "2.0",
    "info": {
-     "version": "1.0.0",
-     "title": "Movie Rental App",
-     "description": "Demo Swagger For NodeJS Application",
-     "license": {
-       "name": "MIT",
-       "url": "https://opensource.org/licenses/MIT"
-     }
+      "version": "1.0.0",
+      "title": "Movie Rental App",
+      "description": "Demo Swagger For NodeJS Application",
+      "license": {
+         "name": "MIT",
+         "url": "https://opensource.org/licenses/MIT"
+      }
    },
    "host": "shawn-movie-rental.herokuapp.com",
    "basePath": "/api/",
    "tags": [
-     {
-       "name": "Rentals",
-       "description": "API for rentals in the system"
-     },
-     {
-        "name": "Movies",
-        "description": "API for movies in the system"
-     },
-     {
-        "name": "Genres",
-        "description": "API for genres in the system"
-     },
-     {
-        "name": "Customers",
-        "description": "API for customers in the system"
-     },
-     {
-        "name": "Users",
-        "description": "API for users in the system"
-     },
-     {
-      "name": "Auth",
-      "description": "API for login in the system"
-     },
-     {
-      "name": "Stats",
-      "description": "API for stats in the system"
-     }
-   ],
-   "schemes": [
-     "https"
-   ],
-   "consumes": [
-     "application/json"
-   ],
-   "produces": [
-     "application/json"
-   ],
-   "paths": {
-    "/stats/genres/randoms": {
-      "get": {
-        "tags": [
-          "Stats"
-        ],
-        "summary": "Get stats for each page",
-        "responses": {
-          "200": {
-            "description": "Stats is found",
-            "schema": {
-              "$ref": "#/definitions/Stats"
-            }
-          }
-        }
-      }
-     },
-     "/stats/rentals/recent": {
-      "get": {
-        "tags": [
-          "Stats"
-        ],
-        "summary": "Get stats for each page",
-        "responses": {
-          "200": {
-            "description": "Stats is found",
-            "schema": {
-              "$ref": "#/definitions/Stats"
-            }
-          }
-        }
-      }
-     },
-     "/auth": {
-      "post": {
-        "tags": [
-          "Auth"
-        ],
-        "description": "Login to the system",
-        "parameters": [
-          {
-            "name": "auth",
-            "in": "body",
-            "description": "Whether success or fail",
-            "schema": {
-              "$ref": "#/definitions/Auth"
-            }
-          }
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "Login successfully",
-            "schema": {
-              "$ref": "#/definitions/Auth"
-            }
-          }
-        }
-     }
-    },
-     "/users/page/{page}": {
-      "parameters": [
-        {
-          "name": "page",
-          "in": "path",
-          "required": true,
-          "description": "Get User in system for each page",
-          "type": "string"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Users"
-        ],
-        "summary": "Get users for each page",
-        "responses": {
-          "200": {
-            "description": "User is found",
-            "schema": {
-              "$ref": "#/definitions/User"
-            }
-          }
-        }
-     }
-     },
-     "/users/user/{email}": {
-      "parameters": [
-        {
-          "name": "email",
-          "in": "path",
-          "required": true,
-          "description": "Get User in system",
-          "type": "string"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Users"
-        ],
-        "summary": "Get user with given email",
-        "responses": {
-          "200": {
-            "description": "User is found",
-            "schema": {
-              "$ref": "#/definitions/User"
-            }
-          }
-        }
-     }
-    },
-     "/users": {
-      "post": {
-        "tags": [
-          "Users"
-        ],
-        "description": "Register new user in system",
-        "parameters": [
-          {
-            "name": "user",
-            "in": "body",
-            "description": "User that we want to create",
-            "schema": {
-              "$ref": "#/definitions/User"
-            }
-          }
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "New user is created",
-            "schema": {
-              "$ref": "#/definitions/User"
-            }
-          }
-        }
+      {
+         "name": "Cards",
+         "description": "API for cards in the system"
       },
-      "get": {
-        "tags": [
-          "Users"
-        ],
-        "summary": "Get all users in system",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/User"
-            }
-          }
-        }
+      {
+         "name": "Rentals",
+         "description": "API for rentals in the system"
+      },
+      {
+         "name": "Movies",
+         "description": "API for movies in the system"
+      },
+      {
+         "name": "Genres",
+         "description": "API for genres in the system"
+      },
+      {
+         "name": "Customers",
+         "description": "API for customers in the system"
+      },
+      {
+         "name": "Users",
+         "description": "API for users in the system"
+      },
+      {
+         "name": "Auth",
+         "description": "API for login in the system"
+      },
+      {
+         "name": "Stats",
+         "description": "API for stats in the system"
       }
-     },
-     "/rentals": {
-       "post": {
-         "tags": [
-           "Rentals"
-         ],
-         "description": "Create new rental in system",
+   ],
+   "schemes": ["https"],
+   "consumes": ["application/json"],
+   "produces": ["application/json"],
+   "paths": {
+      "/cards": {
+         "get": {
+            "tags": ["Cards"],
+            "summary": "Get cards for each page",
+            "responses": {
+               "200": {
+                  "description": "Cards is found",
+                  "schema": {
+                     "$ref": "#/definitions/Card"
+                  }
+               }
+            }
+         },
+         "post": {
+            "tags": ["Cards"],
+            "description": "Create new card in system",
+            "parameters": [
+               {
+                  "name": "card",
+                  "in": "body",
+                  "description": "Card that we want to create",
+                  "schema": {
+                     "$ref": "#/definitions/Card"
+                  }
+               }
+            ],
+            "produces": ["application/json"],
+            "responses": {
+               "200": {
+                  "description": "New card is created",
+                  "schema": {
+                     "$ref": "#/definitions/Card"
+                  }
+               }
+            }
+         }
+      },
+      "/cards/random": {
+         "get": {
+            "tags": ["Cards"],
+            "summary": "Get random card",
+            "responses": {
+               "200": {
+                  "description": "Card is found",
+                  "schema": {
+                     "$ref": "#/definitions/Card"
+                  }
+               }
+            }
+         }
+      },
+      "/cards/card/{cardId}": {
          "parameters": [
-           {
-             "name": "rental",
-             "in": "body",
-             "description": "Rental that we want to create",
-             "schema": {
-               "$ref": "#/definitions/Rental"
-             }
-           }
-         ],
-         "produces": [
-           "application/json"
-         ],
-         "responses": {
-           "200": {
-             "description": "New rental is created",
-             "schema": {
-               "$ref": "#/definitions/Rental"
-             }
-           }
-         }
-       },
-       "get": {
-         "tags": [
-           "Rentals"
-         ],
-         "summary": "Get all rentals in system",
-         "responses": {
-           "200": {
-             "description": "OK",
-             "schema": {
-               "$ref": "#/definitions/Rental"
-             }
-           }
-         }
-       }
-     },
-     "/rentals/{rentalId}": {
-       "parameters": [
-         {
-           "name": "rentalId",
-           "in": "path",
-           "required": true,
-           "description": "ID of rental that we want to find",
-           "type": "string"
-         }
-       ],
-       "get": {
-         "tags": [
-           "Rentals"
-         ],
-         "summary": "Get rental with given ID",
-         "responses": {
-           "200": {
-             "description": "Rental is found",
-             "schema": {
-               "$ref": "#/definitions/Rental"
-             }
-           }
-         }
-       },
-       "delete": {
-         "summary": "Delete rental with given ID",
-         "tags": [
-           "Rentals"
-         ],
-         "responses": {
-           "200": {
-             "description": "Rental is deleted",
-             "schema": {
-               "$ref": "#/definitions/Rental"
-             }
-           }
-         }
-       },
-       "put": {
-         "summary": "Update rental with give ID",
-         "tags": [
-           "Rentals"
-         ],
-         "parameters": [
-           {
-             "name": "rental",
-             "in": "body",
-             "description": "Rental with new values of properties",
-             "schema": {
-               "$ref": "#/definitions/Rental"
-             }
-           }
-         ],
-         "responses": {
-           "200": {
-             "description": "Rental is updated",
-             "schema": {
-               "$ref": "#/definitions/Rental"
-             }
-           }
-         }
-       }
-     },
-      "/movies": {
-        "post": {
-          "tags": [
-            "Movies"
-          ],
-          "description": "Create new rental in system",
-          "parameters": [
             {
-              "name": "movie",
-              "in": "body",
-              "description": "Rental that we want to create",
-              "schema": {
-                "$ref": "#/definitions/Movie"
-              }
+               "name": "cardId",
+               "in": "path",
+               "required": true,
+               "description": "Get random card in system",
+               "type": "string"
             }
-          ],
-          "produces": [
-            "application/json"
-          ],
-          "responses": {
-            "200": {
-              "description": "New movie is created",
-              "schema": {
-                "$ref": "#/definitions/Movie"
-              }
+         ],
+         "get": {
+            "tags": ["Cards"],
+            "summary": "Get cards for each page",
+            "responses": {
+               "200": {
+                  "description": "Card is found",
+                  "schema": {
+                     "$ref": "#/definitions/Card"
+                  }
+               }
             }
-          }
-        },
-        "get": {
-          "tags": [
-            "Movies"
-          ],
-          "summary": "Get all movies in system",
-          "responses": {
-            "200": {
-              "description": "OK",
-              "schema": {
-                "$ref": "#/definitions/Movie"
-              }
+         }
+      },
+      "/stats/genres/randoms": {
+         "get": {
+            "tags": ["Stats"],
+            "summary": "Get stats for each page",
+            "responses": {
+               "200": {
+                  "description": "Stats is found",
+                  "schema": {
+                     "$ref": "#/definitions/Stats"
+                  }
+               }
             }
-          }
-        }
+         }
+      },
+      "/stats/rentals/recent": {
+         "get": {
+            "tags": ["Stats"],
+            "summary": "Get stats for each page",
+            "responses": {
+               "200": {
+                  "description": "Stats is found",
+                  "schema": {
+                     "$ref": "#/definitions/Stats"
+                  }
+               }
+            }
+         }
+      },
+      "/auth": {
+         "post": {
+            "tags": ["Auth"],
+            "description": "Login to the system",
+            "parameters": [
+               {
+                  "name": "auth",
+                  "in": "body",
+                  "description": "Whether success or fail",
+                  "schema": {
+                     "$ref": "#/definitions/Auth"
+                  }
+               }
+            ],
+            "produces": ["application/json"],
+            "responses": {
+               "200": {
+                  "description": "Login successfully",
+                  "schema": {
+                     "$ref": "#/definitions/Auth"
+                  }
+               }
+            }
+         }
+      },
+      "/users/page/{page}": {
+         "parameters": [
+            {
+               "name": "page",
+               "in": "path",
+               "required": true,
+               "description": "Get User in system for each page",
+               "type": "string"
+            }
+         ],
+         "get": {
+            "tags": ["Users"],
+            "summary": "Get users for each page",
+            "responses": {
+               "200": {
+                  "description": "User is found",
+                  "schema": {
+                     "$ref": "#/definitions/User"
+                  }
+               }
+            }
+         }
+      },
+      "/users/user/{email}": {
+         "parameters": [
+            {
+               "name": "email",
+               "in": "path",
+               "required": true,
+               "description": "Get User in system",
+               "type": "string"
+            }
+         ],
+         "get": {
+            "tags": ["Users"],
+            "summary": "Get user with given email",
+            "responses": {
+               "200": {
+                  "description": "User is found",
+                  "schema": {
+                     "$ref": "#/definitions/User"
+                  }
+               }
+            }
+         }
+      },
+      "/users": {
+         "post": {
+            "tags": ["Users"],
+            "description": "Register new user in system",
+            "parameters": [
+               {
+                  "name": "user",
+                  "in": "body",
+                  "description": "User that we want to create",
+                  "schema": {
+                     "$ref": "#/definitions/User"
+                  }
+               }
+            ],
+            "produces": ["application/json"],
+            "responses": {
+               "200": {
+                  "description": "New user is created",
+                  "schema": {
+                     "$ref": "#/definitions/User"
+                  }
+               }
+            }
+         },
+         "get": {
+            "tags": ["Users"],
+            "summary": "Get all users in system",
+            "responses": {
+               "200": {
+                  "description": "OK",
+                  "schema": {
+                     "$ref": "#/definitions/User"
+                  }
+               }
+            }
+         }
+      },
+      "/rentals": {
+         "post": {
+            "tags": ["Rentals"],
+            "description": "Create new rental in system",
+            "parameters": [
+               {
+                  "name": "rental",
+                  "in": "body",
+                  "description": "Rental that we want to create",
+                  "schema": {
+                     "$ref": "#/definitions/Rental"
+                  }
+               }
+            ],
+            "produces": ["application/json"],
+            "responses": {
+               "200": {
+                  "description": "New rental is created",
+                  "schema": {
+                     "$ref": "#/definitions/Rental"
+                  }
+               }
+            }
+         },
+         "get": {
+            "tags": ["Rentals"],
+            "summary": "Get all rentals in system",
+            "responses": {
+               "200": {
+                  "description": "OK",
+                  "schema": {
+                     "$ref": "#/definitions/Rental"
+                  }
+               }
+            }
+         }
+      },
+      "/rentals/{rentalId}": {
+         "parameters": [
+            {
+               "name": "rentalId",
+               "in": "path",
+               "required": true,
+               "description": "ID of rental that we want to find",
+               "type": "string"
+            }
+         ],
+         "get": {
+            "tags": ["Rentals"],
+            "summary": "Get rental with given ID",
+            "responses": {
+               "200": {
+                  "description": "Rental is found",
+                  "schema": {
+                     "$ref": "#/definitions/Rental"
+                  }
+               }
+            }
+         },
+         "delete": {
+            "summary": "Delete rental with given ID",
+            "tags": ["Rentals"],
+            "responses": {
+               "200": {
+                  "description": "Rental is deleted",
+                  "schema": {
+                     "$ref": "#/definitions/Rental"
+                  }
+               }
+            }
+         },
+         "put": {
+            "summary": "Update rental with give ID",
+            "tags": ["Rentals"],
+            "parameters": [
+               {
+                  "name": "rental",
+                  "in": "body",
+                  "description": "Rental with new values of properties",
+                  "schema": {
+                     "$ref": "#/definitions/Rental"
+                  }
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Rental is updated",
+                  "schema": {
+                     "$ref": "#/definitions/Rental"
+                  }
+               }
+            }
+         }
+      },
+      "/movies": {
+         "post": {
+            "tags": ["Movies"],
+            "description": "Create new rental in system",
+            "parameters": [
+               {
+                  "name": "movie",
+                  "in": "body",
+                  "description": "Rental that we want to create",
+                  "schema": {
+                     "$ref": "#/definitions/Movie"
+                  }
+               }
+            ],
+            "produces": ["application/json"],
+            "responses": {
+               "200": {
+                  "description": "New movie is created",
+                  "schema": {
+                     "$ref": "#/definitions/Movie"
+                  }
+               }
+            }
+         },
+         "get": {
+            "tags": ["Movies"],
+            "summary": "Get all movies in system",
+            "responses": {
+               "200": {
+                  "description": "OK",
+                  "schema": {
+                     "$ref": "#/definitions/Movie"
+                  }
+               }
+            }
+         }
       },
       "/movies/{query}/search": {
-        "parameters": [
-          {
-            "name": "query",
-            "in": "path",
-            "required": true,
-            "description": "Search movie",
-            "type": "string"
-          }
-        ],
-        "get": {
-          "tags": [
-            "Movies"
-          ],
-          "summary": "Search movies",
-          "responses": {
-            "200": {
-              "description": "Movies is found",
-              "schema": {
-                "$ref": "#/definitions/Movie"
-              }
+         "parameters": [
+            {
+               "name": "query",
+               "in": "path",
+               "required": true,
+               "description": "Search movie",
+               "type": "string"
             }
-          }
-       }
+         ],
+         "get": {
+            "tags": ["Movies"],
+            "summary": "Search movies",
+            "responses": {
+               "200": {
+                  "description": "Movies is found",
+                  "schema": {
+                     "$ref": "#/definitions/Movie"
+                  }
+               }
+            }
+         }
       },
       "/movies/best3": {
-        "get": {
-          "tags": [
-            "Movies"
-          ],
-          "summary": "Get best three highest daily rate movie in system",
-          "responses": {
-            "200": {
-              "description": "OK",
-              "schema": {
-                "$ref": "#/definitions/Movie"
-              }
+         "get": {
+            "tags": ["Movies"],
+            "summary": "Get best three highest daily rate movie in system",
+            "responses": {
+               "200": {
+                  "description": "OK",
+                  "schema": {
+                     "$ref": "#/definitions/Movie"
+                  }
+               }
             }
-          }
-        }
+         }
       },
       "/movies/movie/{movieId}": {
-        "parameters": [
-          {
-            "name": "movieId",
-            "in": "path",
-            "required": true,
-            "description": "ID of movie that we want to find",
-            "type": "string"
-          }
-        ],
-        "get": {
-          "tags": [
-            "Movies"
-          ],
-          "summary": "Get movie with given ID",
-          "responses": {
-            "200": {
-              "description": "Movie is found",
-              "schema": {
-                "$ref": "#/definitions/Movie"
-              }
-            }
-          }
-        },
-        "delete": {
-          "summary": "Delete movie with given ID",
-          "tags": [
-            "Movies"
-          ],
-          "responses": {
-            "200": {
-              "description": "Movie is deleted",
-              "schema": {
-                "$ref": "#/definitions/Movie"
-              }
-            }
-          }
-        },
-        "put": {
-          "summary": "Update movie with give ID",
-          "tags": [
-            "Movies"
-          ],
-          "parameters": [
+         "parameters": [
             {
-              "name": "movie",
-              "in": "body",
-              "description": "Movie with new values of properties",
-              "schema": {
-                "$ref": "#/definitions/Movie"
-              }
+               "name": "movieId",
+               "in": "path",
+               "required": true,
+               "description": "ID of movie that we want to find",
+               "type": "string"
             }
-          ],
-          "responses": {
-            "200": {
-              "description": "Movie is updated",
-              "schema": {
-                "$ref": "#/definitions/Movie"
-              }
+         ],
+         "get": {
+            "tags": ["Movies"],
+            "summary": "Get movie with given ID",
+            "responses": {
+               "200": {
+                  "description": "Movie is found",
+                  "schema": {
+                     "$ref": "#/definitions/Movie"
+                  }
+               }
             }
-          }
-        }
+         },
+         "delete": {
+            "summary": "Delete movie with given ID",
+            "tags": ["Movies"],
+            "responses": {
+               "200": {
+                  "description": "Movie is deleted",
+                  "schema": {
+                     "$ref": "#/definitions/Movie"
+                  }
+               }
+            }
+         },
+         "put": {
+            "summary": "Update movie with give ID",
+            "tags": ["Movies"],
+            "parameters": [
+               {
+                  "name": "movie",
+                  "in": "body",
+                  "description": "Movie with new values of properties",
+                  "schema": {
+                     "$ref": "#/definitions/Movie"
+                  }
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Movie is updated",
+                  "schema": {
+                     "$ref": "#/definitions/Movie"
+                  }
+               }
+            }
+         }
       },
       "/genres": {
          "post": {
-           "tags": [
-             "Genres"
-           ],
-           "description": "Create new genre in system",
-           "parameters": [
-             {
-               "name": "genre",
-               "in": "body",
-               "description": "Genre that we want to create",
-               "schema": {
-                 "$ref": "#/definitions/Genre"
+            "tags": ["Genres"],
+            "description": "Create new genre in system",
+            "parameters": [
+               {
+                  "name": "genre",
+                  "in": "body",
+                  "description": "Genre that we want to create",
+                  "schema": {
+                     "$ref": "#/definitions/Genre"
+                  }
                }
-             }
-           ],
-           "produces": [
-             "application/json"
-           ],
-           "responses": {
-             "200": {
-               "description": "New genre is created",
-               "schema": {
-                 "$ref": "#/definitions/Genre"
+            ],
+            "produces": ["application/json"],
+            "responses": {
+               "200": {
+                  "description": "New genre is created",
+                  "schema": {
+                     "$ref": "#/definitions/Genre"
+                  }
                }
-             }
-           }
+            }
          },
          "get": {
-           "tags": [
-             "Genres"
-           ],
-           "summary": "Get all genres in system",
-           "responses": {
-             "200": {
-               "description": "OK",
-               "schema": {
-                 "$ref": "#/definitions/Genre"
+            "tags": ["Genres"],
+            "summary": "Get all genres in system",
+            "responses": {
+               "200": {
+                  "description": "OK",
+                  "schema": {
+                     "$ref": "#/definitions/Genre"
+                  }
                }
-             }
-           }
+            }
          },
          "delete": {
-          "parameters": [
+            "parameters": [
+               {
+                  "name": "genreName",
+                  "in": "path",
+                  "required": true,
+                  "description": "ID of genre that we want to find",
+                  "type": "string"
+               }
+            ],
+            "summary": "Delete genre with given ID",
+            "tags": ["Genres"],
+            "responses": {
+               "200": {
+                  "description": "Genre is deleted",
+                  "schema": {
+                     "$ref": "#/definitions/Genre"
+                  }
+               }
+            }
+         }
+      },
+      "/genres/page/{pageNumber}": {
+         "parameters": [
             {
-              "name": "genreName",
-              "in": "path",
-              "required": true,
-              "description": "ID of genre that we want to find",
-              "type": "string"
+               "name": "pageNumber",
+               "in": "path",
+               "required": true,
+               "description": "Number of page that we want to find",
+               "type": "string"
             }
-          ],
-          "summary": "Delete genre with given ID",
-          "tags": [
-            "Genres"
-          ],
-          "responses": {
-            "200": {
-              "description": "Genre is deleted",
-              "schema": {
-                "$ref": "#/definitions/Genre"
-              }
+         ],
+         "get": {
+            "tags": ["Genres"],
+            "summary": "Get genre with given ID of each page",
+            "responses": {
+               "200": {
+                  "description": "Genres is found",
+                  "schema": {
+                     "$ref": "#/definitions/Genre"
+                  }
+               }
             }
-          }
-        }
-       },
-       "/genres/page/{pageNumber}": {
-        "parameters": [
-          {
-            "name": "pageNumber",
-            "in": "path",
-            "required": true,
-            "description": "Number of page that we want to find",
-            "type": "string"
-          }
-        ],
-        "get": {
-          "tags": [
-            "Genres"
-          ],
-          "summary": "Get genre with given ID of each page",
-          "responses": {
-            "200": {
-              "description": "Genres is found",
-              "schema": {
-                "$ref": "#/definitions/Genre"
-              }
-            }
-          }
-       }
+         }
       },
       "/genres/{query}/search": {
-        "parameters": [
-          {
-            "name": "query",
-            "in": "path",
-            "required": true,
-            "description": "Search genre",
-            "type": "string"
-          }
-        ],
-        "get": {
-          "tags": [
-            "Genres"
-          ],
-          "summary": "Get genre",
-          "responses": {
-            "200": {
-              "description": "Genres is found",
-              "schema": {
-                "$ref": "#/definitions/Genre"
-              }
-            }
-          }
-       }
-      },
-       "/genres/genre/{genreId}": {
          "parameters": [
-           {
-             "name": "genreId",
-             "in": "path",
-             "required": true,
-             "description": "ID of genre that we want to find",
-             "type": "string"
-           }
+            {
+               "name": "query",
+               "in": "path",
+               "required": true,
+               "description": "Search genre",
+               "type": "string"
+            }
          ],
          "get": {
-           "tags": [
-             "Genres"
-           ],
-           "summary": "Get genre with given ID",
-           "responses": {
-             "200": {
-               "description": "Genre is found",
-               "schema": {
-                 "$ref": "#/definitions/Genre"
+            "tags": ["Genres"],
+            "summary": "Get genre",
+            "responses": {
+               "200": {
+                  "description": "Genres is found",
+                  "schema": {
+                     "$ref": "#/definitions/Genre"
+                  }
                }
-             }
-           }
+            }
+         }
+      },
+      "/genres/genre/{genreId}": {
+         "parameters": [
+            {
+               "name": "genreId",
+               "in": "path",
+               "required": true,
+               "description": "ID of genre that we want to find",
+               "type": "string"
+            }
+         ],
+         "get": {
+            "tags": ["Genres"],
+            "summary": "Get genre with given ID",
+            "responses": {
+               "200": {
+                  "description": "Genre is found",
+                  "schema": {
+                     "$ref": "#/definitions/Genre"
+                  }
+               }
+            }
          },
          "put": {
-           "summary": "Update genre with give ID",
-           "tags": [
-             "Genres"
-           ],
-           "parameters": [
-             {
-               "name": "genre",
-               "in": "body",
-               "description": "Gnnre with new values of properties",
-               "schema": {
-                 "$ref": "#/definitions/Genre"
+            "summary": "Update genre with give ID",
+            "tags": ["Genres"],
+            "parameters": [
+               {
+                  "name": "genre",
+                  "in": "body",
+                  "description": "Gnnre with new values of properties",
+                  "schema": {
+                     "$ref": "#/definitions/Genre"
+                  }
                }
-             }
-           ],
-           "responses": {
-             "200": {
-               "description": "Genre is updated",
-               "schema": {
-                 "$ref": "#/definitions/Genre"
+            ],
+            "responses": {
+               "200": {
+                  "description": "Genre is updated",
+                  "schema": {
+                     "$ref": "#/definitions/Genre"
+                  }
                }
-             }
-           }
+            }
          }
-       },
-       "/customers": {
+      },
+      "/customers": {
          "post": {
-           "tags": [
-             "Customers"
-           ],
-           "description": "Create new customer in system",
-           "parameters": [
-             {
-               "name": "customer",
-               "in": "body",
-               "description": "Customer that we want to create",
-               "schema": {
-                 "$ref": "#/definitions/Customer"
+            "tags": ["Customers"],
+            "description": "Create new customer in system",
+            "parameters": [
+               {
+                  "name": "customer",
+                  "in": "body",
+                  "description": "Customer that we want to create",
+                  "schema": {
+                     "$ref": "#/definitions/Customer"
+                  }
                }
-             }
-           ],
-           "produces": [
-             "application/json"
-           ],
-           "responses": {
-             "200": {
-               "description": "New customer is created",
-               "schema": {
-                 "$ref": "#/definitions/Customer"
+            ],
+            "produces": ["application/json"],
+            "responses": {
+               "200": {
+                  "description": "New customer is created",
+                  "schema": {
+                     "$ref": "#/definitions/Customer"
+                  }
                }
-             }
-           }
+            }
          },
          "get": {
-           "tags": [
-             "Customers"
-           ],
-           "summary": "Get all customers in system",
-           "responses": {
-             "200": {
-               "description": "OK",
-               "schema": {
-                 "$ref": "#/definitions/Customer"
+            "tags": ["Customers"],
+            "summary": "Get all customers in system",
+            "responses": {
+               "200": {
+                  "description": "OK",
+                  "schema": {
+                     "$ref": "#/definitions/Customer"
+                  }
                }
-             }
-           }
+            }
          }
-       },
-       "/customers/{customerId}": {
+      },
+      "/customers/{customerId}": {
          "parameters": [
-           {
-             "name": "customerId",
-             "in": "path",
-             "required": true,
-             "description": "ID of customer that we want to find",
-             "type": "string"
-           }
+            {
+               "name": "customerId",
+               "in": "path",
+               "required": true,
+               "description": "ID of customer that we want to find",
+               "type": "string"
+            }
          ],
          "get": {
-           "tags": [
-             "Customers"
-           ],
-           "summary": "Get customer with given ID",
-           "responses": {
-             "200": {
-               "description": "Customer is found",
-               "schema": {
-                 "$ref": "#/definitions/Customer"
+            "tags": ["Customers"],
+            "summary": "Get customer with given ID",
+            "responses": {
+               "200": {
+                  "description": "Customer is found",
+                  "schema": {
+                     "$ref": "#/definitions/Customer"
+                  }
                }
-             }
-           }
+            }
          },
          "delete": {
-           "summary": "Delete customer with given ID",
-           "tags": [
-             "Customers"
-           ],
-           "responses": {
-             "200": {
-               "description": "Customer is deleted",
-               "schema": {
-                 "$ref": "#/definitions/Customer"
+            "summary": "Delete customer with given ID",
+            "tags": ["Customers"],
+            "responses": {
+               "200": {
+                  "description": "Customer is deleted",
+                  "schema": {
+                     "$ref": "#/definitions/Customer"
+                  }
                }
-             }
-           }
+            }
          },
          "put": {
-           "summary": "Update customer with given ID",
-           "tags": [
-             "Customers"
-           ],
-           "parameters": [
-             {
-               "name": "customer",
-               "in": "body",
-               "description": "Customer with new values of properties",
-               "schema": {
-                 "$ref": "#/definitions/Customer"
+            "summary": "Update customer with given ID",
+            "tags": ["Customers"],
+            "parameters": [
+               {
+                  "name": "customer",
+                  "in": "body",
+                  "description": "Customer with new values of properties",
+                  "schema": {
+                     "$ref": "#/definitions/Customer"
+                  }
                }
-             }
-           ],
-           "responses": {
-             "200": {
-               "description": "Customer is updated",
-               "schema": {
-                 "$ref": "#/definitions/Customer"
+            ],
+            "responses": {
+               "200": {
+                  "description": "Customer is updated",
+                  "schema": {
+                     "$ref": "#/definitions/Customer"
+                  }
                }
-             }
-           }
+            }
          }
-       }
+      }
    },
-    "definitions": {
+   "definitions": {
       "Rental": {
-        "type": "array",
-        "$ref": "#/definitions/Rental"
+         "type": "array",
+         "$ref": "#/definitions/Rental"
       },
       "Movie": {
-        "type": "array",
-        "$ref": "#/definitions/Movie"
+         "type": "array",
+         "$ref": "#/definitions/Movie"
       },
       "Genre": {
-        "type": "array",
-        "$ref": "#/definitions/Genre"
+         "type": "array",
+         "$ref": "#/definitions/Genre"
       },
       "Customer": {
-        "type": "array",
-        "$ref": "#/definitions/Customer"
+         "type": "array",
+         "$ref": "#/definitions/Customer"
       },
       "User": {
-        "type": "array",
-        "$ref": "#/definitions/User"
+         "type": "array",
+         "$ref": "#/definitions/User"
       },
       "Auth": {
-        "type": "array",
-        "$ref": "#/definitions/Auth"
+         "type": "array",
+         "$ref": "#/definitions/Auth"
       },
       "Stats": {
-        "type": "array",
-        "$ref": "#/definitions/Stats"
+         "type": "array",
+         "$ref": "#/definitions/Stats"
+      },
+      "Card": {
+         "type": "array",
+         "$ref": "#/definitions/Card"
       }
-    }
+   }
 }

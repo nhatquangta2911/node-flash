@@ -7,6 +7,7 @@ const rentals = require("../routes/rentals");
 const users = require("../routes/users");
 const auth = require("../routes/auth");
 const stats = require("../routes/stats");
+const cards = require("../routes/cards");
 const error = require("../middleware/error");
 const morgan = require("morgan");
 const swaggerUi = require("swagger-ui-express");
@@ -22,6 +23,7 @@ module.exports = app => {
    app.use(morgan("tiny"));
    app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
    app.use("/", home);
+   app.use("/api/cards", cards);
    app.use("/api/genres", genres);
    app.use("/api/customers", customers);
    app.use("/api/movies", movies);
