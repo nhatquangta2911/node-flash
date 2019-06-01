@@ -1,5 +1,4 @@
 require('express-async-errors');
-const winston = require('winston');
 const express = require("express");
 const error = require('./middleware/error');
 const config = require("config");
