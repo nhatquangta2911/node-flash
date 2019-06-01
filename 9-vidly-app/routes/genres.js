@@ -55,12 +55,12 @@ const updateGenreByName = async (name, updatedName) => {
 
 //TODO: GET
 
-router.get("/", asyncMiddleware(async (req, res) => {
+router.get("/", async (req, res) => {
    //TODO: 2. Log the exception on the Server 
       const genres = await getAllGenres();
       res.send(genres);
    }
-));
+);
 
 router.get("/genre/:name", async (req, res) => {
    const genre = await getGenresByName(req.params.name);

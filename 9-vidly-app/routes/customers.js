@@ -18,7 +18,7 @@ router.get('/:id', async (req, res) => {
    res.send(customer);
 });
 
-//TODO: POST
+//TODO: <POST></POST>
 router.post('/', auth, async (req, res) => {
    let customer = new Customer({
       isGold: req.body.isGold,
