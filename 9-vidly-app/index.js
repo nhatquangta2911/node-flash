@@ -1,4 +1,5 @@
 require('express-async-errors');
+const winston = require('winston');
 const express = require("express");
 const error = require('./middleware/error');
 const config = require("config");
@@ -17,6 +18,25 @@ const swaggerDocument = require("./swagger.json");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
+
+const logger = winston.createLogger({
+   level: 'info',
+   format: winston.format.json(),
+   defaultMeta: { service: 'user-service' },
+   transports: [
+      new winston.transports.File({ filename: 'error.log', level: 'error' }),
+      new winston.transports.File({ filename: 'combined.log' }),
+   ]
+});
+
+if(process.env.NODE_ENV !== 'production') {
+   logger.add(new winston.transports.Console({
+      format: winston.format.simple()
+   }));
+   logger.add(new winston.transports.File({
+      filename: 'error.log'
+   }));
+};
 
 require("./startup/prod")(app);
 

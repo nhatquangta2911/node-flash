@@ -25,6 +25,7 @@
     "lodash": "^4.17.11",
     "mongoose": "^5.5.11",
     "morgan": "^1.9.1",
-    "swagger-ui-express": "^4.0.4"
+    "swagger-ui-express": "^4.0.4",
+    "winston": "^3.2.1"
   }
 }
