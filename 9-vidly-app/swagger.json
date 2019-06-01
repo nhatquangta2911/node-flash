@@ -57,7 +57,53 @@
                "200": {
                   "description": "Cards is found",
                   "schema": {
-                     "$ref": "#/definitions/Cards"
+                     "$ref": "#/definitions/Card"
+                  }
+               }
+            }
+         },
+      "/cards/card/{cardId}": {
+         "parameters": [
+            {
+               "name": "cardId",
+               "in": "path",
+               "required": true,
+               "description": "Get random card in system",
+               "type": "string"
+            }
+         ],
+         "get": {
+            "tags": ["Cards"],
+            "summary": "Get cards for each page",
+            "responses": {
+               "200": {
+                  "description": "Card is found",
+                  "schema": {
+                     "$ref": "#/definitions/Card"
+                  }
+               }
+            }
+         }
+      },
+         "post": {
+            "tags": ["Cards"],
+            "description": "Create new card in system",
+            "parameters": [
+               {
+                  "name": "card",
+                  "in": "body",
+                  "description": "Card that we want to create",
+                  "schema": {
+                     "$ref": "#/definitions/Card"
+                  }
+               }
+            ],
+            "produces": ["application/json"],
+            "responses": {
+               "200": {
+                  "description": "New card is created",
+                  "schema": {
+                     "$ref": "#/definitions/Card"
                   }
                }
             }
@@ -696,6 +742,10 @@
       "Stats": {
          "type": "array",
          "$ref": "#/definitions/Stats"
+      },
+      "Card": {
+         "type": "array",
+         "$ref": "#/definitions/Card"
       }
    }
 }

@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const { cardSchema } = require("../model/card");
-const auth = require("./auth");
+const auth = require("../middleware/auth");
 
 const Card = mongoose.model("Card", cardSchema);
 
@@ -12,9 +12,17 @@ router.get("/", async (req, res) => {
    res.send(cards);
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/card/:id", async (req, res) => {
    const card = await Card.findById(req.params.id);
    if (!card) return res.status(404).send("NOT FOUND");
+   res.send(card);
+});
+
+router.get("/random", async (req, res) => {
+   const card = await Card
+      .aggregate([
+         {$sample: {size: 1}}
+      ]);
    res.send(card);
 });
 
