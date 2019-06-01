@@ -2,9 +2,9 @@ const express = require("express");
 const Joi = require("joi");
 const mongoose = require("mongoose");
 const router = express.Router();
-const {genreSchema} = require('../model/genre');
-const auth = require('../middleware/auth');
-const admin = require('../middleware/admin');
+const { genreSchema } = require("../model/genre");
+const auth = require("../middleware/auth");
+const admin = require("../middleware/admin");
 
 const Genre = mongoose.model("genres", genreSchema);
 const pageSize = 5;
@@ -41,22 +41,27 @@ const removeGenreByName = async name => {
 };
 
 const updateGenreByName = async (name, updatedName) => {
-  const genre = await Genre.findOne({name: name});
-  if(!genre) return null;
-  try {
-     genre.name = updatedName;
-     const result = await genre.save();
-     return result;
-  } catch(ex) {
-     return ex;
-  }
+   const genre = await Genre.findOne({ name: name });
+   if (!genre) return null;
+   try {
+      genre.name = updatedName;
+      const result = await genre.save();
+      return result;
+   } catch (ex) {
+      return ex;
+   }
 };
 
 //TODO: GET
 
-router.get("/", async (req, res) => {
-   const genres = await getAllGenres();
-   res.send(genres);
+router.get("/", async (req, res, next) => {
+   try {
+      const genres = await getAllGenres();
+      res.send(genres);
+   } catch (ex) {
+      next(ex);
+      //TODO: 2. Log the exception on the Server 
+   }
 });
 
 router.get("/genre/:name", async (req, res) => {
@@ -66,8 +71,7 @@ router.get("/genre/:name", async (req, res) => {
 });
 
 router.get("/page/:page", async (req, res) => {
-   const genres = await Genre
-      .find()
+   const genres = await Genre.find()
       .skip((req.params.page - 1) * pageSize)
       .sort("name")
       .limit(pageSize);
@@ -75,22 +79,19 @@ router.get("/page/:page", async (req, res) => {
 });
 
 //TODO: SEARCH by name
-router.get('/:query/search', async (req, res) => {
-   const regexp = new RegExp(req.params.query, 'i');
-   const genres = await Genre
-      .find({name: regexp})
-      .sort("name");
-   res.send(genres); 
+router.get("/:query/search", async (req, res) => {
+   const regexp = new RegExp(req.params.query, "i");
+   const genres = await Genre.find({ name: regexp }).sort("name");
+   res.send(genres);
 });
 
 //TODO: POST
 router.post("/", auth, async (req, res) => {
-
    const result = await createGenre(req.body.name);
    if (result && result.errors) {
       let errorMessage = "";
       for (field in result.errors) {
-         errorMessage += result.errors[field].message + '\n';
+         errorMessage += result.errors[field].message + "\n";
       }
       res.status(400).send(errorMessage);
    } else {
@@ -101,15 +102,15 @@ router.post("/", auth, async (req, res) => {
 //TODO: UPDATE
 router.put("/:name", auth, async (req, res) => {
    const result = await updateGenreByName(req.params.name, req.body.name);
-   if(!result) return res.status(404).send("Not Found");
-   if(result && result.errors) {
+   if (!result) return res.status(404).send("Not Found");
+   if (result && result.errors) {
       let errorMessage = "";
-      for(field in result.errors) {
-         errorMessage += result.errors[field].message + '\n';
+      for (field in result.errors) {
+         errorMessage += result.errors[field].message + "\n";
       }
       res.status(400).send(errorMessage);
    }
-   res.send(await getAllGenres()) 
+   res.send(await getAllGenres());
 });
 
 //TODO: DELETE
