@@ -19,15 +19,22 @@ const cors = require("cors");
 const app = express();
 const {logger} = require('./middleware/logging');
 
-//TODO: EventEmitter raise an event when node process (no catch) error
+//TODO: (Just SYNC) EventEmitter raise an event when node process (no catch) error
 process.on('uncaughtException', (ex) => {
-   console.log('UNCAUGHT EXCEPTION');
    logger.error(ex.message, ex);
+   process.exit(1);
+});
+
+//TODO: (ASYNC - Promises)
+process.on('unhandledRejection', (ex) => {
+   logger.error(ex.message, ex);
+   process.exit(1);
 });
 
 logger.info('Starting application...');
 
-throw new Error('hihi');
+const p = Promise.reject(new Error('Fail'));
+p.then(() => console.log('DONE'));
 
 require("./startup/prod")(app);
 
