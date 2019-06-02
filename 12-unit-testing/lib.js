@@ -12,3 +12,7 @@ module.exports.absolute = (number) => {
 module.exports.floating = (number1, number2) => {
    return number1 + number2;
 }
+
+module.exports.greet = (name) => {
+   return `Welcome ${name} to my website!`;
+}

@@ -24,3 +24,14 @@ describe("floating", () => {
       expect(result).toBeCloseTo(4);
    });
 });
+
+describe('greet', () => {
+   it("Should return the greeting message with the given name", () => {
+      const result = lib.greet('Shawn');
+      //TODO: Too specific
+      expect(result).toBe('Welcome Shawn to my website!');
+      //TODO: 2 ways 
+      expect(result).toMatch(/Shawn/);
+      expect(result).toContain('Shawn');
+   });
+});
