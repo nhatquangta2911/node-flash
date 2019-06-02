@@ -100,6 +100,20 @@
             }
          }
       },
+      "/cards/recent": {
+         "get": {
+            "tags": ["Cards"],
+            "summary": "Get recent cards",
+            "responses": {
+               "200": {
+                  "description": "Card is found",
+                  "schema": {
+                     "$ref": "#/definitions/Card"
+                  }
+               }
+            }
+         }
+      },
       "/cards/card/{cardId}": {
          "parameters": [
             {

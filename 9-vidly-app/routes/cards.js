@@ -26,6 +26,14 @@ router.get("/random", async (req, res) => {
    res.send(card);
 });
 
+router.get('/recent', async (req, res) => {
+   const cards = await Card
+      .find()
+      .sort('-dateCreated')
+      .limit(3);
+   res.send(cards);
+});
+
 //TODO: POST
 router.post("/", auth, async (req, res) => {
    const card = new Card({
