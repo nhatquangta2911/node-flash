@@ -24,7 +24,7 @@ router.get("/random", async (req, res) => {
          {$sample: {size: 1}}
       ]);
    res.send(card);
-});
+});   
 
 router.get('/recent', async (req, res) => {
    const cards = await Card
