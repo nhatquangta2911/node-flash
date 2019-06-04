@@ -71,6 +71,20 @@ router.post("/", auth, async (req, res) => {
    }
 });
 
+router.get('/search/:query', async (req, res) => {
+   const regexp = new RegExp(req.params.query, 'i');
+   const cards = await Card
+      .find({
+         $or: [
+            {englishTitle: regexp},
+            {vietnameseTitle: regexp},
+            {type: regexp},
+            {context: regexp}
+         ]
+      })
+      .sort('-dateCreated');
+   res.send(cards);
+});
 
 //TODO: UPDATE
 router.put("/:cardId", auth, async (req, res) => {

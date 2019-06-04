@@ -11,6 +11,13 @@
    },
    "host": "shawn-movie-rental.herokuapp.com",
    "basePath": "/api/",
+   "securitySchemes": {
+      "ApiKeyAuth": {
+         "type": "apiKey",
+         "in": "header",
+         "name": "x-auth-token"
+      }
+   },
    "tags": [{
          "name": "Cards",
          "description": "API for cards in the system"
@@ -121,6 +128,9 @@
          }],
          "delete": {
             "summary": "Delete card with given ID",
+            "security": {
+               "ApiKeyAuth": ["apiKey"]
+            },
             "tags": ["Cards"],
             "responses": {
                "200": {

@@ -44,3 +44,36 @@
 {"message":"Starting application...","level":"info"}
 {"message":"Listening on port 2911","level":"info"}
 {"message":"DB Connected.","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"DB Connected.","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"DB Connected.","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"DB Connected.","level":"info"}
+{"level":"error","message":"i is not definedi is not defined","stack":"ReferenceError: i is not defined\n    at router.get (D:\\Project\\node-flash\\9-vidly-app\\routes\\cards.js:75:48)\n    at Layer.handle [as handle_request] (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at Layer.handle [as handle_request] (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:281:22\n    at param (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:354:14)\n    at param (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:365:14)\n    at Function.process_params (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:410:3)\n    at next (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at Function.handle (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at Layer.handle [as handle_request] (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at Layer.handle [as handle_request] (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\layer.js:95:5)"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"DB Connected.","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"DB Connected.","level":"info"}
+{"name":"MongoNetworkError","errorLabels":["TransientTransactionError"],"level":"error","message":"read ECONNRESETread ECONNRESET","stack":"Error: read ECONNRESET\n    at TLSWrap.onStreamRead (internal/stream_base_commons.js:111:27)"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"errno":"ETIMEOUT","code":"ETIMEOUT","syscall":"querySrv","hostname":"_mongodb._tcp.cluster0-r6muz.mongodb.net","level":"error","message":"querySrv ETIMEOUT _mongodb._tcp.cluster0-r6muz.mongodb.netquerySrv ETIMEOUT _mongodb._tcp.cluster0-r6muz.mongodb.net","stack":"Error: querySrv ETIMEOUT _mongodb._tcp.cluster0-r6muz.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:196:19)"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"errno":"ETIMEOUT","code":"ETIMEOUT","syscall":"querySrv","hostname":"_mongodb._tcp.cluster0-r6muz.mongodb.net","level":"error","message":"querySrv ETIMEOUT _mongodb._tcp.cluster0-r6muz.mongodb.netquerySrv ETIMEOUT _mongodb._tcp.cluster0-r6muz.mongodb.net","stack":"Error: querySrv ETIMEOUT _mongodb._tcp.cluster0-r6muz.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:196:19)"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"DB Connected.","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"DB Connected.","level":"info"}
