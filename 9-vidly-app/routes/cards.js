@@ -77,9 +77,7 @@ router.get('/search/:query', async (req, res) => {
       .find({
          $or: [
             {englishTitle: regexp},
-            {vietnameseTitle: regexp},
-            {type: regexp},
-            {context: regexp}
+            {vietnameseTitle: regexp}
          ]
       })
       .sort('-dateCreated');
