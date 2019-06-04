@@ -137,6 +137,29 @@
             }
          }
       },
+      "/cards/page/{pageNumber}": {
+         "parameters": [
+            {
+               "name": "pageNumber",
+               "in": "path",
+               "required": true,
+               "description": "Get cards of each page",
+               "type": "string"
+            }
+         ],
+         "get": {
+            "tags": ["Cards"],
+            "summary": "Get cards for each page",
+            "responses": {
+               "200": {
+                  "description": "Card is found",
+                  "schema": {
+                     "$ref": "#/definitions/Card"
+                  }
+               }
+            }
+         }
+      },
       "/stats/genres/randoms": {
          "get": {
             "tags": ["Stats"],

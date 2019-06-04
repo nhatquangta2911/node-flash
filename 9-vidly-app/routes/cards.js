@@ -5,6 +5,7 @@ const { cardSchema } = require("../model/card");
 const auth = require("../middleware/auth");
 
 const Card = mongoose.model("Card", cardSchema);
+const pageSize = 5;
 
 //TODO: GET
 router.get("/", async (req, res) => {
@@ -31,6 +32,15 @@ router.get('/recent', async (req, res) => {
       .find()
       .sort('-dateCreated')
       .limit(3);
+   res.send(cards);
+});
+
+router.get('/page/:pageNumber', async (req, res) => {
+   const cards = await Card
+      .find()
+      .sort('-dateCreated')
+      .skip((req.params.pageNumber - 1) * pageSize)
+      .limit(pageSize)
    res.send(cards);
 });
 
