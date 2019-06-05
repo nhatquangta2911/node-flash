@@ -26,7 +26,7 @@ router.get("/random", async (req, res) => {
    const card = await Card
       .aggregate([{
          $sample: {
-            size: 3
+            size: 4
          }
       }]);
    res.send(card);
