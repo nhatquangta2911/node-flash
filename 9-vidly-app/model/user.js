@@ -28,7 +28,9 @@ const userSchema = new mongoose.Schema({
 
 userSchema.methods.generateAuthToken = function() {
    const token = jwt.sign(
-      { _id: this._id, isAdmin: this.isAdmin }, //TODO: payload
+      {  _id: this._id,
+         email: this.email,
+         isAdmin: this.isAdmin }, //TODO: payload
       config.get("jwtPrivateKey") // digital signature
    );
    return token;
