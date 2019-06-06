@@ -32,7 +32,7 @@ router.post("/", async (req, res) => {
    //TODO: Create new JWT
 
    const token = user.generateAuthToken();
-   res.cookie('token', token).sendStatus(200);
+   res.cookie('token', token, { maxAge: 90000, httpOnly: true }).sendStatus(200);
 });
 
 const validate = req => {
