@@ -17,12 +17,12 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
 module.exports = app => {
-   app.use(cookieParser());
    app.use(cors({ origin: "*", credentials: true }));
    app.use(bodyParser.urlencoded({ extended: true }));
    app.use(bodyParser.json());
    app.use(express.json());
    app.use(morgan("tiny"));
+   app.use(cookieParser());
    app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
    app.use("/", home);
    app.use("/api/cards", cards);
