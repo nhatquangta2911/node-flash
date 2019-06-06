@@ -11,7 +11,7 @@ const auth = require("../middleware/auth.js");
 
 const User = mongoose.model("User", userSchema);
 
-router.get('/checkToken', auth, async (req, res) => {
+router.get('/checkToken', auth, (req, res) => {
    res.sendStatus(200);
 });
 
@@ -32,7 +32,7 @@ router.post("/", async (req, res) => {
    //TODO: Create new JWT
 
    const token = user.generateAuthToken();
-   res.send(token);
+   res.cookie('token', token).sendStatus(200);
 });
 
 const validate = req => {
