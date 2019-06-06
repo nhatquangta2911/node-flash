@@ -36,8 +36,10 @@ router.post("/", async (req, res) => {
    //TODO: Create new JWT
 
    const token = user.generateAuthToken();
-   console.log(token);
-   res.cookie('token', token).sendStatus(200);
+   res.cookie('token', token, {
+      domain: 'fancy-flash-card.herokuapp.com',
+      expires: new Date(Date.now() + 60*60)
+   }).sendStatus(200);
 });
 
 const validate = req => {
