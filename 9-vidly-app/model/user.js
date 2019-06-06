@@ -32,7 +32,7 @@ userSchema.methods.generateAuthToken = function() {
          email: this.email,
          isAdmin: this.isAdmin }, //TODO: payload
       config.get("jwtPrivateKey"), // digital signature
-      { expiresIn: '1h' }
+      { expiresIn: '1h'}
    );
    return token;
 };

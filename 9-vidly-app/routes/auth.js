@@ -12,7 +12,11 @@ const auth = require("../middleware/auth.js");
 const User = mongoose.model("User", userSchema);
 
 router.get('/checkToken', auth, (req, res) => {
-   res.sendStatus(200);
+   if(req.user) {
+      res.sendStatus(200);
+   } else {
+      res.status(500).send('TOKEN WRONG!')
+   }
 });
 
 router.post("/", async (req, res) => {
@@ -32,6 +36,7 @@ router.post("/", async (req, res) => {
    //TODO: Create new JWT
 
    const token = user.generateAuthToken();
+   console.log(token);
    res.cookie('token', token).sendStatus(200);
 });
 
