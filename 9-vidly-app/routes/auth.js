@@ -19,6 +19,10 @@ router.get('/checkToken', auth, (req, res) => {
    }
 });
 
+router.get('/logout', auth, (req, res) => {
+   res.send('');
+});
+
 router.post("/", async (req, res) => {
    const { error } = validate(req.body);
    if (error) return res.status(400).send(error.details[0].message);
@@ -35,11 +39,10 @@ router.post("/", async (req, res) => {
    //TODO: Valid Login -> send true for client
    //TODO: Create new JWT
 
-   const token = user.generateAuthToken();
-   res.cookie('token', token, {
-      domain: 'fancy-flash-card.herokuapp.com',
-      expires: new Date(Date.now() + 60*60)
-   }).sendStatus(200);
+   const token = user.generateAuthToken( );
+
+   res.send(token);
+
 });
 
 const validate = req => {
