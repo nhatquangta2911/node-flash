@@ -58,6 +58,32 @@ describe('getColors', () => {
       expect(result).toEqual(expect.arrayContaining([
          'GREEN', 'ORANGE', 'RED', 'CYAN'
       ]))
+   });
+});
 
+describe('getAlbum', () => {
+   it('should return the album with the given id', () => {
+      const result = lib.getAlbum('1');
+      //TODO: Compare the references of 2 objects
+      // expect(result).toEqual({ id: 1, price: 23 });
+      //TODO: Best - 50 properties -> not all of them
+      expect(result).toMatchObject({ price: 23 });
+      expect(result).toHaveProperty('id', '1');
+   });
+});
+
+describe('registerUser', () => {
+   it('should throw if username is falsy', () => {
+      //TODO: falsy in JS: (fake)
+      // null, undefined, NaN, '', 0, false
+      const args = [null, undefined, NaN, '', 0, false];
+      args.forEach(arg => {
+         expect(() => { lib.registerUser(arg).toThrow() });
+      })
+   });
+   it('should return a user object if valid username is passed', () => {
+      const result = lib.registerUser('Shawn');
+      expect(result).toMatchObject({ username: 'Shawn' });
+      expect(result.id).toBeGreaterThan(0);
    });
 });

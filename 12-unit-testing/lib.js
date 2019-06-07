@@ -20,3 +20,15 @@ module.exports.greet = (name) => {
 module.exports.getColors = () => {
    return ['GREEN', 'CYAN', 'ORANGE', 'RED'];
 }
+
+module.exports.getAlbum = (albumId) => {
+   return { id: albumId, price: 23, name: 'The Fifth Season' };
+}
+
+module.exports.registerUser = (username) => {
+   if(!username) throw new Error('Username is required.');
+   return {
+      id: new Date().getTime(), 
+      username: username
+   } 
+}
