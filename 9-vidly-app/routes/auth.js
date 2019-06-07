@@ -12,7 +12,11 @@ const auth = require("../middleware/auth.js");
 const User = mongoose.model("User", userSchema);
 
 router.get('/checkToken', auth, (req, res) => {
-   res.sendStatus(200);
+   if(req.user) {
+      res.sendStatus(200);
+   } else {
+      res.status(500).send('TOKEN WRONG!')
+   }
 });
 
 router.post("/", async (req, res) => {
@@ -32,7 +36,10 @@ router.post("/", async (req, res) => {
    //TODO: Create new JWT
 
    const token = user.generateAuthToken();
-   res.cookie('token', token, { maxAge: 90000, httpOnly: true }).sendStatus(200);
+   res.cookie('token', token, {
+      domain: 'fancy-flash-card.herokuapp.com',
+      expires: new Date(Date.now() + 60*60)
+   }).sendStatus(200);
 });
 
 const validate = req => {
