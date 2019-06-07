@@ -16,3 +16,7 @@ module.exports.floating = (number1, number2) => {
 module.exports.greet = (name) => {
    return `Welcome ${name} to my website!`;
 }
+
+module.exports.getColors = () => {
+   return ['GREEN', 'CYAN', 'ORANGE', 'RED'];
+}
