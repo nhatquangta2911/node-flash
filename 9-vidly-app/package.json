@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll --verbose",
+    "test": "NODE_ENV=test jest --watchAll --verbose",
     "start": "nodemon index.js"
   },
   "author": "",

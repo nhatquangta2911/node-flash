@@ -10,6 +10,8 @@ require("./startup/prod")(app);
 
 const port = 2911;
 
-app.listen(process.env.PORT || port, () => {
+const server = app.listen(process.env.PORT || port, () => {
    logger.info(`Listening on port ${port}`);
 });
+
+module.exports = server;
