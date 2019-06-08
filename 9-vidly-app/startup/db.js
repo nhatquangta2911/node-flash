@@ -9,5 +9,5 @@ module.exports = () => {
          useFindAndModify: false,
          useCreateIndex: true
       })
-      .then(() => logger.info('DB Connected.'));
+      .then(() => logger.info(`CONNECTED TO ${config.get("db")}`));
 };

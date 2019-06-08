@@ -7,3 +7,54 @@
 {"message":"Starting application...","level":"info"}
 {"message":"Listening on port 2911","level":"info"}
 {"message":"DB Connected.","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"DB Connected.","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"DB Connected.","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"DB Connected.","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"name":"MongoNetworkError","errorLabels":["TransientTransactionError"],"level":"error","message":"connect ECONNREFUSED 127.0.0.1:27017connect ECONNREFUSED 127.0.0.1:27017","stack":"Error: connect ECONNREFUSED 127.0.0.1:27017\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1083:14)"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb://localhost/vidly_tests","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb://localhost/vidly_tests","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}

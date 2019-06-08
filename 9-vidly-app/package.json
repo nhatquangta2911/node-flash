@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --watchAll --verbose",
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
@@ -29,5 +29,9 @@
     "swagger-ui-express": "^4.0.4",
     "winston": "^3.2.1",
     "winston-mongodb": "^5.0.0"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0",
+    "supertest": "^4.0.2"
   }
 }
