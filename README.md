@@ -526,9 +526,23 @@ const logger = require("./logger");
 ## Section 11: Handling & Logging Errors
 
 ## Section 12: Unit Testing
+   
+   - BEST CHOICE: **Jest**
+   - Easy to write
+   - Fast to execute
+   - Ideal for testing algorithms
+   - Function with ZERO or MINIMAL dependencies to external resources
+   - **For testing exception, we use callback**
 
 ## Section 13: Integration Testing
 
+   - Work with 1 or more external resouces:
+      ######
+      - Database
+      - File system
+      - Networking (HTTP) - Sending a request
+      ######
+   ![image](images/integration-testing.png)
 ## Section 14: Test-driven Development
 
 ## Section 15: Deployment
