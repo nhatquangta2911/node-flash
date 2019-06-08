@@ -7,28 +7,3 @@
 {"message":"Starting application...","level":"info"}
 {"message":"Listening on port 2911","level":"info"}
 {"message":"DB Connected.","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"DB Connected.","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"DB Connected.","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"DB Connected.","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"DB Connected.","level":"info"}
-{"level":"error","message":"window is not definedwindow is not defined","stack":"ReferenceError: window is not defined\n    at router.post (D:\\Project\\node-flash\\9-vidly-app\\routes\\auth.js:39:4)"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"DB Connected.","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"DB Connected.","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"DB Connected.","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"DB Connected.","level":"info"}
