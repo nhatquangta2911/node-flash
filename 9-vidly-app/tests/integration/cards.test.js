@@ -40,6 +40,29 @@ describe('/api/cards', () => {
          expect(response.body.some(c => c.englishTitle === 'card1')).toBeTruthy();
          expect(response.body.some(c => c.englishTitle === 'card2')).toBeTruthy();
       });
+      it('GET /:id', async () => {
+         const id1 = "5cfbcd8dec34754612a17a13";
+         const id2 = "5cfbcd8dec34754612a17a14";
+         await Card.collection.insertMany([
+            {  _id: id1,   
+               englishTitle: 'card1',
+               vietnameseTitle: 'thetuvung1',
+               image: 'img1.png',
+               example: 'card1 in your area =))',
+               type: 'IDIOM',
+               context: 'for testing' },
+            {  _id: id2,
+               englishTitle: 'card2',
+               vietnameseTitle: 'thetuvung2',
+               image: 'img2.png',
+               example: 'card2 in your area =))',
+               type: 'IDIOM',
+               context: 'for testing' }
+         ]);
+         const response = await request(server).get(`/api/cards/card/${id1}`);
+         expect(response.status).toBe(200);
+         expect(response.body).toMatchObject({_id : id1});
+      });
    });
 
 });
