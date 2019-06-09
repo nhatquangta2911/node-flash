@@ -97,6 +97,7 @@ router.put("/:cardId", auth, async (req, res) => {
    card.example = req.body.example;
    card.type = req.body.type;
    card.context = req.body.context;
+   card.isRemember = req.body.isRemember;
 
    try {
       const result = await card.save();
