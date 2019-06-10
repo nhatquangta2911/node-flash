@@ -4,9 +4,11 @@ const mongoose = require('mongoose');
 const {
    cardSchema
 } = require('../../model/card');
+const {userSchema, generateAuthToken} = require('../../model/user');
 
 let server;
 const Card = mongoose.model('Card', cardSchema);
+const User = mongoose.model('User', userSchema);
 
 describe('/api/cards', () => {
 
@@ -84,6 +86,39 @@ describe('/api/cards', () => {
       });
    });
 
-
+   describe('POST /', () => {
+      it('should return 401 if client is not logged in', async () => {
+         const response = await request(server)
+            .post('/api/cards')
+            .send(
+               {
+                  englishTitle: 'card',
+                  vietnameseTitle: 'thetuvung',
+                  image: 'img.png',
+                  example: 'card in your area =))',
+                  type: 'IDIOM',
+                  context: 'for testing'
+               }
+            );
+         expect(response.status).toBe(401);
+      });
+      it('should return 400 if card english title is more than 50 characters', async () => {
+         const token = new User().generateAuthToken();
+         const response = await request(server)
+            .post('/api/cards')
+            .set('x-auth-token', token)
+            .send(
+               {
+                  englishTitle: "123456789012345678901234567890123456789012345678901",
+                  vietnameseTitle: 'thetuvung',
+                  image: 'img.png',
+                  example: 'card in your area =))',
+                  type: 'IDIOM',
+                  context: 'for testing'
+               }
+         );
+         expect(response.status).toBe(400);
+      });
+   });
 
 });
