@@ -87,54 +87,44 @@ describe('/api/cards', () => {
    });
 
    describe('POST /', () => {
-      it('should return 401 if client is not logged in', async () => {
-         const response = await request(server)
+      
+      //TODO: Use happy path params to do first
+      let token;
+      let englishTitle;
+
+      const exec = async () => {
+         return await request(server)
             .post('/api/cards')
+            .set('x-auth-token', token)
             .send(
-               {
-                  englishTitle: 'card',
-                  vietnameseTitle: 'thetuvung',
-                  image: 'img.png',
-                  example: 'card in your area =))',
-                  type: 'IDIOM',
-                  context: 'for testing'
-               }
-            );
+            {
+               englishTitle: englishTitle,
+               vietnameseTitle: 'thetuvung',
+               image: 'img.png',
+               example: 'card in your area =))',
+               type: 'IDIOM',
+               context: 'for testing'
+            }
+         );
+      }
+
+      beforeEach(() => {
+         token = new User().generateAuthToken();
+         englishTitle = 'CARD001';
+      });
+
+      it('should return 401 if client is not logged in', async () => {
+         token = '';
+         const response = await exec();
          expect(response.status).toBe(401);
       });
       it('should return 400 if card english title is more than 50 characters', async () => {
-         const token = new User().generateAuthToken();
-         const name = new Array(52).join('a');
-         const response = await request(server)
-            .post('/api/cards')
-            .set('x-auth-token', token)
-            .send(
-               {
-                  englishTitle: name,
-                  vietnameseTitle: 'thetuvung',
-                  image: 'img.png',
-                  example: 'card in your area =))',
-                  type: 'IDIOM',
-                  context: 'for testing'
-               }
-         );
+         englishTitle = new Array(52).join('a');
+         const response = await exec();
          expect(response.status).toBe(400);
       });
       it('should return the card if it is valid', async () => {
-         const token = new User().generateAuthToken();
-         const response = await request(server)
-            .post('/api/cards')
-            .set('x-auth-token', token)
-            .send(
-               {
-                  englishTitle: 'CARD001',
-                  vietnameseTitle: 'thetuvung',
-                  image: 'img.png',
-                  example: 'card in your area =))',
-                  type: 'IDIOM',
-                  context: 'for testing'
-               }
-         );
+         const response = await exec();
          expect(response.body).toHaveProperty('_id');
          expect(response.body).toHaveProperty('englishTitle', 'CARD001');
       });
