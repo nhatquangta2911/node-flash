@@ -104,12 +104,13 @@ describe('/api/cards', () => {
       });
       it('should return 400 if card english title is more than 50 characters', async () => {
          const token = new User().generateAuthToken();
+         const name = new Array(52).join('a');
          const response = await request(server)
             .post('/api/cards')
             .set('x-auth-token', token)
             .send(
                {
-                  englishTitle: "123456789012345678901234567890123456789012345678901",
+                  englishTitle: name,
                   vietnameseTitle: 'thetuvung',
                   image: 'img.png',
                   example: 'card in your area =))',
