@@ -120,6 +120,24 @@ describe('/api/cards', () => {
          );
          expect(response.status).toBe(400);
       });
+      it('should return the card if it is valid', async () => {
+         const token = new User().generateAuthToken();
+         const response = await request(server)
+            .post('/api/cards')
+            .set('x-auth-token', token)
+            .send(
+               {
+                  englishTitle: 'CARD001',
+                  vietnameseTitle: 'thetuvung',
+                  image: 'img.png',
+                  example: 'card in your area =))',
+                  type: 'IDIOM',
+                  context: 'for testing'
+               }
+         );
+         expect(response.body).toHaveProperty('_id');
+         expect(response.body).toHaveProperty('englishTitle', 'CARD001');
+      });
    });
 
 });
