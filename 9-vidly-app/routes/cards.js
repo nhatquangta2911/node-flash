@@ -1,3 +1,4 @@
+const validateObjectId = require('../middleware/validateObjectId');
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
@@ -16,8 +17,7 @@ router.get("/", async (req, res) => {
    res.send(cards);
 });
 
-router.get("/card/:id", async (req, res) => {
-   if(!mongoose.Types.ObjectId.isValid(req.params.id)) return res.status(404).send('Invalid ID.'); 
+router.get("/card/:id", validateObjectId, async (req, res) => {
    const card = await Card.findById(req.params.id);
    if (!card) return res.status(404).send("NOT FOUND");
    res.send(card);
