@@ -41,8 +41,8 @@ describe('/api/cards', () => {
          expect(response.body.some(c => c.englishTitle === 'card2')).toBeTruthy();
       });
       it('GET /:id', async () => {
-         const id1 = "5cfbcd8dec34754612a17a13";
-         const id2 = "5cfbcd8dec34754612a17a14";
+         const id1 = mongoose.Types.ObjectId();
+         const id2 = mongoose.Types.ObjectId();
          await Card.collection.insertMany([
             {  _id: id1,   
                englishTitle: 'card1',
@@ -61,7 +61,7 @@ describe('/api/cards', () => {
          ]);
          const response = await request(server).get(`/api/cards/card/${id1}`);
          expect(response.status).toBe(200);
-         expect(response.body).toMatchObject({_id : id1});
+         expect(response.body).toHaveProperty('englishTitle', 'card1');
       });
    });
 
