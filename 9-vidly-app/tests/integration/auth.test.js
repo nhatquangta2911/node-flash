@@ -17,7 +17,7 @@ describe('auth middleware', () => {
 
    afterEach(async () => {
       server.close();
-      await Card.remove({});
+      await Card.deleteMany({});
    });
   
    const exec = async () => {
