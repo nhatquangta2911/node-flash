@@ -1,4 +1,4 @@
-const socket = io.connect('http://localhost:5000');
+const socket = io.connect('http://localhost:8080');
 
 // Query DOM
 var message = document.getElementById('message');
