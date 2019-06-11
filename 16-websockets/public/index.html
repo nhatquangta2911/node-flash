@@ -6,8 +6,19 @@
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <link rel="stylesheet" href="/styles.css">
    <title>ChatFLASH</title>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js"></script>
 </head>
 <body>
-   <p>Hi</p>
+   <div id="flash-chat">
+      <div id="chat-window">
+         <div id="output">
+
+         </div>
+      </div>
+      <input type="text" id="handle" placeholder="Handle">
+      <input type="text" id="message" placeholder="Message">
+      <button id="send">Send</button>
+   </div>
+   <script src="/chat.js"></script>
 </body>
 </html>

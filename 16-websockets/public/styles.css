@@ -1,5 +1,5 @@
 body{
-   font-family: 'Nunito';
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 h2{
@@ -8,18 +8,18 @@ h2{
    color: #575ed8;
 }
 
-#mario-chat{
+#flash-chat{
    max-width: 600px;
    margin: 30px auto;
-   border: 1px solid #ddd;
-   box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
-   border-radius: 2px;
+   border-bottom: 0 none;
+   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.12),
+      0 2px 4px 0 rgba(0, 0, 0, 0.14);
+   border-radius: 4px;
 }
-
 #chat-window{
    height: 400px;
-   overflow: auto;
-   background: #f9f9f9;
+   overflow: auto; 
+   background: hsla(187, 93%, 39%, 0.068);
 }
 
 #output p{
@@ -27,6 +27,8 @@ h2{
    margin: 0 20px;
    border-bottom: 1px solid #e9e9e9;
    color: #555;
+   font-size: 14px;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #feedback p{
@@ -36,7 +38,8 @@ h2{
 }
 
 #output strong{
-   color: #575ed8;
+   color: #00ACC1;
+   margin-right: 5px;
 }
 
 label{
@@ -51,19 +54,19 @@ input{
    background: #eee;
    border: 0;
    display: block;
+   color: #555;
    width: 100%;
    background: #fff;
    border-bottom: 1px solid #eee;
-   font-family: Nunito;
-   font-size: 16px;
+   font-size: 14px;
 }
 
 button{
-   background: #575ed8;
+   background: hsl(45, 100%, 59%);
    color: #fff;
-   font-size: 18px;
+   font-size: 15px;
    border: 0;
-   padding: 12px 0;
+   padding: 10px 0;
    width: 100%;
-   border-radius: 0 0 2px 2px;
+   border-radius: 0 0 4px 4px;
 }
