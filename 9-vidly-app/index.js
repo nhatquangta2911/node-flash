@@ -26,6 +26,9 @@ io.on('connection', (socket) => {
    socket.on('typing', (data) => {
       socket.broadcast.emit('typing', data);
    })
+   socket.on('click', (data) => {
+      socket.broadcast.emit('click', data);
+   })
 });
 
 module.exports = server;
