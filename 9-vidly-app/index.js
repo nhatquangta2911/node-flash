@@ -19,12 +19,14 @@ const server = app.listen(process.env.PORT || port, () => {
 const io = socket(server);
 
 io.on('connection', (socket) => {
-   console.log('\n Made socket connection ', socket.id);
    socket.on('chat', (data) => {
       io.sockets.emit('chat', data);
    })
    socket.on('typing', (data) => {
       socket.broadcast.emit('typing', data);
+   })
+   socket.on('click', (data) => {
+      socket.broadcast.emit('click', data);
    })
 });
 
