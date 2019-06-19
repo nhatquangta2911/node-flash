@@ -29,7 +29,7 @@ const cardSchema = new mongoose.Schema({
       type: String,
       default: 'WORD',
       uppercase: true,
-      enum: ['NOUN', 'ADJECTIVE', 'ADVERB', 'PHRASAL VERB', 'IDIOM', 'OTHERS', 'WORD', 'COMMON']
+      enum: ['NOUN','VERB', 'FILLER', 'ADJECTIVE', 'ADVERB', 'PHRASAL VERB', 'IDIOM', 'OTHERS', 'WORD', 'COMMON']
    },
    context: {
       type: String,
