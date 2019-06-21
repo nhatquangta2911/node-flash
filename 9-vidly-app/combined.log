@@ -1012,3 +1012,16 @@
 {"message":"Starting application...","level":"info"}
 {"message":"Listening on port 2911","level":"info"}
 {"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"level":"error","message":"totalPage is not definedtotalPage is not defined","stack":"ReferenceError: totalPage is not defined\n    at router.get (D:\\Project\\node-flash\\9-vidly-app\\routes\\cards.js:52:7)"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
