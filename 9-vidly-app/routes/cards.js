@@ -48,7 +48,7 @@ router.get('/page/:pageNumber', async (req, res) => {
       .skip((req.params.pageNumber - 1) * pageSize)
       .limit(pageSize);
    const numberOfCards = await Card.find().count((err, count) => count);
-   const numberOfPages = (numberOfCards % pageSize === 0) ? numberOfCards % pageSize : numberOfCards % pageSize + 1
+   const numberOfPages = (numberOfCards % pageSize === 0) ? parseInt(numberOfCards / pageSize) : parseInt(numberOfCards / pageSize) + 1
    const data = {
       cards,
       numberOfPages
