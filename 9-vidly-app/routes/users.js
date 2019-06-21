@@ -55,7 +55,7 @@ router.post("/", async (req, res) => {
    // res.send(_.pick(user, ['_id', 'name', 'email', 'password']));
    const token = user.generateAuthToken();
    //TODO: Send token via res header
-   res.header("x-auth-token", token).send(result);
+   res.send(token);
 });
 const validate = req => {
    const schema = {

@@ -9,7 +9,7 @@ const auth = require("../middleware/auth");
 const admin = require("../middleware/admin");
 
 const Card = mongoose.model("Card", cardSchema);
-const pageSize = 5;
+const pageSize = 8;
 
 //TODO: GET
 router.get("/", async (req, res) => {
@@ -46,8 +46,14 @@ router.get('/page/:pageNumber', async (req, res) => {
       .find()
       .sort('-dateCreated')
       .skip((req.params.pageNumber - 1) * pageSize)
-      .limit(pageSize)
-   res.send(cards);
+      .limit(pageSize);
+   const numberOfCards = await Card.find().count((err, count) => count);
+   const numberOfPages = (numberOfCards % pageSize === 0) ? numberOfCards % pageSize : numberOfCards % pageSize + 1
+   const data = {
+      cards,
+      numberOfPages
+   }
+   res.send(data);
 });
 
 //TODO: POST
