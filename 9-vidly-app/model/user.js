@@ -41,7 +41,8 @@ userSchema.methods.generateAuthToken = function() {
          name: this.name,
          email: this.email,
          isAdmin: this.isAdmin,
-         avatarPicture: this.avatarPicture
+         avatarPicture: this.avatarPicture,
+         score: score
       }, //TODO: payload
       config.get("jwtPrivateKey"), // digital signature
       { expiresIn: '1h'}
