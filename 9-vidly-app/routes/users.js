@@ -69,10 +69,10 @@ const validate = req => {
          .min(5)
          .max(255)
          .required(),
-      avatarPicture: Joi.string()
-         .match(/(jpg|png|gif|jpeg)$/i),
-      score: Joi.string()
-         .min(0)
+      avatarPicture: Joi.string().min(15),
+      score: Joi.number()
+         .min(0),
+      isAdmin: Joi.boolean()
    };
    return Joi.validate(req, schema);
 };
