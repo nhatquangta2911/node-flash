@@ -24,7 +24,7 @@ router.get("/", async (req,  res ) => {
 
 router.get("/my", async (req, res) => {
    const cards = await Card.find({ user: { 
-      _id: req.body._id
+      _id: jwt.decode(req.headers['x-auth-token'])._id
    }}).populate('user');
    res.send(cards);
 });
