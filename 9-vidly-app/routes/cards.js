@@ -8,6 +8,7 @@ const {
 const {userSchema} = require('../model/user');
 const auth = require("../middleware/auth");
 const admin = require("../middleware/admin");
+const jwt = require('jsonwebtoken');
 
 const Card = mongoose.model("Card", cardSchema);
 const User = mongoose.model("User", userSchema);
@@ -21,8 +22,15 @@ router.get("/", async (req,  res ) => {
    res.send(cards);
 });
 
+router.get("/my", async (req, res) => {
+   const cards = await Card.find({ user: { 
+      _id: req.body._id
+   }}).populate('user');
+   res.send(cards);
+});
+
 router.get("/card/:id", validateObjectId, async (req, res) => {
-   const card = await Card.findById(req.params.id);   
+   const card = await Card.findById(req.params.id).populate('user');   
    if (!card) return res.status(404).send("NOT FOUND");
    res.send(card);
 });
