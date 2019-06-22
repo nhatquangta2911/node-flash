@@ -72,7 +72,7 @@ router.post("/", auth, async (req, res) => {
       numberInStock: req.body.numberInStock,
       dailyRentalRate: req.body.dailyRentalRate
    });
-   try {
+   try { 
       const result = await movie.save();
       res.send(result);
    } catch (ex) {

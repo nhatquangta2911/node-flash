@@ -23,6 +23,15 @@ const userSchema = new mongoose.Schema({
       minlength: 5,
       maxlength: 1024
    },
+   avatarPicture: {
+      type: String,
+      default: 'https://library.kissclipart.com/20180922/eve/kissclipart-icon-full-name-clipart-computer-icons-avatar-icon-f6cf26ff2213f36e.png',
+      match: /(jpg|png|gif|jpeg)$/i
+   },
+   score: {
+      type: Number,
+      default: 0
+   },
    isAdmin: Boolean
 });
 
@@ -31,7 +40,10 @@ userSchema.methods.generateAuthToken = function() {
       {  _id: this._id,
          name: this.name,
          email: this.email,
-         isAdmin: this.isAdmin }, //TODO: payload
+         isAdmin: this.isAdmin,
+         avatarPicture: this.avatarPicture,
+         score: this.score
+      }, //TODO: payload
       config.get("jwtPrivateKey"), // digital signature
       { expiresIn: '1h'}
    );

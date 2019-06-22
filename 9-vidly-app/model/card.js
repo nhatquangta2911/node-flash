@@ -45,6 +45,10 @@ const cardSchema = new mongoose.Schema({
    dateCreated: {
       type: Date,
       default: Date.now
+   },
+   user: {
+      type: mongoose.Types.ObjectId,
+      ref: 'User',
    }
 });
 

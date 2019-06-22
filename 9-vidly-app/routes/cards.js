@@ -5,20 +5,32 @@ const mongoose = require("mongoose");
 const {
    cardSchema
 } = require("../model/card");
+const {userSchema} = require('../model/user');
 const auth = require("../middleware/auth");
 const admin = require("../middleware/admin");
+const jwt = require('jsonwebtoken');
 
 const Card = mongoose.model("Card", cardSchema);
+const User = mongoose.model("User", userSchema);
 const pageSize = 8;
 
 //TODO: GET
-router.get("/", async (req, res) => {
-   const cards = await Card.find().sort("-dateCreated");
+router.get("/", async (req,  res ) => {
+   const cards = await Card.find()
+      .sort("-dateCreated")   
+      .populate('user');
+   res.send(cards);
+});
+
+router.get("/my", async (req, res) => {
+   const cards = await Card.find({ user: { 
+      _id: jwt.decode(req.headers['x-auth-token'])._id
+   }}).populate('user');
    res.send(cards);
 });
 
 router.get("/card/:id", validateObjectId, async (req, res) => {
-   const card = await Card.findById(req.params.id);
+   const card = await Card.findById(req.params.id).populate('user');   
    if (!card) return res.status(404).send("NOT FOUND");
    res.send(card);
 });
@@ -59,12 +71,13 @@ router.get('/page/:pageNumber', async (req, res) => {
 //TODO: POST
 router.post("/", auth, async (req, res) => {
    const card = new Card({
+      image: req.body.image,
+      type: req.body.type,
+      context: req.body.context,
       englishTitle: req.body.englishTitle,
       vietnameseTitle: req.body.vietnameseTitle,
-      image: req.body.image,
       example: req.body.example,
-      type: req.body.type,
-      context: req.body.context
+      user: req.body.user
    });
    try {
       const result = await card.save();

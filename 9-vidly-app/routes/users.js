@@ -4,10 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
 const {userSchema} = require('../model/user');
-const config = require('config');
-const jwt = require('jsonwebtoken');
 const Joi = require('joi');
-const auth = require('../middleware/auth');
 const User = mongoose.model('User', userSchema);
 const pageSize = 2;
 
@@ -15,7 +12,7 @@ const pageSize = 2;
 router.get("/", async (req, res) => {
    const users = await User.find()
       .sort("-name")
-      .select("name email");
+      .select("name email avatarPicture score");
    res.send(users);
 });
 
@@ -23,7 +20,7 @@ router.get("/user/:email", async (req, res) => {
    const user = await User.findOne({
       email: req.params.email
 
-   }).select("name email isAdmin");
+   }).select("name email isAdmin avatarPicture scrore");
    if (!user) return res.status(404).send('Username is not exist');
    res.send(user);
 });
@@ -32,7 +29,7 @@ router.get("/page/:page", async (req, res) => {
    const users = await User.find()
       .sort("-name")
       .skip((req.params.page - 1) * pageSize)
-      .select("_id name email password")
+      .select("_id name email avatarPicture scrore")
       .limit(pageSize);
    res.send(users);
 });
@@ -48,7 +45,7 @@ router.post("/", async (req, res) => {
    });
 
    if (user) return res.status(400).send('User is already exist')
-   user = new User(_.pick(req.body, ['name', 'email', 'password', 'isAdmin']));
+   user = new User(_.pick(req.body, ['name', 'email', 'password', 'isAdmin', 'avatarPicture', 'score']));
    const salt = await bcrypt.genSalt(10);
    user.password = await bcrypt.hash(user.password, salt);
    const result = await user.save();
@@ -71,7 +68,11 @@ const validate = req => {
       password: Joi.string()
          .min(5)
          .max(255)
-         .required()
+         .required(),
+      avatarPicture: Joi.string().min(15),
+      score: Joi.number()
+         .min(0),
+      isAdmin: Joi.boolean()
    };
    return Joi.validate(req, schema);
 };

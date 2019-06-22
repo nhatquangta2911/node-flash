@@ -1,11 +1,9 @@
 const express = require("express");
-const Joi = require("joi");
 const mongoose = require("mongoose");
 const router = express.Router();
 const { genreSchema } = require("../model/genre");
 const auth = require("../middleware/auth");
 const admin = require("../middleware/admin");
-const asyncMiddleware = require('../middleware/async');
 
 const Genre = mongoose.model("genres", genreSchema);
 const pageSize = 5;
