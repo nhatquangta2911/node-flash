@@ -2,13 +2,12 @@ const validateObjectId = require('../middleware/validateObjectId');
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
-const {
-   cardSchema
-} = require("../model/card");
-const {userSchema} = require('../model/user');
+const { cardSchema } = require("../model/card");
+const { userSchema } = require('../model/user');
 const auth = require("../middleware/auth");
 const admin = require("../middleware/admin");
 const jwt = require('jsonwebtoken');
+const Fawn = require('fawn');
 
 const Card = mongoose.model("Card", cardSchema);
 const User = mongoose.model("User", userSchema);
@@ -70,6 +69,7 @@ router.get('/page/:pageNumber', async (req, res) => {
 
 //TODO: POST
 router.post("/", auth, async (req, res) => {
+   const userId = jwt.decode(req.headers['x-auth-token'])._id; 
    const card = new Card({
       image: req.body.image,
       type: req.body.type,
@@ -77,10 +77,15 @@ router.post("/", auth, async (req, res) => {
       englishTitle: req.body.englishTitle,
       vietnameseTitle: req.body.vietnameseTitle,
       example: req.body.example,
-      user: req.body.user
+      user: userId
    });
+   let user = await User.findById(userId);
+   if(!user) return res.status(400).send('Invalid User');
+
    try {
       const result = await card.save();
+      user.score += 500;
+      user.save();
       res.send(result);
    } catch (ex) {
       let errorMessages = "";

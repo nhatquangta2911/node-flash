@@ -16,11 +16,11 @@ router.get("/", async (req, res) => {
    res.send(users);
 });
 
-router.get("/user/:email", async (req, res) => {
+router.get("/user/:id", async (req, res) => {
    const user = await User.findOne({
-      email: req.params.email
+      _id: req.params.id
 
-   }).select("name email isAdmin avatarPicture scrore");
+   }).select("name email isAdmin avatarPicture score");
    if (!user) return res.status(404).send('Username is not exist');
    res.send(user);
 });

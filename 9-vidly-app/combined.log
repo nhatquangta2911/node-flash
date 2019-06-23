@@ -1442,3 +1442,41 @@
 {"message":"Starting application...","level":"info"}
 {"message":"Listening on port 2911","level":"info"}
 {"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"expose":true,"statusCode":400,"status":400,"body":"{\n\t \"image\": \"https://media1.giphy.com/media/l1KVbInIdeFYlsApO/giphy.gif\",\n        \"type\": \"NOUN\",\n        \"context\": \"BE\",\t\t\n        \"englishTitle\": \"SHAWN 20\",\n        \"vietnameseTitle\": \"Shawn 20\",\n        \"example\": \"Shawn Shawn Shawn\",\n}\n","type":"entity.parse.failed","level":"error","message":"Unexpected token } in JSON at position 241Unexpected token } in JSON at position 241","stack":"SyntaxError: Unexpected token } in JSON at position 241\n    at JSON.parse (<anonymous>)\n    at parse (/home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/node_modules/body-parser/lib/types/json.js:89:19)\n    at /home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/node_modules/body-parser/lib/read.js:121:18\n    at invokeCallback (/home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/node_modules/raw-body/index.js:224:16)\n    at done (/home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/node_modules/raw-body/index.js:213:7)\n    at IncomingMessage.onEnd (/home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/node_modules/raw-body/index.js:273:7)\n    at IncomingMessage.emit (events.js:202:15)\n    at endReadableNT (_stream_readable.js:1129:12)\n    at processTicksAndRejections (internal/process/next_tick.js:76:17)"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
