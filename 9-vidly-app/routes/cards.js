@@ -53,13 +53,14 @@ router.get('/recent', async (req, res) => {
 });
 
 router.get('/page/:pageNumber', async (req, res) => {
+   const numberOfCards = await Card.find().countDocuments((err, count) => count);
+   const numberOfPages = (numberOfCards % pageSize === 0) ? parseInt(numberOfCards / pageSize) : parseInt(numberOfCards / pageSize) + 1
+   if(!Number.isInteger(parseInt(req.params.pageNumber)) || req.params.pageNumber < 1 || req.params.pageNumber > numberOfPages) return res.status(404).send('Not Found');
    const cards = await Card
       .find()
       .sort('-dateCreated')
       .skip((req.params.pageNumber - 1) * pageSize)
       .limit(pageSize);
-   const numberOfCards = await Card.find().count((err, count) => count);
-   const numberOfPages = (numberOfCards % pageSize === 0) ? parseInt(numberOfCards / pageSize) : parseInt(numberOfCards / pageSize) + 1
    const data = {
       cards,
       numberOfPages
