@@ -50,6 +50,10 @@ const blogSchema = new mongoose.Schema({
    dateUpdated: {
       type: Date,
       default: Date.now
+   },
+   image: {
+      type: String,
+      default: 'http://www.onecity.in/wp-content/uploads/2019/05/blog-banner.png'
    }
 });
 

@@ -57,6 +57,7 @@ router.post('/', auth, async (req, res) => {
       header: req.body.header,
       content: req.body.content,
       tags: req.body.tags,
+      image: req.body.image,
       user: userId
    });
    let user = await User.findById(userId);
@@ -87,6 +88,7 @@ router.put('/blog/:id', auth, async (req, res) => {
    blog.header = req.body.header;
    blog.content = req.body.content;
    blog.tags = req.body.tags;
+   blog.image = req.body.image;
    blog.dateUpdated = Date.now();
 
    try {
@@ -118,6 +120,7 @@ router.put('/like/:id', async (req, res) => {
    blog.header = req.body.header;
    blog.content = req.body.content;
    blog.tags = req.body.tags;
+   blog.image = req.body.image;
    blog.dateUpdated = Date.now();
 
    if(req.body.isLike) {
