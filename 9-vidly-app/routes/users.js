@@ -16,6 +16,12 @@ router.get("/", async (req, res) => {
    res.send(users);
 });
 
+router.get("/best", async (req, res) => {
+   const users = await User.find()
+      .sort("-score")
+   res.send(users);
+});
+
 router.get("/user/:id", async (req, res) => {
    const user = await User.findOne({
       _id: req.params.id
