@@ -23,11 +23,10 @@ const blogSchema = new mongoose.Schema({
       default: 0,
       min: 0
    },
-   likes: {
-      type: Number,
-      default: 0,
-      min: 0
-   },
+   likes: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+   }],
    tags: {
       type: [{
          type: mongoose.Schema.Types.ObjectId,
