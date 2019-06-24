@@ -7,6 +7,8 @@ const rentals = require("../routes/rentals");
 const users = require("../routes/users");
 const auth = require("../routes/auth");
 const stats = require("../routes/stats");
+const tags = require('../routes/tags');
+const blogs = require('../routes/blogs');
 const cards = require("../routes/cards");
 const error = require("../middleware/error");
 const morgan = require("morgan");
@@ -33,6 +35,8 @@ module.exports = app => {
    app.use("/api/users", users);
    app.use("/api/auth", auth);
    app.use("/api/stats", stats);
+   app.use("/api/tags", tags);
+   app.use("/api/blogs", blogs);
    //TODO: Just passing a reference
    app.use(error);
 };
