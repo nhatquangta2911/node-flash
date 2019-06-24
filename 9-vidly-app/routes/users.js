@@ -75,7 +75,7 @@ const validate = req => {
          .min(5)
          .max(255)
          .required(),
-      avatarPicture: Joi.string().min(15),
+      avatarPicture: Joi.string().min(10),
       score: Joi.number()
          .min(0),
       isAdmin: Joi.boolean()
