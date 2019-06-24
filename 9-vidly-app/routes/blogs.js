@@ -17,8 +17,37 @@ router.get('/', async (req, res) => {
    const blogs = await Blog.find()
       .sort('-dateUpdated')
       .populate('user')
+      .populate('likes')
       .populate('tags');
    res.send(blogs);
+});
+
+router.get('/view/:id', async (req, res) => {
+   let blog = await Blog.findById(req.params.id)
+      .populate('tags')
+      .populate('likes')
+      .populate('user');
+   if(!blog) return res.status(404).send("NOT FOUND.");
+   res.send(blog);
+   try {
+      blog.views += 1;
+      blog.save();
+   } catch(ex) {
+      for (field in ex.errors) {
+         errorMessages += ex.errors[field].message + "\n";
+      }
+      res.status(400).send(errorMessages);
+   }
+
+});
+
+router.get('/blog/:id', async (req, res) => {
+   let blog = await Blog.findById(req.params.id)
+      .populate('tags')
+      .populate('likes')
+      .populate('user');
+   if(!blog) return res.status(404).send("NOT FOUND.");
+   res.send(blog);
 });
 
 router.post('/', auth, async (req, res) => {
@@ -45,6 +74,81 @@ router.post('/', auth, async (req, res) => {
       }
       res.status(400).send(errorMessages);
    }
+});
+
+router.put('/blog/:id', auth, async (req, res) => {
+   let blog = await Blog.findById(req.params.id);
+   if(!blog) return res.status(404).send("NOT FOUND.");
+
+   const userId = jwt.decode(req.headers['x-auth-token'])._id;
+   if(blog.user._id != userId) return res.status(403).send("You can not edit this post." + blog.user._id + ' ' + userId);
+
+   blog.title = req.body.title;
+   blog.header = req.body.header;
+   blog.content = req.body.content;
+   blog.tags = req.body.tags;
+   blog.dateUpdated = Date.now();
+
+   try {
+      const result = await blog.save();
+      res.send(result);
+   } catch (ex) {
+      let errorMessage = "";
+      for (field in ex.errors) {
+         errorMessage += ex.errors[field].message + '\n';
+      }
+      return res.status(400).send(errorMessage);
+   }
+
+   // if(blog.likes.includes(userId)) 
+   //    blog.likes.pop(userId);
+   // else 
+   //    blog.likes.push(userId);
+   // res.send(blog);
+});
+
+router.put('/like/:id', async (req, res) => {
+   let blog = await Blog.findById(req.params.id);
+   if(!blog) return res.status(404).send("NOT FOUND.");
+
+   const userId = jwt.decode(req.headers['x-auth-token'])._id;
+   // if(blog.user._id != userId) return res.status(403).send("You can not edit this post." + blog.user._id + ' ' + userId);
+
+   blog.title = req.body.title;
+   blog.header = req.body.header;
+   blog.content = req.body.content;
+   blog.tags = req.body.tags;
+   blog.dateUpdated = Date.now();
+
+   if(req.body.isLike) {
+      if(blog.likes.includes(userId))
+         blog.likes.splice(blog.likes.indexOf(userId), 1);
+      else
+         blog.likes.push(userId);
+   } 
+
+   try {
+      const result = await blog.save();
+      res.send(result);
+   } catch (ex) {
+      let errorMessage = "";
+      for (field in ex.errors) {
+         errorMessage += ex.errors[field].message + '\n';
+      }
+      return res.status(400).send(errorMessage);
+   }
+
+   // if(blog.likes.includes(userId)) 
+   //    blog.likes.pop(userId);
+   // else 
+   //    blog.likes.push(userId);
+   // res.send(blog);
+});
+
+router.delete('/:id', auth, admin, async (req, res) => {
+   const result = await Blog.findByIdAndRemove(req.params.id);
+   if(!result) return res.status(404).send("NOT FOUND.");
+   res.send(result);
 });
 
 module.exports = router;
