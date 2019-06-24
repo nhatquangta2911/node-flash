@@ -21,7 +21,7 @@ router.get('/tag/:id', validateObjectId, async (req, res) => {
       res.send(tag);
 });
 
-router.post('/', async (req, res) => {
+router.post('/', auth, async (req, res) => {
    const tag = new Tag({
       name: req.body.name,
       description: req.body.description
