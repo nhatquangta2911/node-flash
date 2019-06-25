@@ -16,9 +16,17 @@ const Tag  = mongoose.model('Tag', tagSchema);
 router.get('/', async (req, res) => {
    const blogs = await Blog.find()
       .sort('-dateUpdated')
+      .populate('tags')
       .populate('user')
-      .populate('likes')
-      .populate('tags');
+   res.send(blogs);
+});
+
+router.get('/my', auth, async (req, res) => {
+   const blogs = await Blog.find({ 
+      user: {
+         _id: jwt.decode(req.headers['x-auth-token'])._id
+      }
+   });
    res.send(blogs);
 });
 
@@ -43,9 +51,8 @@ router.get('/view/:id', async (req, res) => {
 
 router.get('/blog/:id', async (req, res) => {
    let blog = await Blog.findById(req.params.id)
-      .populate('tags')
-      .populate('likes')
-      .populate('user');
+      .populate('user')
+      .populate('tags');
    if(!blog) return res.status(404).send("NOT FOUND.");
    res.send(blog);
 });
@@ -65,8 +72,17 @@ router.post('/', auth, async (req, res) => {
 
    try {
       const result = await blog.save();
+     
       user.score += 2000;
       user.save();
+     
+      req.body.tags && req.body.tags.length > 0 && req.body.tags.forEach(async (t) => {
+         let tag = await Tag.findById(t._id);
+         if(!tag) return res.status(404).send('Invalid Tags.');
+         tag && tag.posts && tag.posts.push(result._id);
+         tag && await tag.save();
+      })
+
       res.send(result);
    } catch(ex) {
       let errorMessages = "";
