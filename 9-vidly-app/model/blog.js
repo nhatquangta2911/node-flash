@@ -5,7 +5,8 @@ const blogSchema = new mongoose.Schema({
       type: String,
       required: true,
       maxlength: 500,
-      trim: true
+      trim: true,
+      
    },
    header: {
       type: String,
@@ -40,7 +41,7 @@ const blogSchema = new mongoose.Schema({
       }
    },
    user: {
-      type: mongoose.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: 'User'
    },
    dateCreated: {
