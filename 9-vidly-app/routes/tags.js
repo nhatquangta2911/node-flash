@@ -2,14 +2,16 @@ const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
 const { tagSchema } = require('../model/tag');
+const { blogSchema } = require('../model/blog');
 const auth = require('../middleware/auth');
 const admin = require('../middleware/admin');
 const validateObjectId = require('../middleware/validateObjectId');
 
 const Tag = mongoose.model('Tag', tagSchema);
+const Blog = mongoose.model('Blog', blogSchema);
 
 router.get('/', async (req, res) => {
-   const tags = await Tag.find().sort('-name');
+   const tags = await Tag.find().sort('-name').populate('posts');
    res.send(tags);
 })
 

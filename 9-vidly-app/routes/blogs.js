@@ -17,8 +17,6 @@ router.get('/', async (req, res) => {
    const blogs = await Blog.find()
       .sort('-dateUpdated')
       .populate('user')
-      .populate('likes')
-      .populate('tags');
    res.send(blogs);
 });
 
@@ -43,9 +41,8 @@ router.get('/view/:id', async (req, res) => {
 
 router.get('/blog/:id', async (req, res) => {
    let blog = await Blog.findById(req.params.id)
-      .populate('tags')
-      .populate('likes')
-      .populate('user');
+      .populate('user')
+      .populate('tags');
    if(!blog) return res.status(404).send("NOT FOUND.");
    res.send(blog);
 });
@@ -64,8 +61,16 @@ router.post('/', auth, async (req, res) => {
 
    try {
       const result = await blog.save();
+     
       user.score += 2000;
       user.save();
+     
+      req.body.tags.forEach(async (t) => {
+         let tag = await Tag.findById(t._id);
+         tag.posts.push(result._id);
+         tag.save();
+      })
+
       res.send(result);
    } catch(ex) {
       let errorMessages = "";

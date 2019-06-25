@@ -1825,3 +1825,69 @@
 {"message":"Starting application...","level":"info"}
 {"message":"Listening on port 2911","level":"info"}
 {"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"level":"error","message":"Cannot read property 'posts' of nullCannot read property 'posts' of null","stack":"TypeError: Cannot read property 'posts' of null\n    at req.body.tags.forEach (D:\\Project\\node-flash\\9-vidly-app\\routes\\blogs.js:69:14)"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Schema hasn't been registered for model \"Post\".\nUse mongoose.model(name, schema)Schema hasn't been registered for model \"Post\".\nUse mongoose.model(name, schema)","name":"MissingSchemaError","level":"error","stack":"MissingSchemaError: Schema hasn't been registered for model \"Post\".\nUse mongoose.model(name, schema)\n    at new MissingSchemaError (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongoose\\lib\\error\\missingSchema.js:22:11)\n    at NativeConnection.Connection.model (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongoose\\lib\\connection.js:888:11)\n    at getModelsMapForPopulate (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongoose\\lib\\model.js:4337:57)\n    at populate (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongoose\\lib\\model.js:3915:21)\n    at _populate (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongoose\\lib\\model.js:3885:5)\n    at utils.promiseOrCallback.cb (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongoose\\lib\\model.js:3858:5)\n    at Object.promiseOrCallback (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongoose\\lib\\utils.js:248:12)\n    at Function.Model.populate (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongoose\\lib\\model.js:3857:16)\n    at cb (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongoose\\lib\\query.js:1832:17)\n    at result (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongodb\\lib\\utils.js:410:17)\n    at executeCallback (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongodb\\lib\\utils.js:402:9)\n    at handleCallback (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongodb\\lib\\utils.js:128:55)\n    at cursor.close (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongodb\\lib\\operations\\cursor_ops.js:224:62)\n    at handleCallback (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongodb\\lib\\utils.js:128:55)\n    at completeClose (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongodb\\lib\\cursor.js:898:14)\n    at _endSession (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongodb\\lib\\cursor.js:909:37)\n    at Cursor._endSession (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongodb-core\\lib\\cursor.js:195:5)\n    at Cursor._endSession (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongodb\\lib\\cursor.js:231:59)\n    at Cursor.close (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongodb\\lib\\cursor.js:909:19)\n    at cursor._next (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongodb\\lib\\operations\\cursor_ops.js:224:23)\n    at handleCallback (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongodb-core\\lib\\cursor.js:204:5)\n    at _setCursorNotifiedImpl (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongodb-core\\lib\\cursor.js:426:38)"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Schema hasn't been registered for model \"Post\".\nUse mongoose.model(name, schema)Schema hasn't been registered for model \"Post\".\nUse mongoose.model(name, schema)","name":"MissingSchemaError","level":"error","stack":"MissingSchemaError: Schema hasn't been registered for model \"Post\".\nUse mongoose.model(name, schema)\n    at new MissingSchemaError (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongoose\\lib\\error\\missingSchema.js:22:11)\n    at NativeConnection.Connection.model (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongoose\\lib\\connection.js:888:11)\n    at getModelsMapForPopulate (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongoose\\lib\\model.js:4337:57)\n    at populate (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongoose\\lib\\model.js:3915:21)\n    at _populate (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongoose\\lib\\model.js:3885:5)\n    at utils.promiseOrCallback.cb (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongoose\\lib\\model.js:3858:5)\n    at Object.promiseOrCallback (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongoose\\lib\\utils.js:248:12)\n    at Function.Model.populate (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongoose\\lib\\model.js:3857:16)\n    at cb (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongoose\\lib\\query.js:1832:17)\n    at result (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongodb\\lib\\utils.js:410:17)\n    at executeCallback (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongodb\\lib\\utils.js:402:9)\n    at handleCallback (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongodb\\lib\\utils.js:128:55)\n    at cursor.close (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongodb\\lib\\operations\\cursor_ops.js:224:62)\n    at handleCallback (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongodb\\lib\\utils.js:128:55)\n    at completeClose (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongodb\\lib\\cursor.js:898:14)\n    at _endSession (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongodb\\lib\\cursor.js:909:37)\n    at Cursor._endSession (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongodb-core\\lib\\cursor.js:195:5)\n    at Cursor._endSession (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongodb\\lib\\cursor.js:231:59)\n    at Cursor.close (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongodb\\lib\\cursor.js:909:19)\n    at cursor._next (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongodb\\lib\\operations\\cursor_ops.js:224:23)\n    at handleCallback (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongodb-core\\lib\\cursor.js:204:5)\n    at _setCursorNotifiedImpl (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongodb-core\\lib\\cursor.js:426:38)"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"Starting application...","level":"info"}
+{"message":"Listening on port 2911","level":"info"}
+{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
