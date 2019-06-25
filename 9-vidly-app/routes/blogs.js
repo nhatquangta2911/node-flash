@@ -76,12 +76,12 @@ router.post('/', auth, async (req, res) => {
       user.score += 2000;
       user.save();
      
-      req.body.tags && req.body.tags.length > 0 && req.body.tags.forEach(async (t) => {
-         let tag = await Tag.findById(t._id);
-         if(!tag) return res.status(404).send('Invalid Tags.');
-         tag && tag.posts && tag.posts.push(result._id);
-         tag && await tag.save();
-      })
+      // req.body.tags && req.body.tags.length > 0 && req.body.tags.forEach(async (t) => {
+      //    let tag = await Tag.findById(t._id);
+      //    if(!tag) return res.status(404).send('Invalid Tags.');
+      //    tag && tag.posts && tag.posts.push(result._id);
+      //    tag && await tag.save();
+      // })
 
       res.send(result);
    } catch(ex) {
@@ -131,13 +131,6 @@ router.put('/like/:id', async (req, res) => {
 
    const userId = jwt.decode(req.headers['x-auth-token'])._id;
    // if(blog.user._id != userId) return res.status(403).send("You can not edit this post." + blog.user._id + ' ' + userId);
-
-   blog.title = req.body.title;
-   blog.header = req.body.header;
-   blog.content = req.body.content;
-   blog.tags = req.body.tags;
-   blog.image = req.body.image;
-   blog.dateUpdated = Date.now();
 
    if(req.body.isLike) {
       if(blog.likes.includes(userId))
