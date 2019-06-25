@@ -17,7 +17,8 @@ const pageSize = 8;
 router.get("/", async (req,  res ) => {
    const cards = await Card.find()
       .sort("-dateCreated")   
-      .populate('user');
+      .populate('user')
+      .populate('tags');
    res.send(cards);
 });
 

@@ -14,7 +14,11 @@ const tagSchema = new mongoose.Schema({
       minlength: 5,
       maxlength: 1024,
       trim: true
-   }
+   },
+   posts: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Blog'
+   }]
 });
 
 module.exports.tagSchema = tagSchema;
