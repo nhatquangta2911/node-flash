@@ -21,12 +21,21 @@ router.get('/', async (req, res) => {
    res.send(blogs);
 });
 
-router.get('/my', auth, async (req, res) => {
+// router.get('/my', auth, async (req, res) => {
+//    const blogs = await Blog.find({ 
+//       user: {
+//          _id: jwt.decode(req.headers['x-auth-token'])._id
+//       }
+//    }).populate('user').populate('tags').populate('comments');
+//    res.send(blogs);
+// });
+
+router.get('/my/:id', async (req, res) => {
    const blogs = await Blog.find({ 
       user: {
-         _id: jwt.decode(req.headers['x-auth-token'])._id
+         _id: req.params.id
       }
-   });
+   }).populate('tags').populate('user');
    res.send(blogs);
 });
 
@@ -76,12 +85,12 @@ router.post('/', auth, async (req, res) => {
       user.score += 2000;
       user.save();
      
-      // req.body.tags && req.body.tags.length > 0 && req.body.tags.forEach(async (t) => {
-      //    let tag = await Tag.findById(t._id);
-      //    if(!tag) return res.status(404).send('Invalid Tags.');
-      //    tag && tag.posts && tag.posts.push(result._id);
-      //    tag && await tag.save();
-      // })
+      req.body.tags && req.body.tags.length > 0 && req.body.tags.forEach(async (t) => {
+         let tag = await Tag.findById(t._id);
+         if(!tag) return res.status(404).send('Invalid Tags.');
+         tag && tag.posts && tag.posts.push(result._id);
+         tag && await tag.save();
+      })
 
       res.send(result);
    } catch(ex) {

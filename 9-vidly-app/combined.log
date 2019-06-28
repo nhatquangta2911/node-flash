@@ -4,275 +4,27 @@
 {"message":"Starting application...","level":"info"}
 {"message":"Listening on port 2911","level":"info"}
 {"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"level":"error","message":"Cannot read property 'posts' of nullCannot read property 'posts' of null","stack":"TypeError: Cannot read property 'posts' of null\n    at req.body.tags.forEach (D:\\Project\\node-flash\\9-vidly-app\\routes\\blogs.js:71:14)"}
 {"message":"Starting application...","level":"info"}
 {"message":"Listening on port 2911","level":"info"}
 {"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
 {"message":"Starting application...","level":"info"}
 {"message":"Listening on port 2911","level":"info"}
 {"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"level":"error","message":"Cannot read property 'save' of nullCannot read property 'save' of null","stack":"TypeError: Cannot read property 'save' of null\n    at req.body.tags.forEach (D:\\Project\\node-flash\\9-vidly-app\\routes\\blogs.js:72:14)"}
 {"message":"Starting application...","level":"info"}
 {"message":"Listening on port 2911","level":"info"}
 {"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
 {"message":"Starting application...","level":"info"}
 {"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"level":"error","message":"tag is not definedtag is not defined","stack":"ReferenceError: tag is not defined\n    at req.body.tags.forEach (D:\\Project\\node-flash\\9-vidly-app\\routes\\blogs.js:70:10)\n    at Array.forEach (<anonymous>)\n    at router.post (D:\\Project\\node-flash\\9-vidly-app\\routes\\blogs.js:69:21)"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"level":"error","message":"Cannot set headers after they are sent to the clientCannot set headers after they are sent to the client","stack":"Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client\n    at ServerResponse.setHeader (_http_outgoing.js:470:11)\n    at ServerResponse.header (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\response.js:771:10)\n    at ServerResponse.send (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\response.js:170:12)\n    at req.body.tags.length.req.body.tags.forEach (D:\\Project\\node-flash\\9-vidly-app\\routes\\blogs.js:68:42)"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"level":"error","message":"Cannot set headers after they are sent to the clientCannot set headers after they are sent to the client","stack":"Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client\n    at ServerResponse.setHeader (_http_outgoing.js:470:11)\n    at ServerResponse.header (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\response.js:771:10)\n    at ServerResponse.send (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\response.js:170:12)\n    at req.body.tags.forEach (D:\\Project\\node-flash\\9-vidly-app\\routes\\blogs.js:68:42)"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"level":"error","message":"Cannot set headers after they are sent to the clientCannot set headers after they are sent to the client","stack":"Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client\n    at ServerResponse.setHeader (_http_outgoing.js:470:11)\n    at ServerResponse.header (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\response.js:771:10)\n    at ServerResponse.send (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\response.js:170:12)\n    at req.body.tags.length.req.body.tags.forEach (D:\\Project\\node-flash\\9-vidly-app\\routes\\blogs.js:71:42)"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"level":"error","message":"Cannot set headers after they are sent to the clientCannot set headers after they are sent to the client","stack":"Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client\n    at ServerResponse.setHeader (_http_outgoing.js:470:11)\n    at ServerResponse.header (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\response.js:771:10)\n    at ServerResponse.send (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\response.js:170:12)\n    at req.body.tags.length.req.body.tags.forEach (D:\\Project\\node-flash\\9-vidly-app\\routes\\blogs.js:71:42)"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"level":"error","message":"Cannot set headers after they are sent to the clientCannot set headers after they are sent to the client","stack":"Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client\n    at ServerResponse.setHeader (_http_outgoing.js:470:11)\n    at ServerResponse.header (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\response.js:771:10)\n    at ServerResponse.send (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\response.js:170:12)\n    at req.body.tags.length.req.body.tags.forEach (D:\\Project\\node-flash\\9-vidly-app\\routes\\blogs.js:71:42)"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"level":"error","message":"Cannot set headers after they are sent to the clientCannot set headers after they are sent to the client","stack":"Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client\n    at ServerResponse.setHeader (_http_outgoing.js:470:11)\n    at ServerResponse.header (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\response.js:771:10)\n    at ServerResponse.send (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\response.js:170:12)\n    at req.body.tags.length.req.body.tags.forEach (D:\\Project\\node-flash\\9-vidly-app\\routes\\blogs.js:71:42)"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"level":"error","message":"Cannot set headers after they are sent to the clientCannot set headers after they are sent to the client","stack":"Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client\n    at ServerResponse.setHeader (_http_outgoing.js:470:11)\n    at ServerResponse.header (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\response.js:771:10)\n    at ServerResponse.send (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\response.js:170:12)\n    at req.body.tags.length.req.body.tags.forEach (D:\\Project\\node-flash\\9-vidly-app\\routes\\blogs.js:70:42)"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"level":"error","message":"Cannot set headers after they are sent to the clientCannot set headers after they are sent to the client","stack":"Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client\n    at ServerResponse.setHeader (_http_outgoing.js:470:11)\n    at ServerResponse.header (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\response.js:771:10)\n    at ServerResponse.send (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\response.js:170:12)\n    at req.body.tags.length.req.body.tags.forEach (D:\\Project\\node-flash\\9-vidly-app\\routes\\blogs.js:71:42)"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"expose":true,"statusCode":400,"status":400,"body":"{\n\t\"title\": \"TECH 5\",\n\t\"header\": \"TECH 5\",\n\t\"content\": \"TECH 5\",\n\t\"tags\": [\"5d1199da6995600b74fbb28b\"],\n\t\"image\": \"https://www.projectmanager.com/wp-content/uploads/2018/10/181025_Blog_Feature_Leadership.jpg\",\n}","type":"entity.parse.failed","level":"error","message":"Unexpected token } in JSON at position 210Unexpected token } in JSON at position 210","stack":"SyntaxError: Unexpected token } in JSON at position 210\n    at JSON.parse (<anonymous>)\n    at parse (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\body-parser\\lib\\types\\json.js:89:19)\n    at D:\\Project\\node-flash\\9-vidly-app\\node_modules\\body-parser\\lib\\read.js:121:18\n    at invokeCallback (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\raw-body\\index.js:224:16)\n    at done (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\raw-body\\index.js:213:7)\n    at IncomingMessage.onEnd (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\raw-body\\index.js:273:7)\n    at IncomingMessage.emit (events.js:194:15)\n    at endReadableNT (_stream_readable.js:1125:12)\n    at process._tickCallback (internal/process/next_tick.js:63:19)"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"errors":{"tags":{"message":"A Post should have at least one tag.","name":"ValidatorError","properties":{"message":"A Post should have at least one tag.","type":"user defined","path":"tags","value":[]},"kind":"user defined","path":"tags","value":[]}},"_message":"Blog validation failed","message":"Blog validation failed: tags: A Post should have at least one tag.Blog validation failed: tags: A Post should have at least one tag.","name":"ValidationError","level":"error","stack":"ValidationError: Blog validation failed: tags: A Post should have at least one tag.\n    at new ValidationError (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongoose\\lib\\error\\validation.js:30:11)\n    at model.Document.invalidate (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongoose\\lib\\document.js:2259:32)\n    at p.doValidate.skipSchemaValidators (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongoose\\lib\\document.js:2108:17)\n    at D:\\Project\\node-flash\\9-vidly-app\\node_modules\\mongoose\\lib\\schematype.js:981:9\n    at process._tickCallback (internal/process/next_tick.js:61:11)"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"level":"error","message":"Cannot read property '_id' of nullCannot read property '_id' of null","stack":"TypeError: Cannot read property '_id' of null\n    at router.get (D:\\Project\\node-flash\\9-vidly-app\\routes\\blogs.js:27:54)\n    at Layer.handle [as handle_request] (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at Layer.handle [as handle_request] (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:281:22\n    at Function.process_params (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at Function.handle (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at Layer.handle [as handle_request] (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at Layer.handle [as handle_request] (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:284:7"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"level":"error","message":"user is not defineduser is not defined","stack":"ReferenceError: user is not defined\n    at router.get (D:\\Project\\node-flash\\9-vidly-app\\routes\\blogs.js:29:16)\n    at Layer.handle [as handle_request] (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at module.exports (D:\\Project\\node-flash\\9-vidly-app\\middleware\\auth.js:11:7)\n    at Layer.handle [as handle_request] (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at Layer.handle [as handle_request] (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:281:22\n    at Function.process_params (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at Function.handle (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at Layer.handle [as handle_request] (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\Project\\node-flash\\9-vidly-app\\node_modules\\express\\lib\\router\\index.js:47:12)"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"message":"Starting application...","level":"info"}
-{"message":"Listening on port 2911","level":"info"}
-{"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
 {"message":"Starting application...","level":"info"}
 {"message":"Listening on port 2911","level":"info"}
 {"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
-{"level":"error","message":"user is not defineduser is not defined","stack":"ReferenceError: user is not defined\n    at router.get (/home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/routes/comments.js:51:16)\n    at Layer.handle [as handle_request] (/home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/node_modules/express/lib/router/route.js:137:13)\n    at module.exports (/home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/middleware/validateObjectId.js:7:4)\n    at Layer.handle [as handle_request] (/home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/node_modules/express/lib/router/route.js:137:13)\n    at Route.dispatch (/home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/node_modules/express/lib/router/route.js:112:3)\n    at Layer.handle [as handle_request] (/home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/node_modules/express/lib/router/layer.js:95:5)\n    at /home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/node_modules/express/lib/router/index.js:281:22\n    at param (/home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/node_modules/express/lib/router/index.js:354:14)\n    at param (/home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/node_modules/express/lib/router/index.js:365:14)\n    at Function.process_params (/home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/node_modules/express/lib/router/index.js:410:3)\n    at next (/home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/node_modules/express/lib/router/index.js:275:10)\n    at Function.handle (/home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/node_modules/express/lib/router/index.js:174:3)\n    at router (/home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/node_modules/express/lib/router/index.js:47:12)\n    at Layer.handle [as handle_request] (/home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/node_modules/express/lib/router/index.js:317:13)\n    at /home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/node_modules/express/lib/router/index.js:284:7\n    at Function.process_params (/home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/node_modules/express/lib/router/index.js:335:12)\n    at next (/home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/node_modules/express/lib/router/index.js:275:10)\n    at /home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/node_modules/express/lib/router/index.js:635:15\n    at next (/home/ryan-ta/Desktop/Study/Shawn Project/Znode-flash/9-vidly-app/node_modules/express/lib/router/index.js:260:14)"}
 {"message":"Starting application...","level":"info"}
 {"message":"Listening on port 2911","level":"info"}
 {"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
 {"message":"Starting application...","level":"info"}
 {"message":"Listening on port 2911","level":"info"}
 {"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
+{"name":"MongoNetworkError","errorLabels":["TransientTransactionError"],"level":"error","message":"read ECONNRESETread ECONNRESET","stack":"Error: read ECONNRESET\n    at TLSWrap.onStreamRead (internal/stream_base_commons.js:111:27)"}
 {"message":"Starting application...","level":"info"}
 {"message":"Listening on port 2911","level":"info"}
 {"message":"CONNECTED TO mongodb+srv://shawn_2911:mrmms2amj@cluster0-r6muz.mongodb.net/test?retryWrites=true","level":"info"}
