@@ -21,12 +21,12 @@ router.get('/', async (req, res) => {
    res.send(blogs);
 });
 
-router.get('/my', auth, async (req, res) => {
+router.get('/my/:id', async (req, res) => {
    const blogs = await Blog.find({ 
       user: {
-         _id: jwt.decode(req.headers['x-auth-token'])._id
+         _id: req.params.id
       }
-   });
+   }).populate('tags').populate('user');
    res.send(blogs);
 });
 
