@@ -1,2 +1,0 @@
-{"name":"MongoNetworkError","errorLabels":["TransientTransactionError"],"level":"error","message":"read ECONNRESETread ECONNRESET","stack":"Error: read ECONNRESET\n    at TLSWrap.onStreamRead (internal/stream_base_commons.js:111:27)"}
-{"name":"MongoNetworkError","errorLabels":["TransientTransactionError"],"level":"error","message":"read ECONNRESETread ECONNRESET","stack":"Error: read ECONNRESET\n    at TLSWrap.onStreamRead (internal/stream_base_commons.js:111:27)"}
