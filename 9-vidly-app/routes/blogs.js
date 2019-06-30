@@ -18,6 +18,7 @@ router.get('/', async (req, res) => {
       .sort('-dateUpdated')
       .populate('tags')
       .populate('user')
+      .limit(7);
    res.send(blogs);
 });
 
@@ -42,7 +43,6 @@ router.get('/my/:id', async (req, res) => {
 router.get('/view/:id', async (req, res) => {
    let blog = await Blog.findById(req.params.id)
       .populate('tags')
-      .populate('likes')
       .populate('user');
    if(!blog) return res.status(404).send("NOT FOUND.");
    res.send(blog);
@@ -166,7 +166,7 @@ router.put('/like/:id', async (req, res) => {
    // res.send(blog);
 });
 
-router.delete('/:id', auth, admin, async (req, res) => {
+router.delete('/:id', auth, async (req, res) => {
    const result = await Blog.findByIdAndRemove(req.params.id);
    if(!result) return res.status(404).send("NOT FOUND.");
    res.send(result);
