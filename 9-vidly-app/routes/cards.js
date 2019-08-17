@@ -49,7 +49,7 @@ router.get('/recent', async (req, res) => {
    const cards = await Card
       .find()
       .sort('-dateCreated')
-      .limit(3);
+      .limit(4);
    res.send(cards);
 });
 
