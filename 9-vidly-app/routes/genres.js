@@ -82,7 +82,7 @@ router.get("/:query/search", async (req, res) => {
 });
 
 //TODO: POST    
-router.post("/", auth, async (req, res) => {
+router.post("/", async (req, res) => {
    const result = await createGenre(req.body.name);
    if (result && result.errors) {
       let errorMessage = "";
